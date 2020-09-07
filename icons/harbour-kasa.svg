@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   inkscape:export-ydpi="571.53491"
+   inkscape:export-xdpi="571.53491"
+   inkscape:export-filename="/home/sam/Develop/SailfishOS/harbour-kasa/icons/512x512/harbour-kasa.png"
+   inkscape:version="1.0 (4035a4fb49, 2020-05-01)"
+   sodipodi:docname="harbour-kasa.svg"
+   id="svg116"
+   xml:space="preserve"
+   enable-background="new 0 0 86 86"
+   viewBox="0 0 86 86"
+   height="86px"
+   width="86px"
+   y="0px"
+   x="0px"
+   version="1.1"><metadata
+   id="metadata122"><rdf:RDF><cc:Work
+       rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+         rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></metadata><defs
+   id="defs120">
+	
+		<linearGradient
+   id="SVGID_1_"
+   gradientUnits="userSpaceOnUse"
+   x1="-612"
+   y1="-49.3"
+   x2="-612"
+   y2="-134.7"
+   gradientTransform="translate(655,135)">
+		<stop
+   offset="0"
+   style="stop-color:#00b297;stop-opacity:1"
+   id="stop3" />
+		<stop
+   offset="1"
+   style="stop-color:#00ccb4;stop-opacity:1"
+   id="stop5" />
+	</linearGradient>
+	
+	
+	
+	
+	
+	
+</defs><sodipodi:namedview
+   inkscape:current-layer="svg116"
+   inkscape:window-maximized="1"
+   inkscape:window-y="0"
+   inkscape:window-x="0"
+   inkscape:cy="-26.522841"
+   inkscape:cx="407.52203"
+   inkscape:zoom="1.0392442"
+   showgrid="false"
+   id="namedview118"
+   inkscape:window-height="1015"
+   inkscape:window-width="1920"
+   inkscape:pageshadow="2"
+   inkscape:pageopacity="0"
+   guidetolerance="10"
+   gridtolerance="10"
+   objecttolerance="10"
+   borderopacity="1"
+   bordercolor="#666666"
+   pagecolor="#ffffff" />
+<g
+   display="none"
+   id="Layer_2">
+</g>
+<path
+   fill="url(#SVGID_1_)"
+   d="M 43,0.3 C 19.419,0.3 0.3,19.417 0.3,43 v 39.285 c 0,1.879 1.538,3.416 3.416,3.416 H 43 82.284 c 1.879,0 3.416,-1.537 3.416,-3.416 V 43 C 85.7,19.417 66.583,0.3 43,0.3 Z"
+   id="path8"
+   style="fill:url(#SVGID_1_)" />
+<path
+   d="m 43,10.956923 c -1.784104,0 -3.147912,1.45125 -3.147912,1.45125 l -7.669154,7.685401 25.164961,25.217878 c 0,0 0.968506,0.879717 1.414997,1.940415 0.446488,1.060697 0.536667,2.730413 0.536667,2.730413 v 25.060795 h 10.0354 c 0,0 2.610024,-0.139354 4.153327,-1.706665 1.543302,-1.56731 1.511665,-3.855411 1.511665,-3.855411 v -25.44496 c 0,0 -0.09018,-1.669716 -0.536664,-2.730413 -0.446492,-1.060698 -1.415,-1.940415 -1.415,-1.940415 L 46.147912,12.408173 c 0,0 -1.363806,-1.45125 -3.147912,-1.45125 z M 29.50877,22.773153 18.825452,33.47897 38.672924,53.368108 c 0,0 0.968505,0.879716 1.414996,1.940413 0.44649,1.060695 0.536668,2.730413 0.536668,2.730413 V 75.043077 H 55.654979 V 51.689776 c 0,0 -0.09018,-1.669714 -0.536664,-2.730412 -0.446491,-1.060696 -1.414998,-1.940413 -1.414998,-1.940413 z m -13.658312,13.687481 -2.898749,2.904577 c 0,0 -0.96851,0.879717 -1.415,1.940416 -0.44648,1.060696 -0.53666,2.730412 -0.53666,2.730412 v 25.44496 c 0,0 -0.0316,2.288102 1.51166,3.855411 1.543308,1.567312 4.152915,1.706666 4.152915,1.706666 H 36.355427 V 59.723932 c 0,0 -0.09018,-1.669717 -0.536666,-2.730414 -0.446491,-1.060697 -1.414999,-1.940414 -1.414999,-1.940414 z"
+   style="fill:#ffffff;stroke:none;stroke-width:0.213333px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+   id="path1113" /></svg>
