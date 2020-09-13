@@ -59,7 +59,7 @@ Page {
                 wrapMode: Text.WordWrap
                 font.pixelSize: Theme.fontSizeSmall
 
-                text: qsTr("Kasa is a native Sailfish OS app to control TP-Link power plugs.")
+                text: qsTr("Kasa is an app to control TP-Links Kasa smarthome devices.")
             }
 
             SectionHeader{
@@ -117,14 +117,11 @@ Page {
                         wrapMode: Text.WrapAnywhere
                         font.pixelSize: Theme.fontSizeSmall
                         color: parent.parent.pressed ? Theme.highlightColor : Theme.primaryColor
-                        text: qsTr("Buy me a beer")
+                        text: qsTr("If you like my work you can buy me a beer.")
                     }
                 }
                 onClicked: Qt.openUrlExternally("https://www.paypal.com/paypalme/nubecula/1")
             }
         }
     }
-
-
-
 }

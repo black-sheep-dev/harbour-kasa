@@ -2,5 +2,8 @@
     <qresource prefix="/icons">
         <file alias="git">icons/github.svg</file>
         <file alias="paypal">icons/paypal.svg</file>
+        <file alias="IOT.SMARTPLUGSWITCH_GREEN">icons/powerplug_button_green.svg</file>
+        <file alias="IOT.SMARTPLUGSWITCH_ORANGE">icons/powerplug_button_orange.svg</file>
+        <file alias="IOT.SMARTPLUGSWITCH">icons/powerplug.svg</file>
     </qresource>
 </RCC>

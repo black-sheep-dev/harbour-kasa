@@ -1,0 +1,44 @@
+### SYSTEM
+
+{"system":{"get_sysinfo":{}}}
+{"system":{"set_dev_alias":{"alias": alias}}}                   
+{"system":{"get_dev_icon":{}}}
+{"system":{"set_mac_addr":{"mac": mac}}}
+{"system":{"reboot":{"delay": sec}}}
+{"system":{"reset":{"delay": sec}}}
+{"system":{"set_relay_state":{"state": 0/1}}}
+{"system":{"set_led_off":{"off": 0/1}}}
+
+### TIME
+{"time":{"get_time":{}}}
+{"time":{"set_timezone":{}}}
+{"time":{"get_timezone":{}}}
+
+### EMETER
+{"emeter":{"get_realtime":{}}}
+{"emeter":{"get_daystat":{"month":month,"year":year}}}
+{"emeter":{"get_monthstat":{"year":year}}}
+{"emeter":{"erase_emeter_stat":{}}}
+
+### NET
+{"netif":{"get_scaninfo":{"refresh":0}}}
+
+### CLOUD
+{"cnCloud":{"get_info":{}}}
+
+### ANTI THEFT
+{"anti_theft":{"get_rules":{}}}
+
+### COUNT DOWN
+{"count_down":{"get_rules":{}}}
+
+### SCHEDULE
+{"schedule":{"get_rules":{}}}
+
+### ????
+{"smartlife.iot.dimmer":{"set_brightness":{"brightness": value}}}
+{"smartlife.iot.smartbulb.lightingservice":{"get_light_state":{}}}
+{"smartlife.iot.smartbulb.lightingservice":{"transition_light_state":{???}}}
+
+### DUMMY
+{"":{"":{}}}

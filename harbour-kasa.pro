@@ -9,21 +9,32 @@
 #   - icon definition filename in desktop file must be changed
 #   - translation filenames have to be changed
 
-# The name of your application
+# VERSION
 VERSION = 0.1.0-1
 DEFINES += APP_VERSION=\\\"$$VERSION\\\"
 
+# The name of your application
 TARGET = harbour-kasa
+
+QT += network
 
 CONFIG += sailfishapp
 
 SOURCES += src/harbour-kasa.cpp \
-    src/kasacontrol.cpp
+    src/api/apiinterface.cpp \
+    src/devicemanager.cpp \
+    src/entities/device.cpp \
+    src/models/devicelistmodel.cpp
 
 DISTFILES += qml/harbour-kasa.qml \
     icons/scaleable/harbour-kasa.svg \
+    qml/components/InfoItem.qml \
     qml/cover/CoverPage.qml \
+    qml/pages/AddDevicePage.qml \
+    qml/pages/DeviceInfoPage.qml \
     qml/pages/DeviceListPage.qml \
+    qml/pages/DeviceSettingsPage.qml \
+    qml/pages/SettingsPage.qml \
     rpm/harbour-kasa.changes \
     rpm/harbour-kasa.changes.run.in \
     rpm/harbour-kasa.spec \
@@ -44,7 +55,10 @@ CONFIG += sailfishapp_i18n
 TRANSLATIONS += translations/harbour-kasa-de.ts
 
 HEADERS += \
-    src/kasacontrol.h
+    src/api/apiinterface.h \
+    src/devicemanager.h \
+    src/entities/device.h \
+    src/models/devicelistmodel.h
 
 RESOURCES += \
     ressources.qrc
