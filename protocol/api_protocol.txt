@@ -42,6 +42,7 @@
 {"count_down":{"get_rules":{}}}
 
 ### SCHEDULE
+{"schedule":{"get_next_action":{}}}
 {"schedule":{"get_rules":{}}}
 
 ### ????
