@@ -156,12 +156,12 @@ void DeviceManager::onReplyAvailable(const QString &hostname,
                                      const QString &cmd,
                                      const QJsonObject &payload)
 {
-    #ifdef QT_DEBUG
-        qDebug() << hostname;
-        qDebug() << topic;
-        qDebug() << cmd;
-        qDebug() << payload;
-    #endif
+//    #ifdef QT_DEBUG
+//        qDebug() << hostname;
+//        qDebug() << topic;
+//        qDebug() << cmd;
+//        qDebug() << payload;
+//    #endif
 
     // check if device is in pending queue
     if (topic == QStringLiteral("system")) {

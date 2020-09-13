@@ -10,6 +10,7 @@
 #include <QHash>
 #include <QJsonObject>
 #include <QQueue>
+#include <QUdpSocket>
 
 class ApiInterface : public QObject
 {
@@ -26,6 +27,7 @@ signals:
                         const QJsonObject &payload = QJsonObject());
 
 public slots:
+    void searchDevices();
     void sendRequest(const QString &hostname, const QByteArray &payload);
     void sendRequest(const QString &hostname,
                      const QString &topic,
@@ -38,6 +40,8 @@ private slots:
     void onError(QAbstractSocket::SocketError error);
     void onReply();
 
+    void parseDatagram();
+
 private:
     void startSending(const QString &hostname);
 
@@ -47,6 +51,8 @@ private:
 
     QHash<QString, bool> m_isSending;
     QHash<QString, QQueue<QByteArray> *> m_queues;
+
+    QUdpSocket *m_udpSocket;
 };
 
 #endif // APIINTERFACE_H

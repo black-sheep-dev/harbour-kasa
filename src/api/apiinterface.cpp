@@ -8,14 +8,27 @@
 #include <QTcpSocket>
 
 ApiInterface::ApiInterface(QObject *parent) :
-    QObject(parent)
+    QObject(parent),
+    m_udpSocket(new QUdpSocket(this))
 {
-
+    connect(m_udpSocket, &QUdpSocket::readyRead, this, &ApiInterface::parseDatagram);
+    m_udpSocket->bind(QHostAddress::Broadcast, TPLINK_DEFAULT_PORT);
 }
 
 ApiInterface::~ApiInterface()
 {
     qDeleteAll(m_queues.values().begin(), m_queues.values().end());
+}
+
+void ApiInterface::searchDevices()
+{
+    QByteArray data;
+
+    QDataStream stream(&data, QIODevice::WriteOnly);
+
+    stream << QByteArray("{\"system\":{\"get_sysinfo\":{}}}");
+
+    m_udpSocket->writeDatagram(encrypt(data), QHostAddress::Broadcast, TPLINK_DEFAULT_PORT);
 }
 
 void ApiInterface::sendRequest(const QString &hostname, const QByteArray &payload)
@@ -142,6 +155,24 @@ void ApiInterface::onReply()
     const QString cmd = obj.keys().first();
 
     emit replyAvailable(hostname, topic, cmd, obj.value(cmd).toObject());
+}
+
+void ApiInterface::parseDatagram()
+{
+    QByteArray datagram;
+
+    while (m_udpSocket->hasPendingDatagrams()) {
+        datagram.resize(int(m_udpSocket->pendingDatagramSize()));
+        m_udpSocket->readDatagram(datagram.data(), datagram.size());
+
+        QDataStream stream(&datagram, QIODevice::ReadOnly);
+
+        QByteArray raw;
+        stream >> raw;
+
+        qDebug() << decrypt(raw);
+    }
+
 }
 
 void ApiInterface::startSending(const QString &hostname)
