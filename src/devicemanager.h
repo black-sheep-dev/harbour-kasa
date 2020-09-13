@@ -26,6 +26,12 @@ public slots:
 
     // api
     Q_INVOKABLE void connectToWifiAP(const QString &hostname, const QString &ssid, const QString &password);
+    void getCloudInfo(const QString &hostname);
+    Q_INVOKABLE void getEnergyDayStat(const QString &hostname,
+                                      int month = QDate::currentDate().month(),
+                                      int year = QDate::currentDate().year());
+    Q_INVOKABLE void getEnergyMonthStat(const QString &hostname,
+                                        int year = QDate::currentDate().year());
     void getEnergyInfo(const QString &hostname);
     void getSystemInfo(const QString &hostname);
     void getWifiAPs(const QString &hostname);
@@ -33,8 +39,15 @@ public slots:
     Q_INVOKABLE void refresh(const QString &hostname);
     Q_INVOKABLE void restart(const QString &hostname);
     Q_INVOKABLE void reset(const QString &hostname);
+    Q_INVOKABLE void setCloudServer(const QString &hostname, const QString &url);
+    Q_INVOKABLE void setDeviceAlias(const QString &hostname, const QString &alias);
+    Q_INVOKABLE void setDeviceMacAddress(const QString &hostname, const QString &mac);
     Q_INVOKABLE void toggleLED(const QString &hostname);
     Q_INVOKABLE void toggleOn(const QString &hostname);
+    Q_INVOKABLE void regisertDeviceOnCloud(const QString &hostname,
+                                           const QString &username,
+                                           const QString &password);
+    Q_INVOKABLE void unregisterDeviceFromCloud(const QString &hostname);
 
 private slots:
     void onReplyAvailable(const QString &hostname,

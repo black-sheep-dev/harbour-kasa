@@ -158,6 +158,82 @@
         <source>Restart</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Save</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Device Alias</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enable expert settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>MAC address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Only enable expert settings when you know what you are doing! You can brick your device! I have warned you!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The default url is &apos;devs.tplinkcloud.com&apos;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cloud Server URL</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cloud</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Changing the cloud server url will prevent the device from sending data home (not yours). Hello privacy!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Device registered in cloud</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Device is not registered in cloud</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You can register or unregister the device from TP-Link cloud. For registration you need to provide username and password.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enter device alias</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enter MAC address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enter username</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enter password</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enter Cloud Server URL</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SettingsPage</name>

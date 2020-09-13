@@ -19,6 +19,7 @@ DeviceManager::DeviceManager(QObject *parent) :
 
 DeviceManager::~DeviceManager()
 {
+    writeDevices();
     qDeleteAll(m_pendingDevices.values().begin(), m_pendingDevices.values().end());
 }
 
@@ -29,7 +30,7 @@ DeviceListModel *DeviceManager::deviceListModel()
 
 void DeviceManager::initialize()
 {
-
+    getEnergyDayStat("192.168.3.62");
 }
 
 void DeviceManager::addDevice(const QString &hostname)
@@ -82,6 +83,34 @@ void DeviceManager::connectToWifiAP(const QString &hostname, const QString &ssid
                        payload);
 }
 
+void DeviceManager::getCloudInfo(const QString &hostname)
+{
+    m_api->sendRequest(hostname, "{\"cnCloud\":{\"get_info\":{}}}");
+}
+
+void DeviceManager::getEnergyDayStat(const QString &hostname, int month, int year)
+{
+    QJsonObject payload;
+    payload.insert(QStringLiteral("month"), month);
+    payload.insert(QStringLiteral("year"), year);
+
+    m_api->sendRequest(hostname,
+                       QStringLiteral("emeter"),
+                       QStringLiteral("get_daystat"),
+                       payload);
+}
+
+void DeviceManager::getEnergyMonthStat(const QString &hostname, int year)
+{
+    QJsonObject payload;
+    payload.insert(QStringLiteral("year"), year);
+
+    m_api->sendRequest(hostname,
+                       QStringLiteral("emeter"),
+                       QStringLiteral("get_monthstat"),
+                       payload);
+}
+
 void DeviceManager::getEnergyInfo(const QString &hostname)
 {
     m_api->sendRequest(hostname, "{\"emeter\":{\"get_realtime\":{}}}");
@@ -119,6 +148,69 @@ void DeviceManager::reset(const QString &hostname)
     m_api->sendRequest(hostname, "{\"system\":{\"reset\":{\"delay\":3}}}");
 }
 
+void DeviceManager::setCloudServer(const QString &hostname, const QString &url)
+{
+    Device *device = m_deviceListModel->deviceByHostname(hostname);
+
+    if (!device)
+        return;
+
+    if (device->cloudServer() == url)
+        return;
+
+    device->setCloudServer(url);
+
+    QJsonObject payload;
+    payload.insert(QStringLiteral("server"), url);
+
+    m_api->sendRequest(hostname,
+                       QStringLiteral("cnCloud"),
+                       QStringLiteral("set_server_url"),
+                       payload);
+}
+
+void DeviceManager::setDeviceAlias(const QString &hostname, const QString &alias)
+{
+    Device *device = m_deviceListModel->deviceByHostname(hostname);
+
+    if (!device)
+        return;
+
+    if (device->name() == alias)
+        return;
+
+    device->setName(alias);
+
+    QJsonObject payload;
+    payload.insert(QStringLiteral("alias"), alias);
+
+    m_api->sendRequest(hostname,
+                       QStringLiteral("system"),
+                       QStringLiteral("set_dev_alias"),
+                       payload);
+}
+
+void DeviceManager::setDeviceMacAddress(const QString &hostname, const QString &mac)
+{
+    Device *device = m_deviceListModel->deviceByHostname(hostname);
+
+    if (!device)
+        return;
+
+    if (device->macAddress() == mac)
+        return;
+
+    device->setMacAddress(mac);
+
+    QJsonObject payload;
+    payload.insert(QStringLiteral("mac"), mac);
+
+    m_api->sendRequest(hostname,
+                       QStringLiteral("system"),
+                       QStringLiteral("set_mac_addr"),
+                       payload);
+}
+
 void DeviceManager::toggleLED(const QString &hostname)
 {
     Device *device = m_deviceListModel->deviceByHostname(hostname);
@@ -151,17 +243,46 @@ void DeviceManager::toggleOn(const QString &hostname)
                        payload);
 }
 
+void DeviceManager::regisertDeviceOnCloud(const QString &hostname,
+                                          const QString &username,
+                                          const QString &password)
+{
+    if (username.isEmpty() || password.isEmpty())
+        return;
+
+    Device *device = m_deviceListModel->deviceByHostname(hostname);
+
+    if (!device)
+        return;
+
+    device->setCloudUsername(username);
+
+    QJsonObject payload;
+    payload.insert(QStringLiteral("username"), username);
+    payload.insert(QStringLiteral("password"), password);
+
+    m_api->sendRequest(hostname,
+                       QStringLiteral("cnCloud"),
+                       QStringLiteral("bind"),
+                       payload);
+}
+
+void DeviceManager::unregisterDeviceFromCloud(const QString &hostname)
+{
+    m_api->sendRequest(hostname, "{\"cnCloud\":{\"unbind\":null}}");
+}
+
 void DeviceManager::onReplyAvailable(const QString &hostname,
                                      const QString &topic,
                                      const QString &cmd,
                                      const QJsonObject &payload)
 {
-//    #ifdef QT_DEBUG
-//        qDebug() << hostname;
-//        qDebug() << topic;
-//        qDebug() << cmd;
-//        qDebug() << payload;
-//    #endif
+    #ifdef QT_DEBUG
+        qDebug() << hostname;
+        qDebug() << topic;
+        qDebug() << cmd;
+        qDebug() << payload;
+    #endif
 
     // check if device is in pending queue
     if (topic == QStringLiteral("system")) {
@@ -218,6 +339,9 @@ void DeviceManager::onReplyAvailable(const QString &hostname,
             if (device->features() & Device::FeatureEnergy)
                 getEnergyInfo(hostname);
 
+            // get cloud info
+            getCloudInfo(hostname);
+
         } else if (cmd == QStringLiteral("set_relay_state")) {
             Device *device = m_deviceListModel->deviceByHostname(hostname);
             device->setOn(!device->on());
@@ -237,6 +361,19 @@ void DeviceManager::onReplyAvailable(const QString &hostname,
         device->setPower(qreal(payload.value(QStringLiteral("power")).toDouble()));
         device->setTotalConsumption(qreal(payload.value(QStringLiteral("total")).toDouble()));
         device->setVoltage(qreal(payload.value(QStringLiteral("voltage")).toDouble()));
+
+    } else if (topic == QStringLiteral("cnCloud")) {
+
+        if (cmd == QStringLiteral("get_info")) {
+            Device *device = m_deviceListModel->deviceByHostname(hostname);
+
+            if (!device)
+                return;
+
+            device->setCloudRegistration(bool(payload.value(QStringLiteral("binded")).toInt()));
+            device->setCloudServer(payload.value(QStringLiteral("server")).toString());
+            device->setCloudUsername(payload.value(QStringLiteral("username")).toString());
+        }
     }
 }
 

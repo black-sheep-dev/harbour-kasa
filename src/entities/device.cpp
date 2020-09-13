@@ -3,6 +3,9 @@
 Device::Device(QObject *parent) :
     QObject(parent),
     m_available(false),
+    m_cloudRegistration(false),
+    m_cloudServer(QStringLiteral("devs.tplinkcloud.com")),
+    m_cloudUsername(QString()),
     m_current(0.0),
     m_deviceID(QString()),
     m_deviceModel(QString()),
@@ -29,6 +32,21 @@ Device::Device(QObject *parent) :
 bool Device::available() const
 {
     return m_available;
+}
+
+bool Device::cloudRegistration() const
+{
+    return m_cloudRegistration;
+}
+
+QString Device::cloudServer() const
+{
+    return m_cloudServer;
+}
+
+QString Device::cloudUsername() const
+{
+    return m_cloudUsername;
 }
 
 qreal Device::current() const
@@ -133,6 +151,33 @@ void Device::setAvailable(bool available)
 
     m_available = available;
     emit availableChanged(m_available);
+}
+
+void Device::setCloudRegistration(bool cloudRegistration)
+{
+    if (m_cloudRegistration == cloudRegistration)
+        return;
+
+    m_cloudRegistration = cloudRegistration;
+    emit cloudRegistrationChanged(m_cloudRegistration);
+}
+
+void Device::setCloudServer(const QString &cloudServer)
+{
+    if (m_cloudServer == cloudServer)
+        return;
+
+    m_cloudServer = cloudServer;
+    emit cloudServerChanged(m_cloudServer);
+}
+
+void Device::setCloudUsername(const QString &cloudUsername)
+{
+    if (m_cloudUsername == cloudUsername)
+        return;
+
+    m_cloudUsername = cloudUsername;
+    emit cloudUsernameChanged(m_cloudUsername);
 }
 
 void Device::setCurrent(qreal current)

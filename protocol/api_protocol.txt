@@ -9,6 +9,11 @@
 {"system":{"set_relay_state":{"state": 0/1}}}
 {"system":{"set_led_off":{"off": 0/1}}}
 
+### FIRMWARE
+{"system":{"download_firmware":{"url":"http://..."}}}
+{"system":{"get_download_state":{}}}
+{"system":{"flash_firmware":{}}}
+
 ### TIME
 {"time":{"get_time":{}}}
 {"time":{"set_timezone":{}}}
@@ -21,10 +26,14 @@
 {"emeter":{"erase_emeter_stat":{}}}
 
 ### NET
-{"netif":{"get_scaninfo":{"refresh":0}}}
+{"netif":{"get_scaninfo":{"refresh":1}}}
+{"netif":{"set_stainfo":{"ssid":"WiFi","password":"123","key_type":3}}}
 
 ### CLOUD
 {"cnCloud":{"get_info":{}}}
+{"cnCloud":{"set_server_url":{"server":"devs.tplinkcloud.com"}}}
+{"cnCloud":{"bind":{"username":alice@home.com, "password":"secret"}}}
+{"cnCloud":{"unbind":null}}
 
 ### ANTI THEFT
 {"anti_theft":{"get_rules":{}}}

@@ -10,6 +10,9 @@ class Device : public QObject
     Q_OBJECT
 
     Q_PROPERTY(bool available READ available WRITE setAvailable NOTIFY availableChanged)
+    Q_PROPERTY(bool cloudRegistration READ cloudRegistration WRITE setCloudRegistration NOTIFY cloudRegistrationChanged)
+    Q_PROPERTY(QString cloudServer READ cloudServer WRITE setCloudServer NOTIFY cloudServerChanged)
+    Q_PROPERTY(QString cloudUsername READ cloudUsername WRITE setCloudUsername NOTIFY cloudUsernameChanged)
     Q_PROPERTY(qreal current READ current WRITE setCurrent NOTIFY currentChanged)
     Q_PROPERTY(QString deviceID READ deviceID WRITE setDeviceID NOTIFY deviceIDChanged)
     Q_PROPERTY(QString deviceModel READ deviceModel WRITE setDeviceModel NOTIFY deviceModelChanged)
@@ -43,6 +46,9 @@ public:
     explicit Device(QObject *parent = nullptr);
 
     bool available() const;
+    bool cloudRegistration() const;
+    QString cloudServer() const;
+    QString cloudUsername() const;
     qreal current() const;
     QString deviceID() const;
     QString deviceModel() const;
@@ -67,6 +73,9 @@ signals:
     void changed();
 
     void availableChanged(bool available);
+    void cloudRegistrationChanged(bool cloudRegistration);
+    void cloudServerChanged(const QString &cloudServer);
+    void cloudUsernameChanged(const QString &cloudUsername);
     void currentChanged(qreal current);
     void deviceIDChanged(const QString &deviceID);
     void deviceModelChanged(const QString &deviceModel);
@@ -90,6 +99,9 @@ signals:
 
 public slots:
     void setAvailable(bool available);
+    void setCloudRegistration(bool cloudRegistration);
+    void setCloudServer(const QString &cloudServer);
+    void setCloudUsername(const QString &cloudUsername);
     void setCurrent(qreal current);
     void setDeviceID(const QString &deviceID);
     void setDeviceModel(const QString &deviceModel);
@@ -108,10 +120,13 @@ public slots:
     void setRssi(int rssi);
     void setSystemTime(const QDateTime &datetime);
     void setTotalConsumption(qreal totalConsumption);
-    void setVoltage(qreal voltage);
+    void setVoltage(qreal voltage); 
 
 private:
     bool m_available;
+    bool m_cloudRegistration;
+    QString m_cloudServer;
+    QString m_cloudUsername;
     qreal m_current;
     QString m_deviceID;
     QString m_deviceModel;

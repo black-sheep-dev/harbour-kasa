@@ -17,7 +17,7 @@
     </message>
     <message>
         <source>If you like my work you can buy me a beer.</source>
-        <translation>Wenn Du meine Arbeit magst, kansst du mir ein Bier ausgeben.</translation>
+        <translation>Wenn Du meine Arbeit magst, kannst du mir ein Bier ausgeben.</translation>
     </message>
     <message>
         <source>Kasa is an app to control TP-Links Kasa smarthome devices.</source>
@@ -157,6 +157,82 @@
     <message>
         <source>Restart</source>
         <translation>Neustart</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation>Speichern</translation>
+    </message>
+    <message>
+        <source>Device Alias</source>
+        <translation>Gerätename</translation>
+    </message>
+    <message>
+        <source>Enable expert settings</source>
+        <translation>Experteneinstellungen aktivieren</translation>
+    </message>
+    <message>
+        <source>MAC address</source>
+        <translation>MAC Adresse</translation>
+    </message>
+    <message>
+        <source>Only enable expert settings when you know what you are doing! You can brick your device! I have warned you!</source>
+        <translation>Aktiviere die Experteneinstellungen nur, wenn Du weißt was du tust! Du kannst dein Gerät unbrauchbar machen! Ich habe Dich gewarnt!</translation>
+    </message>
+    <message>
+        <source>The default url is &apos;devs.tplinkcloud.com&apos;</source>
+        <translation>Die standard URL ist &apos;devs.tplinkcloud.com&apos;</translation>
+    </message>
+    <message>
+        <source>Cloud Server URL</source>
+        <translation>Cloud Server URL</translation>
+    </message>
+    <message>
+        <source>Cloud</source>
+        <translation>Cloud</translation>
+    </message>
+    <message>
+        <source>Changing the cloud server url will prevent the device from sending data home (not yours). Hello privacy!</source>
+        <translation>Das Ändern der Cloud Server URL hindert das Gerät daran nach Hause zu telefonieren (nicht Deins). Willkommen Privatsphäre!</translation>
+    </message>
+    <message>
+        <source>Device registered in cloud</source>
+        <translation>Gerät ist in der Cloud registriert</translation>
+    </message>
+    <message>
+        <source>Device is not registered in cloud</source>
+        <translation>Gerät ist nicht in der Cloud registriert</translation>
+    </message>
+    <message>
+        <source>You can register or unregister the device from TP-Link cloud. For registration you need to provide username and password.</source>
+        <translation>Du kannst das Geräte in der TP-Link Cloud registrieren oder abmelden. Für die Registrierung werden Benutzername und Password benötigt.</translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation>Benutzername</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>Passwort</translation>
+    </message>
+    <message>
+        <source>Enter device alias</source>
+        <translation>Gerätenamen eingeben</translation>
+    </message>
+    <message>
+        <source>Enter MAC address</source>
+        <translation>MAC Adresse eingeben</translation>
+    </message>
+    <message>
+        <source>Enter username</source>
+        <translation>Benutzername eingeben</translation>
+    </message>
+    <message>
+        <source>Enter password</source>
+        <translation>Passwort eingeben</translation>
+    </message>
+    <message>
+        <source>Enter Cloud Server URL</source>
+        <translation>Cloud Server URL eingeben</translation>
     </message>
 </context>
 <context>
