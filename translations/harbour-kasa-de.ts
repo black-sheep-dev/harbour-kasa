@@ -17,7 +17,7 @@
     </message>
     <message>
         <source>If you like my work you can buy me a beer.</source>
-        <translation>Wenn Du meine Arbeit magst, kannst du mir ein Bier ausgeben.</translation>
+        <translation>Wenn Du meine Arbeit magst, kannst Du mir ein Bier ausgeben.</translation>
     </message>
     <message>
         <source>Kasa is an app to control TP-Links Kasa smarthome devices.</source>
