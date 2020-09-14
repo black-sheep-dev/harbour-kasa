@@ -6,4 +6,7 @@
         <file alias="IOT.SMARTPLUGSWITCH_ORANGE">icons/powerplug_button_orange.svg</file>
         <file alias="IOT.SMARTPLUGSWITCH">icons/powerplug.svg</file>
     </qresource>
+    <qresource prefix="/js">
+        <file alias="Chart.js">js/charjs/Chart.js</file>
+    </qresource>
 </RCC>

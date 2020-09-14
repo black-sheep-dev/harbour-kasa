@@ -18,6 +18,9 @@ public:
     Q_INVOKABLE void initialize();
 
 signals:
+    Q_INVOKABLE void statisticDataAvailable(const QString &hostname,
+                                            const QStringList &labels,
+                                            const QList<qreal> &values);
 
 public slots:
     // add and remove device

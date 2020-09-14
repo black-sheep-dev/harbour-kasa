@@ -22,6 +22,12 @@ Page {
                 onClicked: pageStack.push(Qt.resolvedUrl("DeviceSettingsPage.qml"), {device: device})
             }
             MenuItem {
+                text: qsTr("Energy Consumption")
+                onClicked: pageStack.push(Qt.resolvedUrl("EnergyConsumptionChartPage.qml"), {device: device})
+                visible: device.features & Device.FeatureEnergy
+            }
+
+            MenuItem {
                 text: qsTr("Refresh")
                 onClicked: DeviceManager.refresh()
             }

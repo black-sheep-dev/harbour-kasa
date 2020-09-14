@@ -30,7 +30,7 @@ DeviceListModel *DeviceManager::deviceListModel()
 
 void DeviceManager::initialize()
 {
-    getEnergyDayStat("192.168.3.62");
+
 }
 
 void DeviceManager::addDevice(const QString &hostname)
@@ -357,10 +357,62 @@ void DeviceManager::onReplyAvailable(const QString &hostname,
             return;
 
         device->setAvailable(true);
-        device->setCurrent(qreal(payload.value(QStringLiteral("current")).toDouble()));
-        device->setPower(qreal(payload.value(QStringLiteral("power")).toDouble()));
-        device->setTotalConsumption(qreal(payload.value(QStringLiteral("total")).toDouble()));
-        device->setVoltage(qreal(payload.value(QStringLiteral("voltage")).toDouble()));
+
+        if (cmd == QStringLiteral("get_realtime")) {
+            device->setCurrent(qreal(payload.value(QStringLiteral("current")).toDouble()));
+            device->setPower(qreal(payload.value(QStringLiteral("power")).toDouble()));
+            device->setTotalConsumption(qreal(payload.value(QStringLiteral("total")).toDouble()));
+            device->setVoltage(qreal(payload.value(QStringLiteral("voltage")).toDouble()));
+
+        } else if (cmd == QStringLiteral("get_daystat")) {
+            QStringList labels;
+            QList<qreal> values;
+
+            for (const QJsonValue item: payload.value("day_list").toArray()) {
+                const QJsonObject obj = item.toObject();
+
+                const int day = obj.value(QStringLiteral("day")).toInt();
+
+                // fill with empty data
+                int i = 0;
+                while (labels.count() < day) {
+                    labels.append(QString::number(i));
+                    values.append(0);
+                    i++;
+                }
+
+                // add other data
+                labels.append(QString::number(day));
+                values.append(qreal(obj.value(QStringLiteral("energy")).toDouble()));
+            }
+
+            emit statisticDataAvailable(hostname, labels, values);
+
+        } else if (cmd == QStringLiteral("get_monthstat")) {
+            QStringList labels;
+            QList<qreal> values;
+
+            for (const QJsonValue item: payload.value("month_list").toArray()) {
+                const QJsonObject obj = item.toObject();
+
+                const int month = obj.value(QStringLiteral("month")).toInt();
+
+                // fill with empty data
+                int i = 0;
+                while (labels.count() < month) {
+                    labels.append(QString::number(i));
+                    values.append(0);
+                    i++;
+                }
+
+                // add other data
+                labels.append(QString::number(month));
+                values.append(qreal(obj.value(QStringLiteral("energy")).toDouble()));
+            }
+
+            emit statisticDataAvailable(hostname, labels, values);
+        }
+
 
     } else if (topic == QStringLiteral("cnCloud")) {
 

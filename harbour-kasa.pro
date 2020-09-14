@@ -10,7 +10,7 @@
 #   - translation filenames have to be changed
 
 # VERSION
-VERSION = 0.1.2-1
+VERSION = 0.1.3-1
 DEFINES += APP_VERSION=\\\"$$VERSION\\\"
 
 # The name of your application
@@ -28,6 +28,8 @@ SOURCES += src/harbour-kasa.cpp \
 
 DISTFILES += qml/harbour-kasa.qml \
     icons/scaleable/harbour-kasa.svg \
+    qml/components/Chart.qml \
+    qml/components/ChartWrapper.qml \
     qml/components/InfoItem.qml \
     qml/cover/CoverPage.qml \
     qml/dialogs/CloudLoginDialog.qml \
@@ -36,6 +38,7 @@ DISTFILES += qml/harbour-kasa.qml \
     qml/pages/DeviceInfoPage.qml \
     qml/pages/DeviceListPage.qml \
     qml/pages/DeviceSettingsPage.qml \
+    qml/pages/EnergyConsumptionChartPage.qml \
     qml/pages/SettingsPage.qml \
     rpm/harbour-kasa.changes \
     rpm/harbour-kasa.changes.run.in \

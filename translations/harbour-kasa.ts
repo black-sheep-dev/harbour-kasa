@@ -198,6 +198,10 @@
         <source>Refresh</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Energy Consumption</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>DeviceListPage</name>
@@ -274,6 +278,21 @@
     </message>
     <message>
         <source>Restart Device</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>EnergyConsumptionChartPage</name>
+    <message>
+        <source>Energy Consumption</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Month View</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Year View</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

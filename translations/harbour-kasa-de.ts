@@ -198,6 +198,10 @@
         <source>Refresh</source>
         <translation>Aktualisieren</translation>
     </message>
+    <message>
+        <source>Energy Consumption</source>
+        <translation>Energieverbrauch</translation>
+    </message>
 </context>
 <context>
     <name>DeviceListPage</name>
@@ -275,6 +279,21 @@
     <message>
         <source>Restart Device</source>
         <translation>Gerät neustarten</translation>
+    </message>
+</context>
+<context>
+    <name>EnergyConsumptionChartPage</name>
+    <message>
+        <source>Energy Consumption</source>
+        <translation>Energieverbrauch</translation>
+    </message>
+    <message>
+        <source>Month View</source>
+        <translation>Monatsansicht</translation>
+    </message>
+    <message>
+        <source>Year View</source>
+        <translation>Jahresansicht</translation>
     </message>
 </context>
 <context>
