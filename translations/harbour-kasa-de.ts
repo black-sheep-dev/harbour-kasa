@@ -36,10 +36,88 @@
     </message>
 </context>
 <context>
+    <name>CloudLoginDialog</name>
+    <message>
+        <source>Username</source>
+        <translation>Benutzername</translation>
+    </message>
+    <message>
+        <source>Enter username</source>
+        <translation>Benutzername eingeben</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>Passwort</translation>
+    </message>
+    <message>
+        <source>Enter password</source>
+        <translation>Passwort eingeben</translation>
+    </message>
+</context>
+<context>
     <name>CoverPage</name>
     <message>
         <source>No devices available</source>
         <translation>Keine Geräte vorhanden</translation>
+    </message>
+</context>
+<context>
+    <name>DeviceExpertSettingsPage</name>
+    <message>
+        <source>Save</source>
+        <translation>Speichern</translation>
+    </message>
+    <message>
+        <source>Expert Settings</source>
+        <translation>Experten Einstellungen</translation>
+    </message>
+    <message>
+        <source>Enable expert settings</source>
+        <translation>Experten Einstellungen aktivieren</translation>
+    </message>
+    <message>
+        <source>Only enable expert settings when you know what you are doing! You can brick your device! I have warned you!</source>
+        <translation>Aktiviere die Experteneinstellungen nur, wenn Du weißt was du tust! Du kannst dein Gerät unbrauchbar machen! Ich habe Dich gewarnt!</translation>
+    </message>
+    <message>
+        <source>Hardware</source>
+        <translation>Hardware</translation>
+    </message>
+    <message>
+        <source>MAC address</source>
+        <translation>MAC Adresse</translation>
+    </message>
+    <message>
+        <source>Enter MAC address</source>
+        <translation>MAC Adresse eingeben</translation>
+    </message>
+    <message>
+        <source>Cloud</source>
+        <translation>Cloud</translation>
+    </message>
+    <message>
+        <source>Cloud Server URL</source>
+        <translation>Cloud Server URL</translation>
+    </message>
+    <message>
+        <source>Enter Cloud Server URL</source>
+        <translation>Cloud Server URL eingeben</translation>
+    </message>
+    <message>
+        <source>Changing the cloud server url will prevent the device from sending data home (not yours). Hello privacy!</source>
+        <translation>Das Ändern der Cloud Server URL hindert das Gerät daran nach Hause zu telefonieren (nicht Deins). Willkommen Privatsphäre!</translation>
+    </message>
+    <message>
+        <source>The default url is &apos;devs.tplinkcloud.com&apos;</source>
+        <translation>Die standard URL ist &apos;devs.tplinkcloud.com&apos;</translation>
+    </message>
+    <message>
+        <source>Factory Reset</source>
+        <translation>Werkseinstellungen zurücksetzen</translation>
+    </message>
+    <message>
+        <source>Starting factory reset</source>
+        <translation>Starte Zurücksetzen auf Werkseinstellungen</translation>
     </message>
 </context>
 <context>
@@ -155,10 +233,6 @@
         <translation>Schalte LED an/aus</translation>
     </message>
     <message>
-        <source>Restart</source>
-        <translation>Neustart</translation>
-    </message>
-    <message>
         <source>Save</source>
         <translation>Speichern</translation>
     </message>
@@ -167,32 +241,8 @@
         <translation>Gerätename</translation>
     </message>
     <message>
-        <source>Enable expert settings</source>
-        <translation>Experteneinstellungen aktivieren</translation>
-    </message>
-    <message>
-        <source>MAC address</source>
-        <translation>MAC Adresse</translation>
-    </message>
-    <message>
-        <source>Only enable expert settings when you know what you are doing! You can brick your device! I have warned you!</source>
-        <translation>Aktiviere die Experteneinstellungen nur, wenn Du weißt was du tust! Du kannst dein Gerät unbrauchbar machen! Ich habe Dich gewarnt!</translation>
-    </message>
-    <message>
-        <source>The default url is &apos;devs.tplinkcloud.com&apos;</source>
-        <translation>Die standard URL ist &apos;devs.tplinkcloud.com&apos;</translation>
-    </message>
-    <message>
-        <source>Cloud Server URL</source>
-        <translation>Cloud Server URL</translation>
-    </message>
-    <message>
         <source>Cloud</source>
         <translation>Cloud</translation>
-    </message>
-    <message>
-        <source>Changing the cloud server url will prevent the device from sending data home (not yours). Hello privacy!</source>
-        <translation>Das Ändern der Cloud Server URL hindert das Gerät daran nach Hause zu telefonieren (nicht Deins). Willkommen Privatsphäre!</translation>
     </message>
     <message>
         <source>Device registered in cloud</source>
@@ -211,28 +261,20 @@
         <translation>Benutzername</translation>
     </message>
     <message>
-        <source>Password</source>
-        <translation>Passwort</translation>
-    </message>
-    <message>
         <source>Enter device alias</source>
         <translation>Gerätenamen eingeben</translation>
     </message>
     <message>
-        <source>Enter MAC address</source>
-        <translation>MAC Adresse eingeben</translation>
+        <source>Expert Settings</source>
+        <translation>Experten Einstellungen</translation>
     </message>
     <message>
-        <source>Enter username</source>
-        <translation>Benutzername eingeben</translation>
+        <source>Leaving cloud</source>
+        <translation>Verlasse Cloud</translation>
     </message>
     <message>
-        <source>Enter password</source>
-        <translation>Passwort eingeben</translation>
-    </message>
-    <message>
-        <source>Enter Cloud Server URL</source>
-        <translation>Cloud Server URL eingeben</translation>
+        <source>Restart Device</source>
+        <translation>Gerät neustarten</translation>
     </message>
 </context>
 <context>

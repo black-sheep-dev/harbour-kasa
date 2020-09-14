@@ -9,11 +9,11 @@ Name:       harbour-kasa
 # << macros
 
 Summary:    Kasa
-Version:    0.1.1
+Version:    0.1.2
 Release:    1
 Group:      Qt/Qt
 License:    LICENSE
-URL:        http://example.org/
+URL:        https://github.com/black-sheep-dev/harbour-kasa/
 Source0:    %{name}-%{version}.tar.bz2
 Source100:  harbour-kasa.yaml
 Requires:   sailfishsilica-qt5 >= 0.10.9
@@ -24,7 +24,7 @@ BuildRequires:  pkgconfig(Qt5Quick)
 BuildRequires:  desktop-file-utils
 
 %description
-Short description of my Sailfish OS Application
+Kasa is a native Sailfish OS application to control TP-Link Kasa smarthome devices.
 
 
 %prep

@@ -364,16 +364,29 @@ void DeviceManager::onReplyAvailable(const QString &hostname,
 
     } else if (topic == QStringLiteral("cnCloud")) {
 
+        Device *device = m_deviceListModel->deviceByHostname(hostname);
+
+        if (!device)
+            return;
+
         if (cmd == QStringLiteral("get_info")) {
-            Device *device = m_deviceListModel->deviceByHostname(hostname);
-
-            if (!device)
-                return;
-
             device->setCloudRegistration(bool(payload.value(QStringLiteral("binded")).toInt()));
             device->setCloudServer(payload.value(QStringLiteral("server")).toString());
             device->setCloudUsername(payload.value(QStringLiteral("username")).toString());
+
+        } else if (cmd == QStringLiteral("bind")) {
+            if (payload.value(QStringLiteral("err_code")).toInt() != 0) {
+                device->setCloudUsername(QString());
+                device->setCloudRegistration(false);
+            }
+
+        } else if (cmd == QStringLiteral("unbind")) {
+            if (payload.value(QStringLiteral("err_code")).toInt() == 0) {
+                device->setCloudRegistration(false);
+                device->setCloudUsername(QString());
+            }
         }
+
     }
 }
 

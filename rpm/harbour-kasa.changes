@@ -12,6 +12,13 @@
 # * date Author's Name <author's email> version-release
 # - Summary of changes
 
+* Mon Sep 14 2020 Black Sheep <blacksheep@nubecula.org> 0.1.2-1
+- 0.1.2-1
+- Add cloud login/logout
+- Add expert settings page
+- changed icon style
+- Many bugfixes
+
 * Sun Sep 13 2020 Black Sheep <blacksheep@nubecula.org> 0.1.1-1
 - 0.1.1-1 ... More device settings and bugfixes
 

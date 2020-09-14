@@ -10,7 +10,7 @@
 #   - translation filenames have to be changed
 
 # VERSION
-VERSION = 0.1.1-1
+VERSION = 0.1.2-1
 DEFINES += APP_VERSION=\\\"$$VERSION\\\"
 
 # The name of your application
@@ -30,7 +30,9 @@ DISTFILES += qml/harbour-kasa.qml \
     icons/scaleable/harbour-kasa.svg \
     qml/components/InfoItem.qml \
     qml/cover/CoverPage.qml \
+    qml/dialogs/CloudLoginDialog.qml \
     qml/pages/AddDevicePage.qml \
+    qml/pages/DeviceExpertSettingsPage.qml \
     qml/pages/DeviceInfoPage.qml \
     qml/pages/DeviceListPage.qml \
     qml/pages/DeviceSettingsPage.qml \
