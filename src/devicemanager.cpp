@@ -30,7 +30,7 @@ DeviceListModel *DeviceManager::deviceListModel()
 
 void DeviceManager::initialize()
 {
-    //m_api->sendRequest("192.168.3.62", "{\"system\":{\"test_check_uboot\":null}}");
+
 }
 
 void DeviceManager::addDevice(const QString &hostname)
@@ -119,6 +119,16 @@ void DeviceManager::getEnergyInfo(const QString &hostname)
 void DeviceManager::getSystemInfo(const QString &hostname)
 {
     m_api->sendRequest(hostname, "{\"system\":{\"get_sysinfo\":{}}}");
+}
+
+void DeviceManager::getTime(const QString &hostname)
+{
+    m_api->sendRequest(hostname, "{\"time\":{\"get_time\":{}}}");
+}
+
+void DeviceManager::getTimezone(const QString &hostname)
+{
+    m_api->sendRequest(hostname, "{\"time\":{\"get_timezone\":{}}}");
 }
 
 void DeviceManager::getWifiAPs(const QString &hostname)
@@ -444,6 +454,22 @@ void DeviceManager::onReplyAvailable(const QString &hostname,
             }
         }
 
+    } else if (topic == QStringLiteral("time")) {
+        Device *device = m_deviceListModel->deviceByHostname(hostname);
+
+        if (!device)
+            return;
+
+        if (cmd == QStringLiteral("get_time")) {
+            const QDateTime datetime(QDate(payload.value(QStringLiteral("year")).toInt(),
+                                           payload.value(QStringLiteral("month")).toInt(),
+                                           payload.value(QStringLiteral("mday")).toInt()),
+                                     QTime(payload.value(QStringLiteral("hour")).toInt(),
+                                           payload.value(QStringLiteral("min")).toInt(),
+                                           payload.value(QStringLiteral("sec")).toInt()));
+
+            device->setSystemTime(datetime);
+        }
     }
 }
 

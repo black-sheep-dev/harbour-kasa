@@ -23,9 +23,9 @@
 [ ] {"system":{"flash_firmware":{}}}
 
 ### TIME
-[ ] {"time":{"get_time":{}}}
+[x] {"time":{"get_time":{}}}
 [ ] {"time":{"set_timezone":{}}}
-[ ] {"time":{"get_timezone":{}}}
+[x] {"time":{"get_timezone":{}}}
 
 ### EMETER
 [x] {"emeter":{"get_realtime":{}}}

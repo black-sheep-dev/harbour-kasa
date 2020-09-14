@@ -29,15 +29,17 @@ public slots:
 
     // api
     Q_INVOKABLE void connectToWifiAP(const QString &hostname, const QString &ssid, const QString &password);
-    void getCloudInfo(const QString &hostname);
+    Q_INVOKABLE void getCloudInfo(const QString &hostname);
     Q_INVOKABLE void getEnergyDayStat(const QString &hostname,
                                       int month = QDate::currentDate().month(),
                                       int year = QDate::currentDate().year());
     Q_INVOKABLE void getEnergyMonthStat(const QString &hostname,
                                         int year = QDate::currentDate().year());
-    void getEnergyInfo(const QString &hostname);
-    void getSystemInfo(const QString &hostname);
-    void getWifiAPs(const QString &hostname);
+    Q_INVOKABLE void getEnergyInfo(const QString &hostname);
+    Q_INVOKABLE void getSystemInfo(const QString &hostname);
+    Q_INVOKABLE void getTime(const QString &hostname);
+    Q_INVOKABLE void getTimezone(const QString &hostname);
+    Q_INVOKABLE void getWifiAPs(const QString &hostname);
     Q_INVOKABLE void refresh();
     Q_INVOKABLE void refresh(const QString &hostname);
     Q_INVOKABLE void restart(const QString &hostname);
