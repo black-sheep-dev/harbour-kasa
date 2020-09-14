@@ -119,6 +119,14 @@
         <source>Starting factory reset</source>
         <translation>Starte Zurücksetzen auf Werkseinstellungen</translation>
     </message>
+    <message>
+        <source>Reset energy statistic data</source>
+        <translation>Energie Statistik zurücksetzen</translation>
+    </message>
+    <message>
+        <source>Starting statistic reset</source>
+        <translation>Starte Zruücksetzen der Statistik</translation>
+    </message>
 </context>
 <context>
     <name>DeviceInfoPage</name>

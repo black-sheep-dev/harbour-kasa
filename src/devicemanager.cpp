@@ -30,7 +30,7 @@ DeviceListModel *DeviceManager::deviceListModel()
 
 void DeviceManager::initialize()
 {
-
+    //m_api->sendRequest("192.168.3.62", "{\"system\":{\"test_check_uboot\":null}}");
 }
 
 void DeviceManager::addDevice(const QString &hostname)
@@ -146,6 +146,11 @@ void DeviceManager::restart(const QString &hostname)
 void DeviceManager::reset(const QString &hostname)
 {
     m_api->sendRequest(hostname, "{\"system\":{\"reset\":{\"delay\":3}}}");
+}
+
+void DeviceManager::resetEnergyStat(const QString &hostname)
+{
+    m_api->sendRequest(hostname, "{\"emeter\":{\"erase_emeter_stat\":{}}}");
 }
 
 void DeviceManager::setCloudServer(const QString &hostname, const QString &url)

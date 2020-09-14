@@ -23,6 +23,11 @@ Page {
                 onClicked: remorse.execute(qsTr("Starting factory reset"), function() {DeviceManager.reset(device.hostname)})
             }
             MenuItem {
+                text: qsTr("Reset energy statistic data")
+                enabled: expertSwitch.checked
+                onClicked: remorse.execute(qsTr("Starting statistic reset"), function() {DeviceManager.resetEnergyStat(device.hostname)})
+            }
+            MenuItem {
                 text: qsTr("Save")
                 onClicked: {
                     DeviceManager.setCloudServer(device.hostname, cloudServerUrlField.text)

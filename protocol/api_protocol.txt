@@ -1,54 +1,72 @@
-### SYSTEM
+[ ] Implemented
 
-{"system":{"get_sysinfo":{}}}
-{"system":{"set_dev_alias":{"alias": alias}}}                   
-{"system":{"get_dev_icon":{}}}
-{"system":{"set_mac_addr":{"mac": mac}}}
-{"system":{"reboot":{"delay": sec}}}
-{"system":{"reset":{"delay": sec}}}
-{"system":{"set_relay_state":{"state": 0/1}}}
-{"system":{"set_led_off":{"off": 0/1}}}
+### SYSTEM
+[x] {"system":{"get_sysinfo":{}}}
+[x] {"system":{"set_dev_alias":{"alias": alias}}}                   
+[ ] {"system":{"get_dev_icon":{}}}
+[ ] {"system":{"set_dev_icon":{"icon":"xxxx","hash":"ABCD"}}}
+[x] {"system":{"set_mac_addr":{"mac": mac}}}
+[x] {"system":{"reboot":{"delay": sec}}}
+[x] {"system":{"reset":{"delay": sec}}}
+[x] {"system":{"set_relay_state":{"state": 0/1}}}
+[x] {"system":{"set_led_off":{"off": 0/1}}}
+[ ] {"system":{"set_device_id":{"deviceId":"deviceId"}}}
+[ ] {"system":{"set_hw_id":{"hwId":"hwId"}}}
+[ ] {"system":{"set_dev_location":{"longitude":lon,"latitude":lat}}}
+[ ] {"system":{"test_check_uboot": null}}
+[ ] {"system":{"set_test_mode":{"enable":1}}}
+[ ] {"system":{"check_new_config":{}}}
 
 ### FIRMWARE
-{"system":{"download_firmware":{"url":"http://..."}}}
-{"system":{"get_download_state":{}}}
-{"system":{"flash_firmware":{}}}
+[ ] {"system":{"download_firmware":{"url":"http://..."}}}
+[ ] {"system":{"get_download_state":{}}}
+[ ] {"system":{"flash_firmware":{}}}
 
 ### TIME
-{"time":{"get_time":{}}}
-{"time":{"set_timezone":{}}}
-{"time":{"get_timezone":{}}}
+[ ] {"time":{"get_time":{}}}
+[ ] {"time":{"set_timezone":{}}}
+[ ] {"time":{"get_timezone":{}}}
 
 ### EMETER
-{"emeter":{"get_realtime":{}}}
-{"emeter":{"get_daystat":{"month":month,"year":year}}}
-{"emeter":{"get_monthstat":{"year":year}}}
-{"emeter":{"erase_emeter_stat":{}}}
+[x] {"emeter":{"get_realtime":{}}}
+[x] {"emeter":{"get_daystat":{"month":month,"year":year}}}
+[x] {"emeter":{"get_monthstat":{"year":year}}}
+[x] {"emeter":{"erase_emeter_stat":{}}}
 
 ### NET
-{"netif":{"get_scaninfo":{"refresh":1}}}
-{"netif":{"set_stainfo":{"ssid":"WiFi","password":"123","key_type":3}}}
+[x] {"netif":{"get_scaninfo":{"refresh":1}}}
+[x] {"netif":{"set_stainfo":{"ssid":"WiFi","password":"123","key_type":3}}}
 
 ### CLOUD
-{"cnCloud":{"get_info":{}}}
-{"cnCloud":{"set_server_url":{"server":"devs.tplinkcloud.com"}}}
-{"cnCloud":{"bind":{"username":alice@home.com, "password":"secret"}}}
-{"cnCloud":{"unbind":null}}
+[x] {"cnCloud":{"get_info":{}}}
+[x] {"cnCloud":{"set_server_url":{"server":"devs.tplinkcloud.com"}}}
+[x] {"cnCloud":{"bind":{"username":alice@home.com, "password":"secret"}}}
+[x] {"cnCloud":{"unbind":null}}
+[ ] {"cnCloud":{"get_intl_fw_list":{}}}
 
 ### ANTI THEFT
-{"anti_theft":{"get_rules":{}}}
+[ ] {"anti_theft":{"get_rules":{}}}
 
 ### COUNT DOWN
-{"count_down":{"get_rules":{}}}
+[ ] {"count_down":{"get_rules":{}}}
 
 ### SCHEDULE
-{"schedule":{"get_next_action":{}}}
-{"schedule":{"get_rules":{}}}
+[ ] {"schedule":{"get_next_action":{}}}
+[ ] {"schedule":{"get_rules":{}}}
 
 ### ????
-{"smartlife.iot.dimmer":{"set_brightness":{"brightness": value}}}
-{"smartlife.iot.smartbulb.lightingservice":{"get_light_state":{}}}
-{"smartlife.iot.smartbulb.lightingservice":{"transition_light_state":{???}}}
+[ ] {"smartlife.iot.dimmer":{"set_brightness":{"brightness": value}}}
+[ ] {"smartlife.iot.dimmer":{"get_dimmer_parameters":{}}}
+[ ] {"smartlife.iot.dimmer":{"set_dimmer_transition":{"brightness": brightness, "duration": transition}}}
+
+[ ] {"smartlife.iot.common.emeter":{"get_realtime":{}}}
+[ ] {"smartlife.iot.common.softaponboarding":{"set_stainfo":{"ssid":"WiFi","password":"123","key_type":3}}}     ????
+
+[ ] {"smartlife.iot.smartbulb.lightingservice":{"get_light_state":{}}}
+[ ] {"smartlife.iot.smartbulb.lightingservice":{"transition_light_state":{???}}}
+[ ] {"smartlife.iot.lightStrip":{"get_light_state":{}}}
+[ ] {"smartlife.iot.lightStrip":{"set_light_state":{}}}
+[ ] {"smartlife.iot.lightStrip":{"lighting_effect_state":{}}}
 
 ### DUMMY
 {"":{"":{}}}

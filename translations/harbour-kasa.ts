@@ -119,6 +119,14 @@
         <source>Starting factory reset</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Reset energy statistic data</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Starting statistic reset</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>DeviceInfoPage</name>
