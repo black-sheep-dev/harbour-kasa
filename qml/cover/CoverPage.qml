@@ -8,6 +8,8 @@ CoverBackground {
     property var device: DeviceManager.deviceListModel().deviceAt(id)
 
     Image {
+        visible: device.available
+
         source: device.on ? "qrc:///icons/IOT.SMARTPLUGSWITCH_GREEN" : "qrc:///icons/IOT.SMARTPLUGSWITCH"
         anchors.centerIn: parent
         fillMode: Image.PreserveAspectFit
@@ -23,6 +25,12 @@ CoverBackground {
         anchors.topMargin: Theme.horizontalPageMargin
         text: device ? device.name : qsTr("No devices available")
         wrapMode: Label.WordWrap
+    }
+
+    Label {
+        visible: if (device) !device.available
+        anchors.centerIn: parent
+        text: qsTr("Offline")
     }
 
     CoverActionList {
@@ -43,8 +51,8 @@ CoverBackground {
         }
 
         CoverAction {
-            iconSource: "image://theme/icon-cover-location"
-            onTriggered: DeviceManager.toggleOn(device.hostname)
+            iconSource: device.available ? "image://theme/icon-cover-location" : "image://theme/icon-cover-refresh"
+            onTriggered: device.available ? DeviceManager.toggleOn(device.hostname) : DeviceManager.getSystemInfo(device.hostname)
         }
 
         CoverAction {

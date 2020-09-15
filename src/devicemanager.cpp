@@ -13,6 +13,7 @@ DeviceManager::DeviceManager(QObject *parent) :
     m_deviceListModel(new DeviceListModel(this))
 {
     connect(m_api, &ApiInterface::replyAvailable, this, &DeviceManager::onReplyAvailable);
+    connect(m_api, &ApiInterface::connectionError, this, &DeviceManager::onConnectionError);
 
     readDevices();
 }
@@ -287,6 +288,20 @@ void DeviceManager::unregisterDeviceFromCloud(const QString &hostname)
     m_api->sendRequest(hostname, "{\"cnCloud\":{\"unbind\":null}}");
 }
 
+void DeviceManager::onConnectionError(const QString &hostname)
+{
+    Device *device = m_deviceListModel->deviceByHostname(hostname);
+
+    if (!device)
+        return;
+
+    device->setAvailable(false);
+
+#ifdef QT_DEBUG
+    qDebug() << "DEVICE NOT AVAILABLE";
+#endif
+}
+
 void DeviceManager::onReplyAvailable(const QString &hostname,
                                      const QString &topic,
                                      const QString &cmd,
@@ -299,23 +314,27 @@ void DeviceManager::onReplyAvailable(const QString &hostname,
         qDebug() << payload;
     #endif
 
+    // get device ... present ones / pending ones
+    Device *device = m_deviceListModel->deviceByHostname(hostname);
+
+    if (!device)
+        device = m_pendingDevices.value(hostname, nullptr);
+
+    if (!device)
+        return;
+
+    // mark as available
+    device->setAvailable(true);
+
     // check if device is in pending queue
     if (topic == QStringLiteral("system")) {
 
         if (cmd == QStringLiteral("get_sysinfo")) {
 
             // check if hostname is a pending new device
-            bool newDevice = true;
-            Device *device = m_pendingDevices.value(hostname, nullptr);
-
-            if (!device) {
-                device = m_deviceListModel->deviceByHostname(hostname);
-                newDevice = false;
-            }
+            bool newDevice = m_pendingDevices.keys().contains(hostname);
 
             // set data
-            device->setAvailable(true);
-
             device->setDeviceID(payload.value(QStringLiteral("deviceId")).toString());
             device->setDeviceModel(payload.value(QStringLiteral("model")).toString());
             device->setDeviceName(payload.value(QStringLiteral("dev_name")).toString());
@@ -358,20 +377,14 @@ void DeviceManager::onReplyAvailable(const QString &hostname,
             getCloudInfo(hostname);
 
         } else if (cmd == QStringLiteral("set_relay_state")) {
-            Device *device = m_deviceListModel->deviceByHostname(hostname);
             device->setOn(!device->on());
+
         } else if (cmd == QStringLiteral("set_led_off")) {
-            Device *device = m_deviceListModel->deviceByHostname(hostname);
             device->setLedOn(!device->ledOn());
+
         }
 
     } else if (topic == QStringLiteral("emeter")) {
-        Device *device = m_deviceListModel->deviceByHostname(hostname);
-
-        if (!device)
-            return;
-
-        device->setAvailable(true);
 
         if (cmd == QStringLiteral("get_realtime")) {
             device->setCurrent(qreal(payload.value(QStringLiteral("current")).toDouble()));
@@ -431,11 +444,6 @@ void DeviceManager::onReplyAvailable(const QString &hostname,
 
     } else if (topic == QStringLiteral("cnCloud")) {
 
-        Device *device = m_deviceListModel->deviceByHostname(hostname);
-
-        if (!device)
-            return;
-
         if (cmd == QStringLiteral("get_info")) {
             device->setCloudRegistration(bool(payload.value(QStringLiteral("binded")).toInt()));
             device->setCloudServer(payload.value(QStringLiteral("server")).toString());
@@ -455,10 +463,6 @@ void DeviceManager::onReplyAvailable(const QString &hostname,
         }
 
     } else if (topic == QStringLiteral("time")) {
-        Device *device = m_deviceListModel->deviceByHostname(hostname);
-
-        if (!device)
-            return;
 
         if (cmd == QStringLiteral("get_time")) {
             const QDateTime datetime(QDate(payload.value(QStringLiteral("year")).toInt(),

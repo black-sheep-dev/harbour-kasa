@@ -1,7 +1,10 @@
 #include "apiinterface.h"
 
-#include <QDataStream>
+#ifdef QT_DEBUG
 #include <QDebug>
+#endif
+
+#include <QDataStream>
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonParseError>
@@ -98,18 +101,21 @@ void ApiInterface::onDisconnected()
 
 void ApiInterface::onError(QAbstractSocket::SocketError error)
 {
-    //qDebug() << "onError";
-
     QTcpSocket *socket = qobject_cast<QTcpSocket *>(sender());
 
     if (!socket)
         return;
 
+#ifdef QT_DEBUG
+    qDebug() << "CONNECTION ERROR";
     qDebug() << socket->peerName();
     qDebug() << error;
+#endif
 
     // clear queue
     m_queues.value(socket->peerName())->clear();
+
+    emit connectionError(socket->peerName());
 
     socket->deleteLater();
 }
@@ -169,8 +175,6 @@ void ApiInterface::parseDatagram()
 
         QByteArray raw;
         stream >> raw;
-
-        qDebug() << decrypt(raw);
     }
 
 }
@@ -179,6 +183,7 @@ void ApiInterface::startSending(const QString &hostname)
 {
     // connect to socket
     QTcpSocket *socket = new QTcpSocket(this);
+
     connect(socket, &QTcpSocket::connected, this, &ApiInterface::onConnected);
     connect(socket, &QTcpSocket::disconnected, this, &ApiInterface::onDisconnected);
     connect(socket, static_cast<void(QAbstractSocket::*)(QAbstractSocket::SocketError)>(&QAbstractSocket::error),

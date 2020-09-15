@@ -57,6 +57,8 @@ Page {
                     width: parent.height - 2 * Theme.paddingSmall
                     anchors.verticalCenter: parent.verticalCenter
 
+                    opacity: available ? 1.0 : 0.3
+
                     source: {
                         if (device_type.length === 0) {
                             return "qrc:///icons/IOT.SMARTPLUGSWITCH"
@@ -90,16 +92,27 @@ Page {
                         font.pixelSize: Theme.fontSizeLarge
                     }
                     Label{
-                        text: hostname
+                        text: available ? hostname : qsTr("Device offline or network error");
                         color: Theme.secondaryColor
                         font.pixelSize: Theme.fontSizeMedium
 
                     }
                 }
 
+                IconButton {
+                    visible: !available
+                    icon.source: "image://theme/icon-m-refresh"
+
+                    anchors.verticalCenter: parent.verticalCenter
+
+                    onClicked: DeviceManager.getSystemInfo(hostname)
+                 }
+
                 Switch {
                     id: activateSwitch
                     checked: on
+
+                    visible: available
 
                     onClicked: {
                         checked: on
@@ -117,7 +130,10 @@ Page {
                 }
             }
 
-            onClicked: pageStack.push(Qt.resolvedUrl("DeviceInfoPage.qml"), {device: DeviceManager.deviceListModel().deviceAt(index)})
+            onClicked: {
+                if (available)
+                    pageStack.push(Qt.resolvedUrl("DeviceInfoPage.qml"), {device: DeviceManager.deviceListModel().deviceAt(index)}) 
+            }
         }
         VerticalScrollDecorator {}
     }

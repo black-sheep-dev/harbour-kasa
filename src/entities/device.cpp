@@ -151,6 +151,7 @@ void Device::setAvailable(bool available)
 
     m_available = available;
     emit availableChanged(m_available);
+    emit changed();
 }
 
 void Device::setCloudRegistration(bool cloudRegistration)

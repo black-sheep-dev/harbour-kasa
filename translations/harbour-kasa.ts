@@ -60,6 +60,10 @@
         <source>No devices available</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Offline</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>DeviceExpertSettingsPage</name>
@@ -227,6 +231,10 @@
     </message>
     <message>
         <source>Delete</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Device offline or network error</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

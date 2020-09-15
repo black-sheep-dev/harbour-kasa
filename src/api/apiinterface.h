@@ -21,6 +21,7 @@ public:
     ~ApiInterface();
 
 signals:
+    void connectionError(const QString &hostname);
     void replyAvailable(const QString &hostname,
                         const QString &topic,
                         const QString &cmd,

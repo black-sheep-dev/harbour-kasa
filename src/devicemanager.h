@@ -56,6 +56,7 @@ public slots:
     Q_INVOKABLE void unregisterDeviceFromCloud(const QString &hostname);
 
 private slots:
+    void onConnectionError(const QString &hostname);
     void onReplyAvailable(const QString &hostname,
                           const QString &topic,
                           const QString &cmd,
