@@ -31,7 +31,7 @@ public:
         TotalConsumtionRole,
         VoltageRole
     };
-    Q_ENUMS(DeviceRoles)
+    Q_ENUM(DeviceRoles)
 
     explicit DeviceListModel(QObject *parent = nullptr);
      ~DeviceListModel() override;

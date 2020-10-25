@@ -6,7 +6,7 @@ import org.nubecula.harbour.kasa 1.0
 import "../components/"
 
 Page {
-    property var device
+    property Device device
 
     id: page
 
@@ -36,6 +36,7 @@ Page {
         Column {
             id: column
             width:parent.width
+            spacing: Theme.paddingMedium
 
             PageHeader {
                 title: qsTr("Device Info")
@@ -46,33 +47,33 @@ Page {
                 font.pixelSize: Theme.fontSizeLarge
             }
 
-            InfoItem {
-                name: qsTr("Name")
+            DetailItem {
+                label: qsTr("Name")
                 value: device.name
             }
 
-            InfoItem {
-                name: qsTr("Description")
+            DetailItem {
+                label: qsTr("Description")
                 value: device.deviceName
             }
 
-            InfoItem {
-                name: qsTr("Model")
+            DetailItem {
+                label: qsTr("Model")
                 value: device.deviceModel
             }
 
-            InfoItem {
-                name: qsTr("Device ID")
+            DetailItem {
+                label: qsTr("Device ID")
                 value: device.deviceID
             }
 
-            InfoItem {
-                name: qsTr("HW Version")
+            DetailItem {
+                label: qsTr("HW Version")
                 value: device.hardwareVersion
             }
 
-            InfoItem {
-                name: qsTr("Firmware")
+            DetailItem {
+                label: qsTr("Firmware")
                 value: device.firmwareVersion
             }
 
@@ -83,18 +84,18 @@ Page {
                 font.pixelSize: Theme.fontSizeLarge
             }
 
-            InfoItem {
-                name: qsTr("Hostname")
+            DetailItem {
+                label: qsTr("Hostname")
                 value: device.hostname
             }
 
-            InfoItem {
-                name: qsTr("MAC")
+            DetailItem {
+                label: qsTr("MAC")
                 value: device.macAddress
             }
 
-            InfoItem {
-                name: qsTr("RSSI")
+            DetailItem {
+                label: qsTr("RSSI")
                 value: device.rssi + " dBm"
             }
 
@@ -106,26 +107,26 @@ Page {
                 visible: device.features & Device.FeatureEnergy
             }
 
-            InfoItem {
-                name: qsTr("Current")
+            DetailItem {
+                label: qsTr("Current")
                 value: Number(device.current).toLocaleString(Qt.locale()) + " A"
                 visible: device.features & Device.FeatureEnergy
             }
 
-            InfoItem {
-                name: qsTr("Power")
+            DetailItem {
+                label: qsTr("Power")
                 value: Number(device.power).toLocaleString(Qt.locale()) + " W"
                 visible: device.features & Device.FeatureEnergy
             }
 
-            InfoItem {
-                name: qsTr("Voltage")
+            DetailItem {
+                label: qsTr("Voltage")
                 value: Number(device.voltage).toLocaleString(Qt.locale()) + " V"
                 visible: device.features & Device.FeatureEnergy
             }
 
-            InfoItem {
-                name: qsTr("Total")
+            DetailItem {
+                label: qsTr("Total")
                 value: Number(device.totalConsumption).toLocaleString(Qt.locale()) + " kWh"
                 visible: device.features & Device.FeatureEnergy
             }

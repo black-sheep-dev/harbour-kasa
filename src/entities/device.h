@@ -41,7 +41,7 @@ public:
     };
     Q_DECLARE_FLAGS(DeviceFeatures, DeviceFeature)
     Q_FLAG(DeviceFeatures)
-    Q_ENUMS(DeviceFeature)
+    Q_ENUM(DeviceFeature)
 
     explicit Device(QObject *parent = nullptr);
 
@@ -123,29 +123,29 @@ public slots:
     void setVoltage(qreal voltage); 
 
 private:
-    bool m_available;
-    bool m_cloudRegistration;
+    bool m_available{false};
+    bool m_cloudRegistration{false};
     QString m_cloudServer;
     QString m_cloudUsername;
-    qreal m_current;
+    qreal m_current{0};
     QString m_deviceID;
     QString m_deviceModel;
     QString m_deviceName;
     QString m_deviceType;
-    int m_features;
+    int m_features{0};
     QString m_firmwareVersion;
     QString m_hardwareVersion;
     QString m_hostname;
-    bool m_ledOn;
+    bool m_ledOn{false};
     QString m_macAddress;
     QString m_name;
-    bool m_on;
-    int m_onTime;
-    qreal m_power;
-    int m_rssi;
+    bool m_on{false};
+    int m_onTime{0};
+    qreal m_power{0.0};
+    int m_rssi{0};
     QDateTime m_systemTime;
-    qreal m_totalConsumption;
-    qreal m_voltage;
+    qreal m_totalConsumption{0.0};
+    qreal m_voltage{0.0};
 };
 Q_DECLARE_OPERATORS_FOR_FLAGS(Device::DeviceFeatures)
 

@@ -80,7 +80,7 @@ void DeviceListModel::setDevices(const QList<Device *> &devices)
 
 void DeviceListModel::updateDevice()
 {
-    Device *device = qobject_cast<Device *>(sender());
+    auto *device = qobject_cast<Device *>(sender());
 
     if (!device)
         return;

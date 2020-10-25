@@ -7,14 +7,21 @@ Dialog {
 
     id: dialog
 
+    canAccept: usernameField.acceptableInput
+
     Column {
         width: parent.width
 
-        DialogHeader { }
+        DialogHeader {
+            acceptText: qsTr("Login")
+            title: qsTr("Cloud Login")
+        }
 
         TextField {
             id: usernameField
-            width: parent.width
+
+            x: Theme.horizontalPageMargin
+            width: parent.width - 2*x
 
             focus: true
 
@@ -22,6 +29,9 @@ Dialog {
             placeholderText: qsTr("Enter username")
 
             inputMethodHints: Qt.ImhEmailCharactersOnly
+            validator: RegExpValidator {
+                regExp: /[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/
+            }
 
             EnterKey.iconSource: "image://theme/icon-m-enter-next"
             EnterKey.onClicked: passwordField.focus = true
@@ -30,10 +40,15 @@ Dialog {
         PasswordField {
             id: passwordField
 
-            width: parent.width
+            x: Theme.horizontalPageMargin
+            width: parent.width - 2*x
 
             label: qsTr("Password")
             placeholderText: qsTr("Enter password")
+
+            validator: RegExpValidator {
+                regExp: /(^$)|(\s+$)/
+            }
 
             EnterKey.iconSource: "image://theme/icon-m-enter-accept"
             EnterKey.onClicked: dialog.accept()

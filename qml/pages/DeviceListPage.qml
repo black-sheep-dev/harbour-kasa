@@ -18,7 +18,7 @@ Page {
 
             MenuItem {
                 text: qsTr("Add Device")
-                onClicked: pageStack.push(Qt.resolvedUrl("AddDevicePage.qml"))
+                onClicked: pageStack.push(Qt.resolvedUrl("../dialogs/AddDeviceDialog.qml"))
             }
 
 //            MenuItem {
@@ -135,6 +135,13 @@ Page {
                     pageStack.push(Qt.resolvedUrl("DeviceInfoPage.qml"), {device: DeviceManager.deviceListModel().deviceAt(index)}) 
             }
         }
+
+        ViewPlaceholder {
+            enabled: listView.count == 0
+            text: qsTr("No devices available")
+            hintText: qsTr("Pull down to add a new device")
+        }
+
         VerticalScrollDecorator {}
     }
 

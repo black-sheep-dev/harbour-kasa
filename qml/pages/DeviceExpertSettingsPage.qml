@@ -28,6 +28,8 @@ Page {
                 onClicked: remorse.execute(qsTr("Starting statistic reset"), function() {DeviceManager.resetEnergyStat(device.hostname)})
             }
             MenuItem {
+                enabled: cloudServerUrlField.acceptableInput && macAddressField.acceptableInput
+
                 text: qsTr("Save")
                 onClicked: {
                     DeviceManager.setCloudServer(device.hostname, cloudServerUrlField.text)
@@ -41,6 +43,7 @@ Page {
         Column {
             id: column
             width:parent.width
+            spacing: Theme.paddingMedium
 
             PageHeader {
                 title: qsTr("Expert Settings")
@@ -48,6 +51,10 @@ Page {
 
             TextSwitch {
                 id: expertSwitch
+
+                x: Theme.horizontalPageMargin
+                width: parent.width - 2*x
+
                 checked: false
                 text: qsTr("Enable expert settings")
                 description: qsTr("Only enable expert settings when you know what you are doing! You can brick your device! I have warned you!")
@@ -62,7 +69,8 @@ Page {
             TextField {
                 id: macAddressField
 
-                width: parent.width
+                x: Theme.horizontalPageMargin
+                width: parent.width - 2*x
 
                 readOnly: !expertSwitch.checked
                 visible: expertSwitch.checked
@@ -85,7 +93,9 @@ Page {
 
             TextField {
                 id: cloudServerUrlField
-                width: parent.width
+
+                x: Theme.horizontalPageMargin
+                width: parent.width - 2*x
 
                 readOnly: !expertSwitch.checked
                 visible: expertSwitch.checked
@@ -95,28 +105,31 @@ Page {
                 text: device.cloudServer
 
                 inputMethodHints: Qt.ImhUrlCharactersOnly
+                validator: RegExpValidator {
+                    regExp: /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,8}(:[0-9]{1,5})?(\/.*)?$|^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$|[a-zA-Z0-9-_]{1,}/gm
+                }
             }
 
             Label {
                 x: Theme.horizontalPageMargin
-                width: parent.width - 2 * Theme.horizontalPageMargin
+                width: parent.width - 2*x
 
                 visible: expertSwitch.checked
 
                 wrapMode: Text.WordWrap
                 font.pixelSize: Theme.fontSizeExtraSmall
-                color: Theme.secondaryColor
+                color: Theme.highlightColor
                 text: qsTr("Changing the cloud server url will prevent the device from sending data home (not yours). Hello privacy!")
             }
             Label {
                 x: Theme.horizontalPageMargin
-                width: parent.width - 2 * Theme.horizontalPageMargin
+                width: parent.width - 2*x
 
                 visible: expertSwitch.checked
 
                 wrapMode: Text.WordWrap
                 font.pixelSize: Theme.fontSizeExtraSmall
-                color: Theme.secondaryColor
+                color: Theme.highlightColor
                 text: qsTr("The default url is 'devs.tplinkcloud.com'")
             }
         }

@@ -2,11 +2,8 @@
 
 Device::Device(QObject *parent) :
     QObject(parent),
-    m_available(false),
-    m_cloudRegistration(false),
     m_cloudServer(QStringLiteral("devs.tplinkcloud.com")),
     m_cloudUsername(QString()),
-    m_current(0.0),
     m_deviceID(QString()),
     m_deviceModel(QString()),
     m_deviceName(QString()),
@@ -15,16 +12,9 @@ Device::Device(QObject *parent) :
     m_firmwareVersion(QString()),
     m_hardwareVersion(QString()),
     m_hostname(QString()),
-    m_ledOn(false),
     m_macAddress(QString()),
     m_name(QString()),
-    m_on(false),
-    m_onTime(0),
-    m_power(0.0),
-    m_rssi(0),
-    m_systemTime(QDateTime::currentDateTime()),
-    m_totalConsumption(0.0),
-    m_voltage(0.0)
+    m_systemTime(QDateTime::currentDateTime())
 {
 
 }

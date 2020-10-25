@@ -23,7 +23,7 @@ int main(int argc, char *argv[])
         Q_UNUSED(engine)
         Q_UNUSED(scriptEngine)
 
-        DeviceManager *manager = new DeviceManager;
+        auto *manager = new DeviceManager;
 
         return manager;
     });

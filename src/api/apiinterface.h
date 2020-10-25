@@ -18,7 +18,7 @@ class ApiInterface : public QObject
 
 public:
     explicit ApiInterface(QObject *parent = nullptr);
-    ~ApiInterface();
+    ~ApiInterface() override;
 
 signals:
     void connectionError(const QString &hostname);

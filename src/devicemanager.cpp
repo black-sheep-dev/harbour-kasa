@@ -482,7 +482,7 @@ Device *DeviceManager::deviceFromJson(const QJsonObject &object)
     if (object.isEmpty())
         return nullptr;
 
-    Device *device = new Device(this);
+    auto *device = new Device(this);
     device->setHostname(object.value(QStringLiteral("hostname")).toString());
     device->setName(object.value(QStringLiteral("name")).toString());
 
@@ -508,7 +508,7 @@ void DeviceManager::readDevices()
     if (!file.open(QIODevice::ReadOnly))
         return;
 
-    QJsonParseError error;
+    QJsonParseError error{};
 
     const QJsonArray devices = QJsonDocument::fromJson(file.readAll(), &error).array();
 

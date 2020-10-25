@@ -25,7 +25,15 @@
     </message>
 </context>
 <context>
-    <name>AddDevicePage</name>
+    <name>AddDeviceDialog</name>
+    <message>
+        <source>Add</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add new device</source>
+        <translation type="unfinished"></translation>
+    </message>
     <message>
         <source>Enter hostname</source>
         <translation type="unfinished"></translation>
@@ -51,6 +59,14 @@
     </message>
     <message>
         <source>Enter password</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Login</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cloud Login</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -237,6 +253,14 @@
         <source>Device offline or network error</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>No devices available</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pull down to add a new device</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>DeviceSettingsPage</name>
@@ -294,6 +318,10 @@
     </message>
     <message>
         <source>Restart Device</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enter username</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

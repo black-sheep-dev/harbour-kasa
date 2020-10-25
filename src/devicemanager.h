@@ -12,7 +12,7 @@ class DeviceManager : public QObject
 
 public:
     explicit DeviceManager(QObject *parent = nullptr);
-    ~DeviceManager();
+    ~DeviceManager() override;
 
     Q_INVOKABLE DeviceListModel *deviceListModel();
     Q_INVOKABLE void initialize();

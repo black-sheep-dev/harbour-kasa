@@ -25,7 +25,15 @@
     </message>
 </context>
 <context>
-    <name>AddDevicePage</name>
+    <name>AddDeviceDialog</name>
+    <message>
+        <source>Add</source>
+        <translation>Hinzufügen</translation>
+    </message>
+    <message>
+        <source>Add new device</source>
+        <translation>Neues Gerät hinzufügen</translation>
+    </message>
     <message>
         <source>Enter hostname</source>
         <translation>Hostname eingeben</translation>
@@ -52,6 +60,14 @@
     <message>
         <source>Enter password</source>
         <translation>Passwort eingeben</translation>
+    </message>
+    <message>
+        <source>Login</source>
+        <translation>Anmelden</translation>
+    </message>
+    <message>
+        <source>Cloud Login</source>
+        <translation>Cloud Anmeldung</translation>
     </message>
 </context>
 <context>
@@ -237,6 +253,14 @@
         <source>Device offline or network error</source>
         <translation>Gerät offline oder Netzwerkfehler</translation>
     </message>
+    <message>
+        <source>No devices available</source>
+        <translation>Keine Geräte vorhanden</translation>
+    </message>
+    <message>
+        <source>Pull down to add a new device</source>
+        <translation>Nach unten ziehen um ein neues Gerät hinzuzufügen</translation>
+    </message>
 </context>
 <context>
     <name>DeviceSettingsPage</name>
@@ -295,6 +319,10 @@
     <message>
         <source>Restart Device</source>
         <translation>Gerät neustarten</translation>
+    </message>
+    <message>
+        <source>Enter username</source>
+        <translation>Benutzername eingeben</translation>
     </message>
 </context>
 <context>

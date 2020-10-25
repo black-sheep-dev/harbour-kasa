@@ -72,7 +72,7 @@ void ApiInterface::onConnected()
 {
     //qDebug() << "onConnected";
 
-    QTcpSocket *socket = qobject_cast<QTcpSocket *>(sender());
+    auto *socket = qobject_cast<QTcpSocket *>(sender());
 
     if (!socket)
         return;
@@ -91,7 +91,7 @@ void ApiInterface::onDisconnected()
 {
     //qDebug() << "onDisconnected";
 
-    QTcpSocket *socket = qobject_cast<QTcpSocket *>(sender());
+    auto *socket = qobject_cast<QTcpSocket *>(sender());
 
     if (!socket)
         return;
@@ -101,7 +101,7 @@ void ApiInterface::onDisconnected()
 
 void ApiInterface::onError(QAbstractSocket::SocketError error)
 {
-    QTcpSocket *socket = qobject_cast<QTcpSocket *>(sender());
+    auto *socket = qobject_cast<QTcpSocket *>(sender());
 
     if (!socket)
         return;
@@ -122,7 +122,7 @@ void ApiInterface::onError(QAbstractSocket::SocketError error)
 
 void ApiInterface::onReply()
 {
-    QTcpSocket *socket = qobject_cast<QTcpSocket *>(sender());
+    auto *socket = qobject_cast<QTcpSocket *>(sender());
 
     if (!socket)
         return;
@@ -141,7 +141,7 @@ void ApiInterface::onReply()
     socket->disconnectFromHost();
 
     // decrypt and parse
-    QJsonParseError parseError;
+    QJsonParseError parseError{};
 
     const QJsonObject response = QJsonDocument::fromJson(decrypt(raw), &parseError).object();
 
@@ -182,7 +182,7 @@ void ApiInterface::parseDatagram()
 void ApiInterface::startSending(const QString &hostname)
 {
     // connect to socket
-    QTcpSocket *socket = new QTcpSocket(this);
+    auto *socket = new QTcpSocket(this);
 
     connect(socket, &QTcpSocket::connected, this, &ApiInterface::onConnected);
     connect(socket, &QTcpSocket::disconnected, this, &ApiInterface::onDisconnected);

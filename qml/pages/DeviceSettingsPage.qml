@@ -39,6 +39,7 @@ Page {
         Column {
             id: column
             width: parent.width
+            spacing: Theme.paddingMedium
 
             PageHeader {
                 title: qsTr("Device Settings")
@@ -46,7 +47,10 @@ Page {
 
             TextField {
                 id: aliasField
-                width: parent.width
+
+                x: Theme.horizontalPageMargin
+                width: parent.width - 2*x
+
                 label: qsTr("Device Alias")
                 placeholderText: qsTr("Enter device alias");
                 text: device.name
@@ -59,6 +63,10 @@ Page {
 
             TextSwitch {
                 id: ledSwitch
+
+                x: Theme.horizontalPageMargin
+                width: parent.width - 2*x
+
                 checked: device.ledOn
 
                 text: qsTr("Turn LED on/off")
@@ -75,6 +83,10 @@ Page {
 
             TextSwitch {
                 id: cloudBindSwitch
+
+                x: Theme.horizontalPageMargin
+                width: parent.width - 2*x
+
                 checked: device.cloudRegistration
 
                 text: checked ? qsTr("Device registered in cloud") : qsTr("Device is not registered in cloud")
@@ -101,24 +113,19 @@ Page {
                 }
             }
 
-            Item {
-                height: Theme.paddingMedium
-                width: 1
-            }
-
-
             TextField {
                 id: cloudUsernameField
-                width: parent.width
+
+                x: Theme.horizontalPageMargin
+                width: parent.width - 2*x
 
                 readOnly: true
                 visible: cloudBindSwitch.checked
 
                 label: qsTr("Username")
+                placeholderText: qsTr("Enter username")
 
                 text: device.cloudUsername
-
-                inputMethodHints: Qt.ImhEmailCharactersOnly
             }
         }
     }
