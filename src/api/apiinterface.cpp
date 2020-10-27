@@ -101,6 +101,10 @@ void ApiInterface::onDisconnected()
 
 void ApiInterface::onError(QAbstractSocket::SocketError error)
 {
+#ifdef QT_NO_DEBUG
+    Q_UNUSED(error)
+#endif
+
     auto *socket = qobject_cast<QTcpSocket *>(sender());
 
     if (!socket)

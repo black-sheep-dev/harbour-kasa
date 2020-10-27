@@ -20,10 +20,12 @@ Page {
 
             Image {
                 id: logo
-                source: "/usr/share/icons/hicolor/512x512/apps/harbour-kasa.png"
+                source: "/usr/share/icons/hicolor/512x512/apps/" + Qt.application.name + ".png"
                 smooth: true
-                height: 512
-                width: 512
+                height: parent.width / 2
+                width: parent.width / 2
+                sourceSize.height: 512
+                sourceSize.width: 512
                 anchors.horizontalCenter: parent.horizontalCenter
                 opacity: 0.7
             }
@@ -86,12 +88,12 @@ Page {
                         wrapMode: Text.WrapAnywhere
                         font.pixelSize: Theme.fontSizeSmall
 
-                        text: "https://github.com/black-sheep-dev/harbour-kasa"
+                        text: "https://github.com/black-sheep-dev/" + Qt.application.name
                         color: parent.parent.pressed ? Theme.highlightColor : Theme.primaryColor
 
                     }
                 }
-                onClicked: Qt.openUrlExternally("https://github.com/black-sheep-dev/harbour-kasa")
+                onClicked: Qt.openUrlExternally("https://github.com/black-sheep-dev/"  + Qt.application.name)
             }
 
             SectionHeader{

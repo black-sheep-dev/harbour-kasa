@@ -327,9 +327,9 @@ void DeviceManager::onReplyAvailable(const QString &hostname,
     device->setAvailable(true);
 
     // check if device is in pending queue
-    if (topic == QStringLiteral("system")) {
+    if (topic == QLatin1String("system")) {
 
-        if (cmd == QStringLiteral("get_sysinfo")) {
+        if (cmd == QLatin1String("get_sysinfo")) {
 
             // check if hostname is a pending new device
             bool newDevice = m_pendingDevices.keys().contains(hostname);
@@ -356,9 +356,9 @@ void DeviceManager::onReplyAvailable(const QString &hostname,
 
             if (!features.isEmpty()) {
                 for (const QString &feature: features) {
-                    if (feature == QStringLiteral("TIM"))
+                    if (feature == QLatin1String("TIM"))
                         device->setFeatures(device->features() | Device::FeatureTimer);
-                    else if (feature == QStringLiteral("ENE"))
+                    else if (feature == QLatin1String("ENE"))
                         device->setFeatures(device->features() | Device::FeatureEnergy);
                 }
             }
@@ -376,23 +376,23 @@ void DeviceManager::onReplyAvailable(const QString &hostname,
             // get cloud info
             getCloudInfo(hostname);
 
-        } else if (cmd == QStringLiteral("set_relay_state")) {
+        } else if (cmd == QLatin1String("set_relay_state")) {
             device->setOn(!device->on());
 
-        } else if (cmd == QStringLiteral("set_led_off")) {
+        } else if (cmd == QLatin1String("set_led_off")) {
             device->setLedOn(!device->ledOn());
 
         }
 
-    } else if (topic == QStringLiteral("emeter")) {
+    } else if (topic == QLatin1String("emeter")) {
 
-        if (cmd == QStringLiteral("get_realtime")) {
+        if (cmd == QLatin1String("get_realtime")) {
             device->setCurrent(qreal(payload.value(QStringLiteral("current")).toDouble()));
             device->setPower(qreal(payload.value(QStringLiteral("power")).toDouble()));
             device->setTotalConsumption(qreal(payload.value(QStringLiteral("total")).toDouble()));
             device->setVoltage(qreal(payload.value(QStringLiteral("voltage")).toDouble()));
 
-        } else if (cmd == QStringLiteral("get_daystat")) {
+        } else if (cmd == QLatin1String("get_daystat")) {
             QStringList labels;
             QList<qreal> values;
 
@@ -416,7 +416,7 @@ void DeviceManager::onReplyAvailable(const QString &hostname,
 
             emit statisticDataAvailable(hostname, labels, values);
 
-        } else if (cmd == QStringLiteral("get_monthstat")) {
+        } else if (cmd == QLatin1String("get_monthstat")) {
             QStringList labels;
             QList<qreal> values;
 
@@ -442,29 +442,29 @@ void DeviceManager::onReplyAvailable(const QString &hostname,
         }
 
 
-    } else if (topic == QStringLiteral("cnCloud")) {
+    } else if (topic == QLatin1String("cnCloud")) {
 
-        if (cmd == QStringLiteral("get_info")) {
+        if (cmd == QLatin1String("get_info")) {
             device->setCloudRegistration(bool(payload.value(QStringLiteral("binded")).toInt()));
             device->setCloudServer(payload.value(QStringLiteral("server")).toString());
             device->setCloudUsername(payload.value(QStringLiteral("username")).toString());
 
-        } else if (cmd == QStringLiteral("bind")) {
+        } else if (cmd == QLatin1String("bind")) {
             if (payload.value(QStringLiteral("err_code")).toInt() != 0) {
                 device->setCloudUsername(QString());
                 device->setCloudRegistration(false);
             }
 
-        } else if (cmd == QStringLiteral("unbind")) {
+        } else if (cmd == QLatin1String("unbind")) {
             if (payload.value(QStringLiteral("err_code")).toInt() == 0) {
                 device->setCloudRegistration(false);
                 device->setCloudUsername(QString());
             }
         }
 
-    } else if (topic == QStringLiteral("time")) {
+    } else if (topic == QLatin1String("time")) {
 
-        if (cmd == QStringLiteral("get_time")) {
+        if (cmd == QLatin1String("get_time")) {
             const QDateTime datetime(QDate(payload.value(QStringLiteral("year")).toInt(),
                                            payload.value(QStringLiteral("month")).toInt(),
                                            payload.value(QStringLiteral("mday")).toInt()),
