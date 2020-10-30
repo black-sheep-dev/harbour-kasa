@@ -9,7 +9,7 @@ Name:       harbour-kasa
 # << macros
 
 Summary:    Kasa
-Version:    0.1.6
+Version:    0.1.7
 Release:    1
 Group:      Qt/Qt
 License:    LICENSE

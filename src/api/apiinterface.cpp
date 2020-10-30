@@ -70,8 +70,6 @@ void ApiInterface::sendRequest(const QString &hostname,
 
 void ApiInterface::onConnected()
 {
-    //qDebug() << "onConnected";
-
     auto *socket = qobject_cast<QTcpSocket *>(sender());
 
     if (!socket)
@@ -89,8 +87,6 @@ void ApiInterface::onConnected()
 
 void ApiInterface::onDisconnected()
 {
-    //qDebug() << "onDisconnected";
-
     auto *socket = qobject_cast<QTcpSocket *>(sender());
 
     if (!socket)
