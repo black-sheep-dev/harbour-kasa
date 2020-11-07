@@ -10,6 +10,8 @@ class DeviceManager : public QObject
 {
     Q_OBJECT
 
+    Q_PROPERTY(bool debug READ debug WRITE setDebug NOTIFY debugChanged)
+
 public:
     explicit DeviceManager(QObject *parent = nullptr);
     ~DeviceManager() override;
@@ -17,10 +19,16 @@ public:
     Q_INVOKABLE DeviceListModel *deviceListModel();
     Q_INVOKABLE void initialize();
 
+    // properties
+    bool debug() const;
+
 signals:
     Q_INVOKABLE void statisticDataAvailable(const QString &hostname,
                                             const QStringList &labels,
                                             const QList<qreal> &values);
+
+    // properties
+    void debugChanged(bool debug);
 
 public slots:
     // add and remove device
@@ -55,6 +63,9 @@ public slots:
                                            const QString &password);
     Q_INVOKABLE void unregisterDeviceFromCloud(const QString &hostname);
 
+    // properties
+    void setDebug(bool debug);
+
 private slots:
     void onConnectionError(const QString &hostname);
     void onReplyAvailable(const QString &hostname,
@@ -67,7 +78,10 @@ private:
     Device *deviceFromJson(const QJsonObject &object);
     QJsonObject deviceToJson(Device *device) const;
     void readDevices();
+    void readSettings();
     void writeDevices();
+    void writeSettings();
+
 
     ApiInterface *m_api;
     DeviceListModel *m_deviceListModel;

@@ -20,13 +20,19 @@ Page {
                 title: qsTr("Settings")
             }
 
-            TextField {
-                width: parent.width
-                label: qsTr("Update Interval in msecs")
-                inputMethodHints: Qt.ImhDigitsOnly
-                validator: IntValidator {bottom: 1000}
-                text: "1000"
+            TextSwitch {
+                id: debugSwitch
 
+                x : Theme.horizontalPageMargin
+                width: parent.width - 2*x
+
+                text: qsTr("Debug API Traffic")
+                description: qsTr("This option will log all traffic between devices and this app into Documents folder.")
+                             + "\n"
+                             + qsTr("The data will help to investigate errors or to improve this app.")
+
+                Component.onCompleted: checked = DeviceManager.debug
+                onCheckedChanged: DeviceManager.debug = checked
             }
         }
     }

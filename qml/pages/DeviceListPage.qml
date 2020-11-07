@@ -17,14 +17,14 @@ Page {
             }
 
             MenuItem {
+                text: qsTr("Settings")
+                onClicked: pageStack.push(Qt.resolvedUrl("SettingsPage.qml"))
+            }
+
+            MenuItem {
                 text: qsTr("Add Device")
                 onClicked: pageStack.push(Qt.resolvedUrl("../dialogs/AddDeviceDialog.qml"))
             }
-
-//            MenuItem {
-//                text: qsTr("Settings")
-//                onClicked: pageStack.push(Qt.resolvedUrl("SettingsPage.qml"))
-//            }
         }
 
         id: listView

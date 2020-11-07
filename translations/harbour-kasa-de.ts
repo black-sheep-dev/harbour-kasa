@@ -261,6 +261,10 @@
         <source>Pull down to add a new device</source>
         <translation>Nach unten ziehen um ein neues Gerät hinzuzufügen</translation>
     </message>
+    <message>
+        <source>Settings</source>
+        <translation>Einstellungen</translation>
+    </message>
 </context>
 <context>
     <name>DeviceSettingsPage</name>
@@ -347,8 +351,16 @@
         <translation>Einstellungen</translation>
     </message>
     <message>
-        <source>Update Interval in msecs</source>
-        <translation>Auktualisierungs Intervall in msec</translation>
+        <source>Debug API Traffic</source>
+        <translation>Debug API Verkehr</translation>
+    </message>
+    <message>
+        <source>This option will log all traffic between devices and this app into Documents folder.</source>
+        <translation>Diese Option loggt den gesamten Verkehr zwischen dem Gerät und dieser Anwendung in den Dokumenten Ordner.</translation>
+    </message>
+    <message>
+        <source>The data will help to investigate errors or to improve this app.</source>
+        <translation>Die Daten sollen dabei helfen, Fehler zu beheben oder die Anwendung zu verbessern.</translation>
     </message>
 </context>
 </TS>

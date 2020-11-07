@@ -12,13 +12,19 @@
 #include <QQueue>
 #include <QUdpSocket>
 
+
 class ApiInterface : public QObject
 {
     Q_OBJECT
 
+    Q_PROPERTY(bool debug READ debug WRITE setDebug NOTIFY debugChanged)
+
 public:
     explicit ApiInterface(QObject *parent = nullptr);
     ~ApiInterface() override;
+
+    // properties
+    bool debug() const;
 
 signals:
     void connectionError(const QString &hostname);
@@ -27,6 +33,8 @@ signals:
                         const QString &cmd,
                         const QJsonObject &payload = QJsonObject());
 
+    void debugChanged(bool debug);
+
 public slots:
     void searchDevices();
     void sendRequest(const QString &hostname, const QByteArray &payload);
@@ -34,6 +42,9 @@ public slots:
                      const QString &topic,
                      const QString &cmd,
                      const QJsonObject &payload = QJsonObject());
+
+    // properties
+    void setDebug(bool debug);
 
 private slots:
     void onConnected();
@@ -44,6 +55,7 @@ private slots:
     void parseDatagram();
 
 private:
+    void logData(const QString &hostname, const QJsonDocument &doc);
     void startSending(const QString &hostname);
 
     // encryption
@@ -54,6 +66,9 @@ private:
     QHash<QString, QQueue<QByteArray> *> m_queues;
 
     QUdpSocket *m_udpSocket;
+
+    // properties
+    bool m_debug;
 };
 
 #endif // APIINTERFACE_H

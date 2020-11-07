@@ -4,11 +4,16 @@
 #include <QDebug>
 #endif
 
+#include <QDateTime>
 #include <QDataStream>
+#include <QDir>
+#include <QFile>
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonParseError>
+#include <QStandardPaths>
 #include <QTcpSocket>
+#include <QTextStream>
 
 ApiInterface::ApiInterface(QObject *parent) :
     QObject(parent),
@@ -21,6 +26,11 @@ ApiInterface::ApiInterface(QObject *parent) :
 ApiInterface::~ApiInterface()
 {
     qDeleteAll(m_queues.values().begin(), m_queues.values().end());
+}
+
+bool ApiInterface::debug() const
+{
+    return m_debug;
 }
 
 void ApiInterface::searchDevices()
@@ -66,6 +76,15 @@ void ApiInterface::sendRequest(const QString &hostname,
     request.insert(topic, obj);
 
     sendRequest(hostname, QJsonDocument(request).toJson(QJsonDocument::Compact));
+}
+
+void ApiInterface::setDebug(bool debug)
+{
+    if (m_debug == debug)
+        return;
+
+    m_debug = debug;
+    emit debugChanged(m_debug);
 }
 
 void ApiInterface::onConnected()
@@ -143,13 +162,19 @@ void ApiInterface::onReply()
     // decrypt and parse
     QJsonParseError parseError{};
 
-    const QJsonObject response = QJsonDocument::fromJson(decrypt(raw), &parseError).object();
+    const QJsonDocument doc = QJsonDocument::fromJson(decrypt(raw), &parseError);
+    const QJsonObject response = doc.object();
 
     if (parseError.error > 0)
         return;
 
     if (response.isEmpty())
         return;
+
+    // log data
+    if (m_debug) {
+        logData(hostname, doc);
+    }
 
     // parse data
     const QString topic = response.keys().first();
@@ -177,6 +202,25 @@ void ApiInterface::parseDatagram()
         stream >> raw;
     }
 
+}
+
+void ApiInterface::logData(const QString &hostname, const QJsonDocument &doc)
+{
+    const QString path = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation) + "/" + APP_TARGET + "/";
+
+    // create folder
+    QDir().mkpath(path);
+
+    QFile file(path + hostname + QStringLiteral(".json"));
+
+    if (!file.open(QIODevice::WriteOnly | QIODevice::Text | QIODevice::Append))
+        return;
+
+    QTextStream out(&file);
+    out.setCodec("UTF-8");
+    out << QString(doc.toJson(QJsonDocument::Indented)) << ",";
+
+    file.close();
 }
 
 void ApiInterface::startSending(const QString &hostname)

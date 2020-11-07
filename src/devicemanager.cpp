@@ -5,6 +5,7 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QJsonParseError>
+#include <QSettings>
 #include <QStandardPaths>
 
 DeviceManager::DeviceManager(QObject *parent) :
@@ -14,12 +15,15 @@ DeviceManager::DeviceManager(QObject *parent) :
 {
     connect(m_api, &ApiInterface::replyAvailable, this, &DeviceManager::onReplyAvailable);
     connect(m_api, &ApiInterface::connectionError, this, &DeviceManager::onConnectionError);
+    connect(m_api, &ApiInterface::debugChanged, this, &DeviceManager::debugChanged);
 
+    readSettings();
     readDevices();
 }
 
 DeviceManager::~DeviceManager()
 {
+    writeSettings();
     writeDevices();
     qDeleteAll(m_pendingDevices.values().begin(), m_pendingDevices.values().end());
 }
@@ -32,6 +36,11 @@ DeviceListModel *DeviceManager::deviceListModel()
 void DeviceManager::initialize()
 {
 
+}
+
+bool DeviceManager::debug() const
+{
+    return m_api->debug();
 }
 
 void DeviceManager::addDevice(const QString &hostname)
@@ -288,6 +297,11 @@ void DeviceManager::unregisterDeviceFromCloud(const QString &hostname)
     m_api->sendRequest(hostname, "{\"cnCloud\":{\"unbind\":null}}");
 }
 
+void DeviceManager::setDebug(bool debug)
+{
+    m_api->setDebug(debug);
+}
+
 void DeviceManager::onConnectionError(const QString &hostname)
 {
     Device *device = m_deviceListModel->deviceByHostname(hostname);
@@ -503,7 +517,7 @@ QJsonObject DeviceManager::deviceToJson(Device *device) const
 
 void DeviceManager::readDevices()
 {
-    QFile file(QStandardPaths::writableLocation(QStandardPaths::ConfigLocation) + "/harbour-kasa/devices.json");
+    QFile file(QStandardPaths::writableLocation(QStandardPaths::ConfigLocation) + QStringLiteral("/harbour-kasa/devices.json"));
 
     if (!file.open(QIODevice::ReadOnly))
         return;
@@ -529,9 +543,18 @@ void DeviceManager::readDevices()
     file.close();
 }
 
+void DeviceManager::readSettings()
+{
+    QSettings settings;
+
+    settings.beginGroup(QStringLiteral("APP"));
+    m_api->setDebug(settings.value(QStringLiteral("debug"), false).toBool());
+    settings.endGroup();
+}
+
 void DeviceManager::writeDevices()
 {
-    QFile file(QStandardPaths::writableLocation(QStandardPaths::ConfigLocation) + "/harbour-kasa/devices.json");
+    QFile file(QStandardPaths::writableLocation(QStandardPaths::ConfigLocation) + QStringLiteral("/harbour-kasa/devices.json"));
 
     if (!file.open(QIODevice::WriteOnly))
         return;
@@ -545,4 +568,13 @@ void DeviceManager::writeDevices()
     file.write(QJsonDocument(devices).toJson(QJsonDocument::Indented));
 
     file.close();
+}
+
+void DeviceManager::writeSettings()
+{
+    QSettings settings;
+
+    settings.beginGroup(QStringLiteral("APP"));
+    settings.setValue(QStringLiteral("debug"), m_api->debug());
+    settings.endGroup();
 }

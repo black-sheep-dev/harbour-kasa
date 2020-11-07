@@ -261,6 +261,10 @@
         <source>Pull down to add a new device</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>DeviceSettingsPage</name>
@@ -347,7 +351,15 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Update Interval in msecs</source>
+        <source>Debug API Traffic</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This option will log all traffic between devices and this app into Documents folder.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The data will help to investigate errors or to improve this app.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
