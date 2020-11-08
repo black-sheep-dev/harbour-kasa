@@ -1,0 +1,28 @@
+{
+    "system": {
+        "get_sysinfo": {
+            "active_mode": "schedule",
+            "alias": "Fernseher",
+            "dev_name": "Wi-Fi Smart Plug With Energy Monitoring",
+            "deviceId": "8006AD1BC8DFF86248CF480AFF712E5C17AF3185",
+            "err_code": 0,
+            "feature": "TIM:ENE",
+            "fwId": "00000000000000000000000000000000",
+            "hwId": "45E29DA8382494D2E82688B52A0B2EB5",
+            "hw_ver": "1.0",
+            "icon_hash": "",
+            "latitude": 49.832371999999999,
+            "led_off": 1,
+            "longitude": 7.8512440000000003,
+            "mac": "50:C7:BF:0B:92:EA",
+            "model": "HS110(EU)",
+            "oemId": "3D341ECE302C0642C99E31CE2430544B",
+            "on_time": 0,
+            "relay_state": 0,
+            "rssi": -57,
+            "sw_ver": "1.2.5 Build 171213 Rel.101523",
+            "type": "IOT.SMARTPLUGSWITCH",
+            "updating": 0
+        }
+    }
+}

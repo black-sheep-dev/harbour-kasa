@@ -10,7 +10,7 @@
 #   - translation filenames have to be changed
 
 # VERSION
-VERSION = 0.1.8-1
+VERSION = 0.1.9-1
 DEFINES += APP_VERSION=\\\"$$VERSION\\\"
 
 # The name of your application
@@ -38,6 +38,7 @@ DISTFILES += qml/harbour-kasa.qml \
     qml/pages/DeviceListPage.qml \
     qml/pages/DeviceSettingsPage.qml \
     qml/pages/EnergyConsumptionChartPage.qml \
+    qml/pages/SendCommandPage.qml \
     qml/pages/SettingsPage.qml \
     rpm/harbour-kasa.changes \
     rpm/harbour-kasa.changes.run.in \

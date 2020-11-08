@@ -105,7 +105,7 @@ Page {
                         var dialog = pageStack.push(Qt.resolvedUrl("../dialogs/CloudLoginDialog.qml"))
 
                         dialog.accepted.connect(function () {
-                            DeviceManager.regisertDeviceOnCloud(device.hostname,
+                            DeviceManager.registerDeviceOnCloud(device.hostname,
                                                                 dialog.username,
                                                                 dialog.password)
                         })

@@ -265,6 +265,10 @@
         <source>Settings</source>
         <translation>Einstellungen</translation>
     </message>
+    <message>
+        <source>Send commands</source>
+        <translation>Sende Kommandos</translation>
+    </message>
 </context>
 <context>
     <name>DeviceSettingsPage</name>
@@ -342,6 +346,21 @@
     <message>
         <source>Year View</source>
         <translation>Jahresansicht</translation>
+    </message>
+</context>
+<context>
+    <name>SendCommandPage</name>
+    <message>
+        <source>Send command</source>
+        <translation>Sende Kommando</translation>
+    </message>
+    <message>
+        <source>Send</source>
+        <translation>Senden</translation>
+    </message>
+    <message>
+        <source>Clear</source>
+        <translation>Leeren</translation>
     </message>
 </context>
 <context>

@@ -45,8 +45,8 @@ Page {
             contentHeight: Theme.itemSizeExtraLarge
 
             Row {
-                width: parent.width - 2 * x
                 x: Theme.horizontalPageMargin
+                width: parent.width - 2 * x
                 height: parent.height
                 anchors.verticalCenter: parent.verticalCenter
 
@@ -127,6 +127,11 @@ Page {
                 MenuItem {
                     text: qsTr("Delete")
                     onClicked: delegate.remorseDelete(function() {DeviceManager.removeDevice(model.hostname)})
+                }
+                MenuItem {
+                    visible: DeviceManager.debug
+                    text: qsTr("Send commands")
+                    onClicked: pageStack.push(Qt.resolvedUrl("SendCommandPage.qml"), {hostname: hostname})
                 }
             }
 

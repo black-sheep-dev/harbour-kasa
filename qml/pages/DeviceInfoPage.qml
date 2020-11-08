@@ -36,7 +36,7 @@ Page {
         Column {
             id: column
             width:parent.width
-            spacing: Theme.paddingMedium
+            spacing: Theme.paddingSmall
 
             PageHeader {
                 title: qsTr("Device Info")
@@ -129,6 +129,11 @@ Page {
                 label: qsTr("Total")
                 value: Number(device.totalConsumption).toLocaleString(Qt.locale()) + " kWh"
                 visible: device.features & Device.FeatureEnergy
+            }
+
+            Item {
+                width: 1
+                height: Theme.paddingSmall
             }
         }
     }

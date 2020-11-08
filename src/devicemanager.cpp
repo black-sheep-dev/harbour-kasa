@@ -1,5 +1,10 @@
 #include "devicemanager.h"
 
+#ifdef QT_DEBUG
+#include <QDebug>
+#endif
+
+#include <QDir>
 #include <QFile>
 #include <QJsonArray>
 #include <QJsonDocument>
@@ -16,6 +21,9 @@ DeviceManager::DeviceManager(QObject *parent) :
     connect(m_api, &ApiInterface::replyAvailable, this, &DeviceManager::onReplyAvailable);
     connect(m_api, &ApiInterface::connectionError, this, &DeviceManager::onConnectionError);
     connect(m_api, &ApiInterface::debugChanged, this, &DeviceManager::debugChanged);
+
+    // create config path
+    QDir().mkpath(QStandardPaths::writableLocation(QStandardPaths::ConfigLocation) + "/" + APP_TARGET);
 
     readSettings();
     readDevices();
@@ -268,7 +276,7 @@ void DeviceManager::toggleOn(const QString &hostname)
                        payload);
 }
 
-void DeviceManager::regisertDeviceOnCloud(const QString &hostname,
+void DeviceManager::registerDeviceOnCloud(const QString &hostname,
                                           const QString &username,
                                           const QString &password)
 {
@@ -290,6 +298,15 @@ void DeviceManager::regisertDeviceOnCloud(const QString &hostname,
                        QStringLiteral("cnCloud"),
                        QStringLiteral("bind"),
                        payload);
+}
+
+void DeviceManager::sendCmd(const QString &hostname, const QString &cmd)
+{
+#ifdef QT_DEBUG
+    qDebug() << QStringLiteral("Send command");
+#endif
+
+    m_api->sendRequest(hostname, cmd.toLatin1());
 }
 
 void DeviceManager::unregisterDeviceFromCloud(const QString &hostname)
@@ -348,22 +365,38 @@ void DeviceManager::onReplyAvailable(const QString &hostname,
             // check if hostname is a pending new device
             bool newDevice = m_pendingDevices.keys().contains(hostname);
 
+            // device model depened data
+            const QString model = payload.value(QStringLiteral("model")).toString();
+            device->setDeviceModel(model);
+
+            if (model.startsWith(QLatin1String("KL110"))) {
+                device->setDeviceName(payload.value(QStringLiteral("description")).toString());
+                device->setMacAddress(payload.value(QStringLiteral("mic_mac")).toString());
+                device->setDeviceType(payload.value(QStringLiteral("mic_type")).toString());
+
+                // states
+                const QJsonObject lightState = payload.value(QStringLiteral("light_state")).toObject();
+                device->setOn(bool(lightState.value(QStringLiteral("on_off")).toBool()));
+            } else {
+                device->setDeviceName(payload.value(QStringLiteral("dev_name")).toString());
+                device->setDeviceType(payload.value(QStringLiteral("type")).toString());
+                device->setMacAddress(payload.value(QStringLiteral("mac")).toString());
+
+                device->setOn(bool(payload.value(QStringLiteral("relay_state")).toInt()));
+            }
+
             // set data
             device->setDeviceID(payload.value(QStringLiteral("deviceId")).toString());
-            device->setDeviceModel(payload.value(QStringLiteral("model")).toString());
-            device->setDeviceName(payload.value(QStringLiteral("dev_name")).toString());
-            device->setDeviceType(payload.value(QStringLiteral("type")).toString());
+
             device->setFirmwareVersion(payload.value(QStringLiteral("sw_ver")).toString());
             device->setHardwareVersion(payload.value(QStringLiteral("hw_ver")).toString());
-            device->setHostname(hostname);
-            device->setMacAddress(payload.value(QStringLiteral("mac")).toString());
+            device->setHostname(hostname); 
             device->setName(payload.value(QStringLiteral("alias")).toString());
             device->setOnTime(payload.value(QStringLiteral("on_time")).toInt());
             device->setRssi(payload.value(QStringLiteral("rssi")).toInt());
 
             // states
             device->setLedOn(!payload.value(QStringLiteral("led_off")).toBool());
-            device->setOn(bool(payload.value(QStringLiteral("relay_state")).toInt()));
 
             // set device features
             const QStringList features = payload.value(QStringLiteral("feature")).toString().split(":");

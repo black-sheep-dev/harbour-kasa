@@ -211,7 +211,7 @@ void ApiInterface::logData(const QString &hostname, const QJsonDocument &doc)
     // create folder
     QDir().mkpath(path);
 
-    QFile file(path + hostname + QStringLiteral(".json"));
+    QFile file(path + hostname + QStringLiteral(".txt"));
 
     if (!file.open(QIODevice::WriteOnly | QIODevice::Text | QIODevice::Append))
         return;

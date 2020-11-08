@@ -1,3 +1,7 @@
+* Sun Nov 08 2020 Black Sheep <blacksheep@nubecula.org> 0.1.1-1
+- Add function to send custom commands to device for testing (available in device list context menu when debugging is on)
+- Preperations to support KL110 light bulb
+
 * Sat Nov 07 2020 Black Sheep <blacksheep@nubecula.org> 0.1.8-1
 - Adding a debug option in settings for development purpose
 - Code improvements

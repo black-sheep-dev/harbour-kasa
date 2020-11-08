@@ -58,9 +58,10 @@ public slots:
     Q_INVOKABLE void setDeviceMacAddress(const QString &hostname, const QString &mac);
     Q_INVOKABLE void toggleLED(const QString &hostname);
     Q_INVOKABLE void toggleOn(const QString &hostname);
-    Q_INVOKABLE void regisertDeviceOnCloud(const QString &hostname,
+    Q_INVOKABLE void registerDeviceOnCloud(const QString &hostname,
                                            const QString &username,
                                            const QString &password);
+    Q_INVOKABLE void sendCmd(const QString &hostname, const QString &cmd);
     Q_INVOKABLE void unregisterDeviceFromCloud(const QString &hostname);
 
     // properties
