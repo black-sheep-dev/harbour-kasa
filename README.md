@@ -4,10 +4,32 @@ Kasa is a native Sailfish OS application to control TP-Link Kasa smarthome devic
 
 >![](icons/128x128/harbour-kasa.png)
 
-### Supported devices:
+### Supported Devices:
 
 - HS100
 - HS110
+
+### Supported Features
+
+- Add device by IP/Hostname
+- Turn on/off
+- Turn LED on/off
+- Show device info and energy consumtion (HS110 only)
+- Restart the device
+- Change cloud url to prevent the device from calling home
+- Change MAC address
+- Change device alias
+- Cloud registration active / inactive
+- Energy consumption chart for actual month / year (HS110 only) (WIP)
+
+### Planned Features
+
+- Autodetect of devices in the network
+- Charts for energy consumption (use device internal data / HS110 only)
+- Reset device
+- Setup device (factory new /reset)
+- Schedule support
+- Change WiFi settings
 
 ## Development Support
 
@@ -20,7 +42,11 @@ You need to add the device via IP address first.
 Before sending the command in the app, it is a good idea to delete old debugging logs first.
 After sending the commands, send me the files in "Documents/harbour-kasa".
   
+## Special Thanks
 
+- To the guys from https://www.softscheck.com for the reverse engineering of the device
+- To milosolutions for the QML Chart.js wrapper
+- To the guys behind Chart.js
 
 ## Donations
 
