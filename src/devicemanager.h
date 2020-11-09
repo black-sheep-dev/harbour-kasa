@@ -53,6 +53,7 @@ public slots:
     Q_INVOKABLE void restart(const QString &hostname);
     Q_INVOKABLE void reset(const QString &hostname);
     Q_INVOKABLE void resetEnergyStat(const QString &hostname);
+    Q_INVOKABLE void setBrightness(const QString &hostname, quint8 brightness);
     Q_INVOKABLE void setCloudServer(const QString &hostname, const QString &url);
     Q_INVOKABLE void setDeviceAlias(const QString &hostname, const QString &alias);
     Q_INVOKABLE void setDeviceMacAddress(const QString &hostname, const QString &mac);

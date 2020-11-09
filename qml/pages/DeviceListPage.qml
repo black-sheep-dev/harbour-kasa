@@ -60,10 +60,16 @@ Page {
                     opacity: available ? 1.0 : 0.3
 
                     source: {
-                        if (device_type.length === 0) {
+                        switch (device_type) {
+                        case Device.HS100:
+                        case Device.HS110:
                             return "qrc:///icons/IOT.SMARTPLUGSWITCH"
-                        } else {
-                            return "qrc:///icons/" + device_type
+
+                        case Device.KL110:
+                            return "qrc:///icons/IOT.SMARTBULB"
+
+                        default:
+                            return "qrc:///icons/IOT.SMARTPLUGSWITCH"
                         }
                     }
                 }

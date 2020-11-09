@@ -11,11 +11,13 @@ class DeviceListModel : public QAbstractListModel
 public:
     enum DeviceRoles {
         AvailableRole           = Qt::UserRole + 1,
+        BrightnessRole,
         CurrentRole,
         DeviceIDRole,
         DeviceModelRole,
         DeviceNameRole,
         DeviceTypeRole,
+        DeviceTypeNameRole,
         FeaturesRole,
         FirmwareVersionRole,
         HardwareVersionRole,

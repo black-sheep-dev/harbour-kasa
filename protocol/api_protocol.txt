@@ -54,6 +54,10 @@
 [ ] {"schedule":{"get_next_action":{}}}
 [ ] {"schedule":{"get_rules":{}}}
 
+### LIGHT
+[x] {"smartlife.iot.smartbulb.lightingservice":{"transition_light_state":{"on_off":0/1}}}
+[x] {"smartlife.iot.smartbulb.lightingservice":{"transition_light_state":{"brightness":0-100}}}
+
 ### ????
 [ ] {"smartlife.iot.dimmer":{"set_brightness":{"brightness": value}}}
 [ ] {"smartlife.iot.dimmer":{"get_dimmer_parameters":{}}}

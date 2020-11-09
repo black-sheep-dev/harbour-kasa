@@ -105,7 +105,7 @@ QVariant DeviceListModel::data(const QModelIndex &index, int role) const
     if (!index.isValid())
         return QVariant();
 
-    Device *device = m_devices.at(index.row());
+    auto *device = m_devices.at(index.row());
 
     switch (role) {
     case Qt::DisplayRole:
@@ -113,6 +113,9 @@ QVariant DeviceListModel::data(const QModelIndex &index, int role) const
 
     case AvailableRole:
         return device->available();
+
+    case BrightnessRole:
+        return device->brightness();
 
     case CurrentRole:
         return device->current();
@@ -128,6 +131,9 @@ QVariant DeviceListModel::data(const QModelIndex &index, int role) const
 
     case DeviceTypeRole:
         return device->deviceType();
+
+    case DeviceTypeNameRole:
+        return device->deviceTypeName();
 
     case FeaturesRole:
         return device->features();
@@ -192,8 +198,11 @@ bool DeviceListModel::setData(const QModelIndex &index, const QVariant &value, i
         device->setLedOn(value.toBool());
         break;
 
+    case BrightnessRole:
+        device->setBrightness(quint8(value.toInt()));
+
     default:
-        break;
+        return false;
     }
 
     return true;
@@ -204,11 +213,13 @@ QHash<int, QByteArray> DeviceListModel::roleNames() const
     QHash<int, QByteArray> roles;
 
     roles[AvailableRole]        = "available";
+    roles[BrightnessRole]       = "brightness";
     roles[CurrentRole]          = "current";
     roles[DeviceIDRole]         = "device_id";
     roles[DeviceModelRole]      = "device_model";
     roles[DeviceNameRole]       = "device_name";
     roles[DeviceTypeRole]       = "device_type";
+    roles[DeviceTypeNameRole]   = "device_type_name";
     roles[FeaturesRole]         = "features";
     roles[FirmwareVersionRole]  = "fw_version";
     roles[HardwareVersionRole]  = "hw_version";

@@ -230,6 +230,14 @@
         <source>Energy Consumption</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Turn on/off</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Brightness</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>DeviceListPage</name>

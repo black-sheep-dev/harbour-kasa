@@ -1,20 +1,7 @@
 #include "device.h"
 
 Device::Device(QObject *parent) :
-    QObject(parent),
-    m_cloudServer(QStringLiteral("devs.tplinkcloud.com")),
-    m_cloudUsername(QString()),
-    m_deviceID(QString()),
-    m_deviceModel(QString()),
-    m_deviceName(QString()),
-    m_deviceType(QString()),
-    m_features(FeatureNone),
-    m_firmwareVersion(QString()),
-    m_hardwareVersion(QString()),
-    m_hostname(QString()),
-    m_macAddress(QString()),
-    m_name(QString()),
-    m_systemTime(QDateTime::currentDateTime())
+    QObject(parent)
 {
 
 }
@@ -22,6 +9,11 @@ Device::Device(QObject *parent) :
 bool Device::available() const
 {
     return m_available;
+}
+
+quint8 Device::brightness() const
+{
+    return m_brightness;
 }
 
 bool Device::cloudRegistration() const
@@ -59,12 +51,17 @@ QString Device::deviceName() const
     return m_deviceName;
 }
 
-QString Device::deviceType() const
+quint8 Device::deviceType() const
 {
     return m_deviceType;
 }
 
-int Device::features() const
+QString Device::deviceTypeName() const
+{
+    return m_deviceTypeName;
+}
+
+quint16 Device::features() const
 {
     return m_features;
 }
@@ -144,6 +141,16 @@ void Device::setAvailable(bool available)
     emit changed();
 }
 
+void Device::setBrightness(quint8 brightness)
+{
+    if (m_brightness == brightness)
+        return;
+
+    m_brightness = brightness;
+    emit brightnessChanged(m_brightness);
+    emit changed();
+}
+
 void Device::setCloudRegistration(bool cloudRegistration)
 {
     if (m_cloudRegistration == cloudRegistration)
@@ -207,16 +214,26 @@ void Device::setDeviceName(const QString &deviceName)
     emit deviceNameChanged(m_deviceName);
 }
 
-void Device::setDeviceType(const QString &deviceType)
+void Device::setDeviceType(quint8 type)
 {
-    if (m_deviceType == deviceType)
+    if (m_deviceType == type)
         return;
 
-    m_deviceType = deviceType;
+    m_deviceType = type;
     emit deviceTypeChanged(m_deviceType);
+    emit changed();
 }
 
-void Device::setFeatures(int features)
+void Device::setDeviceTypeName(const QString &name)
+{
+    if (m_deviceTypeName == name)
+        return;
+
+    m_deviceTypeName = name;
+    emit deviceTypeNameChanged(m_deviceTypeName);
+}
+
+void Device::setFeatures(quint16 features)
 {
     if (m_features == features)
         return;

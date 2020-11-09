@@ -230,6 +230,14 @@
         <source>Energy Consumption</source>
         <translation>Energieverbrauch</translation>
     </message>
+    <message>
+        <source>Turn on/off</source>
+        <translation>Schalte an/aus</translation>
+    </message>
+    <message>
+        <source>Brightness</source>
+        <translation>Helligkeit</translation>
+    </message>
 </context>
 <context>
     <name>DeviceListPage</name>

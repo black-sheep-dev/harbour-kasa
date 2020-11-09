@@ -10,6 +10,7 @@ class Device : public QObject
     Q_OBJECT
 
     Q_PROPERTY(bool available READ available WRITE setAvailable NOTIFY availableChanged)
+    Q_PROPERTY(quint8 brightness READ brightness WRITE setBrightness NOTIFY brightnessChanged)
     Q_PROPERTY(bool cloudRegistration READ cloudRegistration WRITE setCloudRegistration NOTIFY cloudRegistrationChanged)
     Q_PROPERTY(QString cloudServer READ cloudServer WRITE setCloudServer NOTIFY cloudServerChanged)
     Q_PROPERTY(QString cloudUsername READ cloudUsername WRITE setCloudUsername NOTIFY cloudUsernameChanged)
@@ -17,8 +18,9 @@ class Device : public QObject
     Q_PROPERTY(QString deviceID READ deviceID WRITE setDeviceID NOTIFY deviceIDChanged)
     Q_PROPERTY(QString deviceModel READ deviceModel WRITE setDeviceModel NOTIFY deviceModelChanged)
     Q_PROPERTY(QString deviceName READ deviceName WRITE setDeviceName NOTIFY deviceNameChanged)
-    Q_PROPERTY(QString deviceType READ deviceType WRITE setDeviceType NOTIFY deviceTypeChanged)
-    Q_PROPERTY(int features READ features WRITE setFeatures NOTIFY featuresChanged)
+    Q_PROPERTY(quint8 deviceType READ deviceType WRITE setDeviceType NOTIFY deviceTypeChanged)
+    Q_PROPERTY(QString deviceTypeName READ deviceTypeName WRITE setDeviceTypeName NOTIFY deviceTypeNameChanged)
+    Q_PROPERTY(quint16 features READ features WRITE setFeatures NOTIFY featuresChanged)
     Q_PROPERTY(QString firmwareVersion READ firmwareVersion WRITE setFirmwareVersion NOTIFY firmwareVersionChanged)
     Q_PROPERTY(QString hardwareVersion READ hardwareVersion WRITE setHardwareVersion NOTIFY hardwareVersionChanged)
     Q_PROPERTY(QString hostname READ hostname WRITE setHostname NOTIFY hostnameChanged)
@@ -43,9 +45,18 @@ public:
     Q_FLAG(DeviceFeatures)
     Q_ENUM(DeviceFeature)
 
+    enum DeviceType {
+        Unkown,
+        HS100,
+        HS110,
+        KL110
+    };
+    Q_ENUM(DeviceType)
+
     explicit Device(QObject *parent = nullptr);
 
     bool available() const;
+    quint8 brightness() const;
     bool cloudRegistration() const;
     QString cloudServer() const;
     QString cloudUsername() const;
@@ -53,8 +64,9 @@ public:
     QString deviceID() const;
     QString deviceModel() const;
     QString deviceName() const;
-    QString deviceType() const;
-    int features() const;
+    quint8 deviceType() const;
+    QString deviceTypeName() const;
+    quint16 features() const;
     QString firmwareVersion() const;
     QString hardwareVersion() const;
     QString hostname() const;
@@ -73,6 +85,7 @@ signals:
     void changed();
 
     void availableChanged(bool available);
+    void brightnessChanged(quint8 brightness);
     void cloudRegistrationChanged(bool cloudRegistration);
     void cloudServerChanged(const QString &cloudServer);
     void cloudUsernameChanged(const QString &cloudUsername);
@@ -80,8 +93,9 @@ signals:
     void deviceIDChanged(const QString &deviceID);
     void deviceModelChanged(const QString &deviceModel);
     void deviceNameChanged(const QString &deviceName);
-    void deviceTypeChanged(const QString &deviceType);
-    void featuresChanged(int features);
+    void deviceTypeChanged(quint8 type);
+    void deviceTypeNameChanged(const QString &name);
+    void featuresChanged(quint16 features);
     void firmwareVersionChanged(const QString &firmwareVersion);
     void hardwareVersionChanged(const QString &hardwareVersion);
     void hostnameChanged(const QString &hostname);
@@ -99,6 +113,7 @@ signals:
 
 public slots:
     void setAvailable(bool available);
+    void setBrightness(quint8 brightness);
     void setCloudRegistration(bool cloudRegistration);
     void setCloudServer(const QString &cloudServer);
     void setCloudUsername(const QString &cloudUsername);
@@ -106,8 +121,9 @@ public slots:
     void setDeviceID(const QString &deviceID);
     void setDeviceModel(const QString &deviceModel);
     void setDeviceName(const QString &deviceName);
-    void setDeviceType(const QString &deviceType);
-    void setFeatures(int features);
+    void setDeviceType(quint8 type);
+    void setDeviceTypeName(const QString &name);
+    void setFeatures(quint16 features);
     void setFirmwareVersion(const QString &firmwareVersion);
     void setHardwareVersion(const QString &hardwareVersion);
     void setHostname(const QString &hostname);
@@ -124,15 +140,17 @@ public slots:
 
 private:
     bool m_available{false};
+    quint8 m_brightness{0};
     bool m_cloudRegistration{false};
-    QString m_cloudServer;
+    QString m_cloudServer{QStringLiteral("devs.tplinkcloud.com")};
     QString m_cloudUsername;
     qreal m_current{0};
     QString m_deviceID;
     QString m_deviceModel;
     QString m_deviceName;
-    QString m_deviceType;
-    int m_features{0};
+    quint8 m_deviceType{DeviceType::Unkown};
+    QString m_deviceTypeName;
+    quint16 m_features{FeatureNone};
     QString m_firmwareVersion;
     QString m_hardwareVersion;
     QString m_hostname;
@@ -143,7 +161,7 @@ private:
     int m_onTime{0};
     qreal m_power{0.0};
     int m_rssi{0};
-    QDateTime m_systemTime;
+    QDateTime m_systemTime{QDateTime::currentDateTime()};
     qreal m_totalConsumption{0.0};
     qreal m_voltage{0.0};
 };

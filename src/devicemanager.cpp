@@ -181,6 +181,18 @@ void DeviceManager::resetEnergyStat(const QString &hostname)
     m_api->sendRequest(hostname, "{\"emeter\":{\"erase_emeter_stat\":{}}}");
 }
 
+void DeviceManager::setBrightness(const QString &hostname, quint8 brightness)
+{
+    QJsonObject payload;
+
+    payload.insert(QStringLiteral("brightness"), brightness);
+
+    m_api->sendRequest(hostname,
+                       QStringLiteral("smartlife.iot.smartbulb.lightingservice"),
+                       QStringLiteral("transition_light_state"),
+                       payload);
+}
+
 void DeviceManager::setCloudServer(const QString &hostname, const QString &url)
 {
     Device *device = m_deviceListModel->deviceByHostname(hostname);
@@ -268,12 +280,22 @@ void DeviceManager::toggleOn(const QString &hostname)
         return;
 
     QJsonObject payload;
-    payload.insert(QStringLiteral("state"), !device->on() ? 1 : 0);
 
-    m_api->sendRequest(hostname,
-                       QStringLiteral("system"),
-                       QStringLiteral("set_relay_state"),
-                       payload);
+    if (device->deviceType() == Device::KL110) {
+        payload.insert(QStringLiteral("on_off"), !device->on() ? 1 : 0);
+
+        m_api->sendRequest(hostname,
+                           QStringLiteral("smartlife.iot.smartbulb.lightingservice"),
+                           QStringLiteral("transition_light_state"),
+                           payload);
+    } else {
+        payload.insert(QStringLiteral("state"), !device->on() ? 1 : 0);
+
+        m_api->sendRequest(hostname,
+                           QStringLiteral("system"),
+                           QStringLiteral("set_relay_state"),
+                           payload);
+    }
 }
 
 void DeviceManager::registerDeviceOnCloud(const QString &hostname,
@@ -365,21 +387,37 @@ void DeviceManager::onReplyAvailable(const QString &hostname,
             // check if hostname is a pending new device
             bool newDevice = m_pendingDevices.keys().contains(hostname);
 
-            // device model depened data
+            // check device type
             const QString model = payload.value(QStringLiteral("model")).toString();
             device->setDeviceModel(model);
 
-            if (model.startsWith(QLatin1String("KL110"))) {
+            quint8 deviceType{Device::Unkown};
+
+            if (model.startsWith(QLatin1String("HS100")))
+                deviceType = Device::HS100;
+            else if (model.startsWith(QLatin1String("HS110")))
+                deviceType = Device::HS110;
+            else if (model.startsWith(QLatin1String("KL110")))
+                deviceType = Device::KL110;
+
+            device->setDeviceType(deviceType);
+
+            // device model dependend data
+            if (deviceType == Device::KL110) {
                 device->setDeviceName(payload.value(QStringLiteral("description")).toString());
                 device->setMacAddress(payload.value(QStringLiteral("mic_mac")).toString());
-                device->setDeviceType(payload.value(QStringLiteral("mic_type")).toString());
+                device->setDeviceTypeName(payload.value(QStringLiteral("mic_type")).toString());
 
                 // states
                 const QJsonObject lightState = payload.value(QStringLiteral("light_state")).toObject();
                 device->setOn(bool(lightState.value(QStringLiteral("on_off")).toBool()));
+
+                const QJsonObject dft = lightState.value(QStringLiteral("dft_on_state")).toObject();
+                device->setBrightness(quint8(dft.value(QStringLiteral("brightness")).toInt()));
+
             } else {
                 device->setDeviceName(payload.value(QStringLiteral("dev_name")).toString());
-                device->setDeviceType(payload.value(QStringLiteral("type")).toString());
+                device->setDeviceTypeName(payload.value(QStringLiteral("type")).toString());
                 device->setMacAddress(payload.value(QStringLiteral("mac")).toString());
 
                 device->setOn(bool(payload.value(QStringLiteral("relay_state")).toInt()));
@@ -532,6 +570,7 @@ Device *DeviceManager::deviceFromJson(const QJsonObject &object)
     auto *device = new Device(this);
     device->setHostname(object.value(QStringLiteral("hostname")).toString());
     device->setName(object.value(QStringLiteral("name")).toString());
+    device->setDeviceType(quint8(object.value(QStringLiteral("type")).toInt(Device::Unkown)));
 
     return device;
 }
@@ -544,6 +583,7 @@ QJsonObject DeviceManager::deviceToJson(Device *device) const
     QJsonObject obj;
     obj.insert(QStringLiteral("hostname"), device->hostname());
     obj.insert(QStringLiteral("name"), device->name());
+    obj.insert(QStringLiteral("type"), device->deviceType());
 
     return obj;
 }

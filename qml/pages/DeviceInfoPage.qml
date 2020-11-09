@@ -42,6 +42,38 @@ Page {
                 title: qsTr("Device Info")
             }
 
+            TextSwitch {
+                id: onSwitch
+                x: Theme.horizontalPageMargin
+                width: parent.width - 2*x
+                text: qsTr("Turn on/off")
+
+                Component.onCompleted: checked = Device.on
+                onCheckedChanged: {
+                    device.on = checked
+                    DeviceManager.toggleOn(device.hostname)
+                }
+            }
+
+            Slider {
+                //visible: Device.deviceType === Device.KL110
+
+                width: parent.width
+
+                minimumValue: 0
+                maximumValue: 100
+                stepSize: 1
+
+                label: qsTr("Brightness")
+                valueText: value + " %"
+
+                Component.onCompleted: value = device.brightness
+                onValueChanged: {
+                    device.brightness = value
+                    DeviceManager.setBrightness(device.hostname, value)
+                }
+            }
+
             SectionHeader {
                 text: qsTr("General")
                 font.pixelSize: Theme.fontSizeLarge
