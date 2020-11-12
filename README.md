@@ -8,7 +8,7 @@ Kasa is a native Sailfish OS application to control TP-Link Kasa smarthome devic
 
 - HS100
 - HS110
-- KL110
+- KL110 (thanks to 24mu13 for his help)
 
 ### Supported Features
 

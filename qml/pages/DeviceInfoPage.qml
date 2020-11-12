@@ -49,6 +49,7 @@ Page {
                 text: qsTr("Turn on/off")
 
                 Component.onCompleted: checked = Device.on
+
                 onCheckedChanged: {
                     device.on = checked
                     DeviceManager.toggleOn(device.hostname)
@@ -68,9 +69,14 @@ Page {
                 valueText: value + " %"
 
                 Component.onCompleted: value = device.brightness
-                onValueChanged: {
+
+                onPressedChanged: {
+                    if (pressed)
+                        return;
+
                     device.brightness = value
                     DeviceManager.setBrightness(device.hostname, value)
+
                 }
             }
 
