@@ -469,6 +469,13 @@ void DeviceManager::onReplyAvailable(const QString &hostname,
 
         }
 
+    } else if (topic == QLatin1String("smartlife.iot.smartbulb.lightingservice")) {
+
+        if (cmd == QLatin1String("transition_light_state")) {
+            device->setOn(!device->on());
+
+        }
+
     } else if (topic == QLatin1String("emeter")) {
 
         if (cmd == QLatin1String("get_realtime")) {
