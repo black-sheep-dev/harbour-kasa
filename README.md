@@ -50,7 +50,7 @@ After sending the commands, send me the files in "Documents/harbour-kasa".
   
 Your language is not available? You are welcome to support this project by translating it on my self hosted Weblate server:
 
-[https://weblate.nubecula.org/projects/harbour-kasa/](https://weblate.nubecula.org/projects/harbour-kasa/)
+[![https://weblate.nubecula.org/engage/harbour-kasa/](https://weblate.nubecula.org/widgets/harbour-kasa/-/multi-auto.svg)](https://weblate.nubecula.org/engage/harbour-kasa/)
   
 ## Special Thanks
 
