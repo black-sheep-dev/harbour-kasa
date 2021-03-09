@@ -28,7 +28,7 @@ Device *DeviceListModel::deviceAt(int index)
 
 Device *DeviceListModel::deviceByHostname(const QString &hostname)
 {
-    for (Device *device: m_devices) {
+    for (auto device : m_devices) {
         if (device->hostname() == hostname)
             return device;
     }
@@ -80,7 +80,7 @@ void DeviceListModel::setDevices(const QList<Device *> &devices)
 
 void DeviceListModel::updateDevice()
 {
-    auto *device = qobject_cast<Device *>(sender());
+    auto device = qobject_cast<Device *>(sender());
 
     if (!device)
         return;
@@ -187,7 +187,7 @@ bool DeviceListModel::setData(const QModelIndex &index, const QVariant &value, i
     if (!index.isValid())
         return false;
 
-    Device *device = m_devices.at(index.row());
+    auto device = m_devices.at(index.row());
 
     switch (role) {
     case OnRole:

@@ -19,13 +19,16 @@ ApiInterface::ApiInterface(QObject *parent) :
     QObject(parent),
     m_udpSocket(new QUdpSocket(this))
 {
-    connect(m_udpSocket, &QUdpSocket::readyRead, this, &ApiInterface::parseDatagram);
-    m_udpSocket->bind(QHostAddress::Broadcast, TPLINK_DEFAULT_PORT);
+//    connect(m_udpSocket, &QUdpSocket::readyRead, this, &ApiInterface::parseDatagram);
+//    m_udpSocket->bind(QHostAddress::Broadcast, TPLINK_DEFAULT_PORT);
+//    searchDevices();
 }
 
 ApiInterface::~ApiInterface()
 {
-    qDeleteAll(m_queues.values().begin(), m_queues.values().end());
+    const QList<QQueue<QByteArray> *> queues = m_queues.values();
+    m_queues.clear();
+    qDeleteAll(queues.begin(), queues.end());
 }
 
 bool ApiInterface::debug() const
@@ -39,9 +42,9 @@ void ApiInterface::searchDevices()
 
     QDataStream stream(&data, QIODevice::WriteOnly);
 
-    stream << QByteArray("{\"system\":{\"get_sysinfo\":{}}}");
+    stream << encrypt(R"({"system":{"get_sysinfo":None}})");
 
-    m_udpSocket->writeDatagram(encrypt(data), QHostAddress::Broadcast, TPLINK_DEFAULT_PORT);
+    m_udpSocket->writeDatagram(data, QHostAddress::Broadcast, TPLINK_DEFAULT_PORT);
 }
 
 void ApiInterface::sendRequest(const QString &hostname, const QByteArray &payload)
@@ -89,7 +92,7 @@ void ApiInterface::setDebug(bool debug)
 
 void ApiInterface::onConnected()
 {
-    auto *socket = qobject_cast<QTcpSocket *>(sender());
+    auto socket = qobject_cast<QTcpSocket *>(sender());
 
     if (!socket)
         return;
@@ -106,7 +109,7 @@ void ApiInterface::onConnected()
 
 void ApiInterface::onDisconnected()
 {
-    auto *socket = qobject_cast<QTcpSocket *>(sender());
+    auto socket = qobject_cast<QTcpSocket *>(sender());
 
     if (!socket)
         return;
@@ -120,7 +123,7 @@ void ApiInterface::onError(QAbstractSocket::SocketError error)
     Q_UNUSED(error)
 #endif
 
-    auto *socket = qobject_cast<QTcpSocket *>(sender());
+    auto socket = qobject_cast<QTcpSocket *>(sender());
 
     if (!socket)
         return;
@@ -141,7 +144,7 @@ void ApiInterface::onError(QAbstractSocket::SocketError error)
 
 void ApiInterface::onReply()
 {
-    auto *socket = qobject_cast<QTcpSocket *>(sender());
+    auto socket = qobject_cast<QTcpSocket *>(sender());
 
     if (!socket)
         return;
@@ -193,13 +196,21 @@ void ApiInterface::parseDatagram()
     QByteArray datagram;
 
     while (m_udpSocket->hasPendingDatagrams()) {
+        QHostAddress host;
+        quint16 port;
+
+
         datagram.resize(int(m_udpSocket->pendingDatagramSize()));
-        m_udpSocket->readDatagram(datagram.data(), datagram.size());
+        m_udpSocket->readDatagram(datagram.data(), datagram.size(), &host, &port);
 
         QDataStream stream(&datagram, QIODevice::ReadOnly);
 
         QByteArray raw;
         stream >> raw;
+
+//        qDebug() << host;
+//        qDebug() << port;
+//        qDebug() << decrypt(raw);
     }
 
 }
@@ -226,7 +237,7 @@ void ApiInterface::logData(const QString &hostname, const QJsonDocument &doc)
 void ApiInterface::startSending(const QString &hostname)
 {
     // connect to socket
-    auto *socket = new QTcpSocket(this);
+    auto socket = new QTcpSocket(this);
 
     connect(socket, &QTcpSocket::connected, this, &ApiInterface::onConnected);
     connect(socket, &QTcpSocket::disconnected, this, &ApiInterface::onDisconnected);
@@ -247,9 +258,9 @@ QByteArray ApiInterface::decrypt(const QByteArray &data)
 
     int key = TPLINK_CIPHER_START_KEY;
 
-    for (int idx = 0; idx < data.length(); ++idx) {
-        int a = key ^ static_cast<int>(data[idx]);
-        key = static_cast<int>(data[idx]);
+    for (char c : data) {
+        int a = key ^ static_cast<int>(c);
+        key = static_cast<int>(c);
         out.append(static_cast<char>(a));
     }
 
@@ -265,8 +276,8 @@ QByteArray ApiInterface::encrypt(const QByteArray &data)
 
     int key = TPLINK_CIPHER_START_KEY;
 
-    for (int idx = 0; idx < data.length(); ++idx) {
-        int a = key ^ static_cast<int>(data[idx]);
+    for (char c : data) {
+        int a = key ^ static_cast<int>(c);
         key = a;
         out.append(static_cast<char>(a));
     }

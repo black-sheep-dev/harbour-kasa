@@ -16,11 +16,27 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>If you like my work you can buy me a beer.</source>
+        <source>Kasa is an app to control TP-Links Kasa smarthome devices.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Kasa is an app to control TP-Links Kasa smarthome devices.</source>
+        <source>Translations</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Your language is not available? You are welcome to support this project by translating it on my self hosted Weblate server.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>If you like my work why not buy me a beer?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Donate with PayPal</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Donate with Liberpay</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

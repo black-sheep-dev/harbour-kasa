@@ -68,7 +68,7 @@ private:
     QUdpSocket *m_udpSocket;
 
     // properties
-    bool m_debug;
+    bool m_debug{false};
 };
 
 #endif // APIINTERFACE_H

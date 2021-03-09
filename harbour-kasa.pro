@@ -10,7 +10,7 @@
 #   - translation filenames have to be changed
 
 # VERSION
-VERSION = 0.1.10-1
+VERSION = 0.1.11-1
 DEFINES += APP_VERSION=\\\"$$VERSION\\\"
 
 # The name of your application
@@ -20,6 +20,7 @@ DEFINES += APP_TARGET=\\\"$$TARGET\\\"
 QT += network
 
 CONFIG += sailfishapp
+CONFIG += c++17
 
 SOURCES += src/harbour-kasa.cpp \
     src/api/apiinterface.cpp \
