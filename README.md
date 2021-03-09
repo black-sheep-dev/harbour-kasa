@@ -43,6 +43,15 @@ You need to add the device via IP address first.
 Before sending the command in the app, it is a good idea to delete old debugging logs first.
 After sending the commands, send me the files in "Documents/harbour-kasa".
   
+## Translations
+
+- English
+- German  
+  
+Your language is not available? You are welcome to support this project by translating it on my self hosted Weblate server:
+
+[https://weblate.nubecula.org/projects/harbour-kasa/](https://weblate.nubecula.org/projects/harbour-kasa/)
+  
 ## Special Thanks
 
 - To the guys from https://www.softscheck.com for the reverse engineering of the device
@@ -51,4 +60,8 @@ After sending the commands, send me the files in "Documents/harbour-kasa".
 
 ## Donations
 
-If you like my work, you can buy me a beer! [Buy](https://www.paypal.com/paypalme/nubecula/1)
+If you like my work, you can buy me a beer! 
+
+[PayPal](https://www.paypal.com/paypalme/nubecula/1)
+
+[Liberapay](https://liberapay.com/black-sheep-dev/donate)

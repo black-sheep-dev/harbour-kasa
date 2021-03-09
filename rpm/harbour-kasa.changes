@@ -1,3 +1,7 @@
+* Tue Mar 09 2021 Black Sheep <blacksheep@nubecula.org> 0.1.11-1
+- Code improvements
+- Add translation info
+
 * Thu Nov 12 2020 Black Sheep <blacksheep@nubecula.org> 0.1.10-1
 - Added support for KL110 dimmable light bulb (thanks to 24mu13 for his help)
 
