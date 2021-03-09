@@ -57,7 +57,7 @@ Page {
             }
 
             Slider {
-                //visible: Device.deviceType === Device.KL110
+                visible: Device.deviceType === Device.KL110
 
                 width: parent.width
 

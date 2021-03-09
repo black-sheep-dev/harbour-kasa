@@ -33,7 +33,9 @@ DeviceManager::~DeviceManager()
 {
     writeSettings();
     writeDevices();
-    qDeleteAll(m_pendingDevices.values().begin(), m_pendingDevices.values().end());
+    const QList<Device *> devices = m_pendingDevices.values();
+    m_pendingDevices.clear();
+    qDeleteAll(devices.begin(), devices.end());
 }
 
 DeviceListModel *DeviceManager::deviceListModel()
@@ -61,7 +63,7 @@ void DeviceManager::addDevice(const QString &hostname)
         return;
 
     // check if new hostname is available
-    Device *device = new Device();
+    auto device = new Device();
     device->setHostname(hostname);
 
     m_pendingDevices.insert(hostname, device);
@@ -73,7 +75,7 @@ void DeviceManager::removeDevice(const QString &hostname)
 {
     Device *found = nullptr;
 
-    for (Device *device: m_deviceListModel->devices()) {
+    for (auto device: m_deviceListModel->devices()) {
         if (device->hostname() == hostname) {
             found = device;
             break;
@@ -103,7 +105,7 @@ void DeviceManager::connectToWifiAP(const QString &hostname, const QString &ssid
 
 void DeviceManager::getCloudInfo(const QString &hostname)
 {
-    m_api->sendRequest(hostname, "{\"cnCloud\":{\"get_info\":{}}}");
+    m_api->sendRequest(hostname, R"({"cnCloud":{"get_info":{}}})");
 }
 
 void DeviceManager::getEnergyDayStat(const QString &hostname, int month, int year)
@@ -131,32 +133,32 @@ void DeviceManager::getEnergyMonthStat(const QString &hostname, int year)
 
 void DeviceManager::getEnergyInfo(const QString &hostname)
 {
-    m_api->sendRequest(hostname, "{\"emeter\":{\"get_realtime\":{}}}");
+    m_api->sendRequest(hostname, R"({"emeter":{"get_realtime":{}}})");
 }
 
 void DeviceManager::getSystemInfo(const QString &hostname)
 {
-    m_api->sendRequest(hostname, "{\"system\":{\"get_sysinfo\":{}}}");
+    m_api->sendRequest(hostname, R"({"system":{"get_sysinfo":{}}})");
 }
 
 void DeviceManager::getTime(const QString &hostname)
 {
-    m_api->sendRequest(hostname, "{\"time\":{\"get_time\":{}}}");
+    m_api->sendRequest(hostname, R"({"time":{"get_time":{}}})");
 }
 
 void DeviceManager::getTimezone(const QString &hostname)
 {
-    m_api->sendRequest(hostname, "{\"time\":{\"get_timezone\":{}}}");
+    m_api->sendRequest(hostname, R"({"time":{"get_timezone":{}}})");
 }
 
 void DeviceManager::getWifiAPs(const QString &hostname)
 {    
-    m_api->sendRequest(hostname, "{\"netif\":{\"get_scaninfo\":{\"refresh\":1}}}");
+    m_api->sendRequest(hostname, R"({"netif":{"get_scaninfo":{"refresh":1}}})");
 }
 
 void DeviceManager::refresh()
 {
-    for (Device *device: m_deviceListModel->devices()) {
+    for (const auto device: m_deviceListModel->devices()) {
         getSystemInfo(device->hostname());
     }
 }
@@ -168,17 +170,17 @@ void DeviceManager::refresh(const QString &hostname)
 
 void DeviceManager::restart(const QString &hostname)
 {
-    m_api->sendRequest(hostname, "{\"system\":{\"reboot\":{\"delay\":3}}}");
+    m_api->sendRequest(hostname, R"({"system":{"reboot":{"delay":3}}})");
 }
 
 void DeviceManager::reset(const QString &hostname)
 {
-    m_api->sendRequest(hostname, "{\"system\":{\"reset\":{\"delay\":3}}}");
+    m_api->sendRequest(hostname, R"({"system":{"reset":{"delay":3}}})");
 }
 
 void DeviceManager::resetEnergyStat(const QString &hostname)
 {
-    m_api->sendRequest(hostname, "{\"emeter\":{\"erase_emeter_stat\":{}}}");
+    m_api->sendRequest(hostname, R"({"emeter":{"erase_emeter_stat":{}}})");
 }
 
 void DeviceManager::setBrightness(const QString &hostname, quint8 brightness)
@@ -195,7 +197,7 @@ void DeviceManager::setBrightness(const QString &hostname, quint8 brightness)
 
 void DeviceManager::setCloudServer(const QString &hostname, const QString &url)
 {
-    Device *device = m_deviceListModel->deviceByHostname(hostname);
+    auto device = m_deviceListModel->deviceByHostname(hostname);
 
     if (!device)
         return;
@@ -216,7 +218,7 @@ void DeviceManager::setCloudServer(const QString &hostname, const QString &url)
 
 void DeviceManager::setDeviceAlias(const QString &hostname, const QString &alias)
 {
-    Device *device = m_deviceListModel->deviceByHostname(hostname);
+    auto device = m_deviceListModel->deviceByHostname(hostname);
 
     if (!device)
         return;
@@ -237,7 +239,7 @@ void DeviceManager::setDeviceAlias(const QString &hostname, const QString &alias
 
 void DeviceManager::setDeviceMacAddress(const QString &hostname, const QString &mac)
 {
-    Device *device = m_deviceListModel->deviceByHostname(hostname);
+    auto device = m_deviceListModel->deviceByHostname(hostname);
 
     if (!device)
         return;
@@ -258,7 +260,7 @@ void DeviceManager::setDeviceMacAddress(const QString &hostname, const QString &
 
 void DeviceManager::toggleLED(const QString &hostname)
 {
-    Device *device = m_deviceListModel->deviceByHostname(hostname);
+    auto device = m_deviceListModel->deviceByHostname(hostname);
 
     if (!device)
         return;
@@ -274,7 +276,7 @@ void DeviceManager::toggleLED(const QString &hostname)
 
 void DeviceManager::toggleOn(const QString &hostname)
 {
-    Device *device = m_deviceListModel->deviceByHostname(hostname);
+    auto device = m_deviceListModel->deviceByHostname(hostname);
 
     if (!device)
         return;
@@ -305,7 +307,7 @@ void DeviceManager::registerDeviceOnCloud(const QString &hostname,
     if (username.isEmpty() || password.isEmpty())
         return;
 
-    Device *device = m_deviceListModel->deviceByHostname(hostname);
+    auto device = m_deviceListModel->deviceByHostname(hostname);
 
     if (!device)
         return;
@@ -333,7 +335,7 @@ void DeviceManager::sendCmd(const QString &hostname, const QString &cmd)
 
 void DeviceManager::unregisterDeviceFromCloud(const QString &hostname)
 {
-    m_api->sendRequest(hostname, "{\"cnCloud\":{\"unbind\":null}}");
+    m_api->sendRequest(hostname, R"({"cnCloud":{"unbind":null}})");
 }
 
 void DeviceManager::setDebug(bool debug)
@@ -343,7 +345,7 @@ void DeviceManager::setDebug(bool debug)
 
 void DeviceManager::onConnectionError(const QString &hostname)
 {
-    Device *device = m_deviceListModel->deviceByHostname(hostname);
+    auto device = m_deviceListModel->deviceByHostname(hostname);
 
     if (!device)
         return;
@@ -368,7 +370,7 @@ void DeviceManager::onReplyAvailable(const QString &hostname,
     #endif
 
     // get device ... present ones / pending ones
-    Device *device = m_deviceListModel->deviceByHostname(hostname);
+    auto device = m_deviceListModel->deviceByHostname(hostname);
 
     if (!device)
         device = m_pendingDevices.value(hostname, nullptr);
@@ -440,7 +442,7 @@ void DeviceManager::onReplyAvailable(const QString &hostname,
             const QStringList features = payload.value(QStringLiteral("feature")).toString().split(":");
 
             if (!features.isEmpty()) {
-                for (const QString &feature: features) {
+                for (const auto &feature: features) {
                     if (feature == QLatin1String("TIM"))
                         device->setFeatures(device->features() | Device::FeatureTimer);
                     else if (feature == QLatin1String("ENE"))
@@ -488,7 +490,7 @@ void DeviceManager::onReplyAvailable(const QString &hostname,
             QStringList labels;
             QList<qreal> values;
 
-            for (const QJsonValue item: payload.value("day_list").toArray()) {
+            for (const auto &item: payload.value("day_list").toArray()) {
                 const QJsonObject obj = item.toObject();
 
                 const int day = obj.value(QStringLiteral("day")).toInt();
@@ -512,7 +514,7 @@ void DeviceManager::onReplyAvailable(const QString &hostname,
             QStringList labels;
             QList<qreal> values;
 
-            for (const QJsonValue item: payload.value("month_list").toArray()) {
+            for (const auto &item: payload.value("month_list").toArray()) {
                 const QJsonObject obj = item.toObject();
 
                 const int month = obj.value(QStringLiteral("month")).toInt();
@@ -574,7 +576,7 @@ Device *DeviceManager::deviceFromJson(const QJsonObject &object)
     if (object.isEmpty())
         return nullptr;
 
-    auto *device = new Device(this);
+    auto device = new Device(this);
     device->setHostname(object.value(QStringLiteral("hostname")).toString());
     device->setName(object.value(QStringLiteral("name")).toString());
     device->setDeviceType(quint8(object.value(QStringLiteral("type")).toInt(Device::Unkown)));
