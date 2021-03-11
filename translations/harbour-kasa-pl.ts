@@ -17,7 +17,7 @@
     </message>
     <message>
         <source>Kasa is an app to control TP-Links Kasa smarthome devices.</source>
-        <translation type="unfinished"></translation>
+        <translation>Kasa to aplikacja do sterowania urządzeniami TP-Links Kasa smarthome.</translation>
     </message>
     <message>
         <source>Translations</source>
@@ -44,199 +44,199 @@
     <name>AddDeviceDialog</name>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Dodaj</translation>
     </message>
     <message>
         <source>Add new device</source>
-        <translation type="unfinished"></translation>
+        <translation>Dodaj nowe urządzenie</translation>
     </message>
     <message>
         <source>Enter hostname</source>
-        <translation type="unfinished"></translation>
+        <translation>Wprowadź nazwę hosta</translation>
     </message>
     <message>
         <source>Hostname</source>
-        <translation type="unfinished"></translation>
+        <translation>Nazwa hosta</translation>
     </message>
 </context>
 <context>
     <name>CloudLoginDialog</name>
     <message>
         <source>Username</source>
-        <translation type="unfinished"></translation>
+        <translation>Nazwa użytkownika</translation>
     </message>
     <message>
         <source>Enter username</source>
-        <translation type="unfinished"></translation>
+        <translation>Wprowadź nazwę użytkownika</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation type="unfinished"></translation>
+        <translation>Hasło</translation>
     </message>
     <message>
         <source>Enter password</source>
-        <translation type="unfinished"></translation>
+        <translation>Wprowadź hasło</translation>
     </message>
     <message>
         <source>Login</source>
-        <translation type="unfinished"></translation>
+        <translation>Login</translation>
     </message>
     <message>
         <source>Cloud Login</source>
-        <translation type="unfinished"></translation>
+        <translation>Login chmurowy</translation>
     </message>
 </context>
 <context>
     <name>CoverPage</name>
     <message>
         <source>No devices available</source>
-        <translation type="unfinished"></translation>
+        <translation>Brak dostępnych urządzeń</translation>
     </message>
     <message>
         <source>Offline</source>
-        <translation type="unfinished"></translation>
+        <translation>Offline</translation>
     </message>
 </context>
 <context>
     <name>DeviceExpertSettingsPage</name>
     <message>
         <source>Save</source>
-        <translation type="unfinished"></translation>
+        <translation>Zapisz</translation>
     </message>
     <message>
         <source>Expert Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Ustawienia eksperta</translation>
     </message>
     <message>
         <source>Enable expert settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Włącz ustawienia eksperta</translation>
     </message>
     <message>
         <source>Only enable expert settings when you know what you are doing! You can brick your device! I have warned you!</source>
-        <translation type="unfinished"></translation>
+        <translation>Włączaj ustawienia eksperta tylko wtedy, gdy wiesz, co robisz! Możesz zepsuć swoje urządzenie! Ostrzegałem cię!</translation>
     </message>
     <message>
         <source>Hardware</source>
-        <translation type="unfinished"></translation>
+        <translation>Sprzęt</translation>
     </message>
     <message>
         <source>MAC address</source>
-        <translation type="unfinished"></translation>
+        <translation>Adres MAC</translation>
     </message>
     <message>
         <source>Enter MAC address</source>
-        <translation type="unfinished"></translation>
+        <translation>Wprowadź adres MAC</translation>
     </message>
     <message>
         <source>Cloud</source>
-        <translation type="unfinished"></translation>
+        <translation>Chmura</translation>
     </message>
     <message>
         <source>Cloud Server URL</source>
-        <translation type="unfinished"></translation>
+        <translation>URL serwera chmury</translation>
     </message>
     <message>
         <source>Enter Cloud Server URL</source>
-        <translation type="unfinished"></translation>
+        <translation>Wprowadź URL serwera chmury</translation>
     </message>
     <message>
         <source>Changing the cloud server url will prevent the device from sending data home (not yours). Hello privacy!</source>
-        <translation type="unfinished"></translation>
+        <translation>Zmiana adresu URL serwera chmury uniemożliwi urządzeniu wysyłanie danych do domu (nie Twojego). Witaj prywatności!</translation>
     </message>
     <message>
         <source>The default url is &apos;devs.tplinkcloud.com&apos;</source>
-        <translation type="unfinished"></translation>
+        <translation>Domyślny URL &apos;dev.tplinkcloud.com&apos;</translation>
     </message>
     <message>
         <source>Factory Reset</source>
-        <translation type="unfinished"></translation>
+        <translation>Przywrócenie ustawień fabrycznych</translation>
     </message>
     <message>
         <source>Starting factory reset</source>
-        <translation type="unfinished"></translation>
+        <translation>Uruchamianie przywracania ustawień fabrycznych</translation>
     </message>
     <message>
         <source>Reset energy statistic data</source>
-        <translation type="unfinished"></translation>
+        <translation>Reset danych statystycznych o energii</translation>
     </message>
     <message>
         <source>Starting statistic reset</source>
-        <translation type="unfinished"></translation>
+        <translation>Uruchamianie resetowania danych statystycznych</translation>
     </message>
 </context>
 <context>
     <name>DeviceInfoPage</name>
     <message>
         <source>Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Ustawienia</translation>
     </message>
     <message>
         <source>Voltage</source>
-        <translation type="unfinished"></translation>
+        <translation>Napięcie</translation>
     </message>
     <message>
         <source>Current</source>
-        <translation type="unfinished"></translation>
+        <translation>Natężenie</translation>
     </message>
     <message>
         <source>Power</source>
-        <translation type="unfinished"></translation>
+        <translation>Moc</translation>
     </message>
     <message>
         <source>Device Info</source>
-        <translation type="unfinished"></translation>
+        <translation>Informacje o urządzeniu</translation>
     </message>
     <message>
         <source>General</source>
-        <translation type="unfinished"></translation>
+        <translation>Ogólne</translation>
     </message>
     <message>
         <source>Network</source>
-        <translation type="unfinished"></translation>
+        <translation>Sieć</translation>
     </message>
     <message>
         <source>Hostname</source>
-        <translation type="unfinished"></translation>
+        <translation>Nazwa hosta</translation>
     </message>
     <message>
         <source>MAC</source>
-        <translation type="unfinished"></translation>
+        <translation>MAC</translation>
     </message>
     <message>
         <source>Energy</source>
-        <translation type="unfinished"></translation>
+        <translation>Energia</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Nazwa</translation>
     </message>
     <message>
         <source>Description</source>
-        <translation type="unfinished"></translation>
+        <translation>Opis</translation>
     </message>
     <message>
         <source>Total</source>
-        <translation type="unfinished"></translation>
+        <translation>Całkowity</translation>
     </message>
     <message>
         <source>Model</source>
-        <translation type="unfinished"></translation>
+        <translation>Model</translation>
     </message>
     <message>
         <source>Device ID</source>
-        <translation type="unfinished"></translation>
+        <translation>ID urządzenia</translation>
     </message>
     <message>
         <source>HW Version</source>
-        <translation type="unfinished"></translation>
+        <translation>Wersja HW</translation>
     </message>
     <message>
         <source>RSSI</source>
-        <translation type="unfinished"></translation>
+        <translation>RSSI</translation>
     </message>
     <message>
         <source>Firmware</source>
-        <translation type="unfinished"></translation>
+        <translation>Firmware</translation>
     </message>
     <message>
         <source>Refresh</source>
@@ -244,15 +244,15 @@
     </message>
     <message>
         <source>Energy Consumption</source>
-        <translation type="unfinished"></translation>
+        <translation>Zużycie energii</translation>
     </message>
     <message>
         <source>Turn on/off</source>
-        <translation type="unfinished"></translation>
+        <translation>Włącz/wyłącz</translation>
     </message>
     <message>
         <source>Brightness</source>
-        <translation type="unfinished"></translation>
+        <translation>Jasność</translation>
     </message>
 </context>
 <context>
@@ -263,147 +263,147 @@
     </message>
     <message>
         <source>Add Device</source>
-        <translation type="unfinished"></translation>
+        <translation>Dodaj urządzenie</translation>
     </message>
     <message>
         <source>Devices</source>
-        <translation type="unfinished"></translation>
+        <translation>Urządzenia</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Usuń</translation>
     </message>
     <message>
         <source>Device offline or network error</source>
-        <translation type="unfinished"></translation>
+        <translation>Urządzenie jest offline albo coś jest nie tak z siecią</translation>
     </message>
     <message>
         <source>No devices available</source>
-        <translation type="unfinished"></translation>
+        <translation>Brak dostępnych urządzeń</translation>
     </message>
     <message>
         <source>Pull down to add a new device</source>
-        <translation type="unfinished"></translation>
+        <translation>Przeciągnij w dół, aby dodać nowe urządzenie</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Ustawienia</translation>
     </message>
     <message>
         <source>Send commands</source>
-        <translation type="unfinished"></translation>
+        <translation>Wyślij polecenia</translation>
     </message>
 </context>
 <context>
     <name>DeviceSettingsPage</name>
     <message>
         <source>Device Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Ustawienia urządzenia</translation>
     </message>
     <message>
         <source>Hardware</source>
-        <translation type="unfinished"></translation>
+        <translation>Sprzęt</translation>
     </message>
     <message>
         <source>Turn LED on/off</source>
-        <translation type="unfinished"></translation>
+        <translation>Włącz/wyłącz LED</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"></translation>
+        <translation>Zapisz</translation>
     </message>
     <message>
         <source>Device Alias</source>
-        <translation type="unfinished"></translation>
+        <translation>Alias urządzenia</translation>
     </message>
     <message>
         <source>Cloud</source>
-        <translation type="unfinished"></translation>
+        <translation>Chmura</translation>
     </message>
     <message>
         <source>Device registered in cloud</source>
-        <translation type="unfinished"></translation>
+        <translation>Urządzenia zarejestrowane w chmurze</translation>
     </message>
     <message>
         <source>Device is not registered in cloud</source>
-        <translation type="unfinished"></translation>
+        <translation>Urządzenie nie jest zarejestrowane w chmurze</translation>
     </message>
     <message>
         <source>You can register or unregister the device from TP-Link cloud. For registration you need to provide username and password.</source>
-        <translation type="unfinished"></translation>
+        <translation>Możesz zarejestrować lub wyrejestrować urządzenie z chmury TP-Link. Aby się zarejestrować, musisz podać nazwę użytkownika i hasło.</translation>
     </message>
     <message>
         <source>Username</source>
-        <translation type="unfinished"></translation>
+        <translation>Nazwa użytkownika</translation>
     </message>
     <message>
         <source>Enter device alias</source>
-        <translation type="unfinished"></translation>
+        <translation>Wprowadź alias urządzenia</translation>
     </message>
     <message>
         <source>Expert Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Ustawienia eksperta</translation>
     </message>
     <message>
         <source>Leaving cloud</source>
-        <translation type="unfinished"></translation>
+        <translation>Opuszczanie chmury</translation>
     </message>
     <message>
         <source>Restart Device</source>
-        <translation type="unfinished"></translation>
+        <translation>Zrestartuj urządzenie</translation>
     </message>
     <message>
         <source>Enter username</source>
-        <translation type="unfinished"></translation>
+        <translation>Wprowadź nazwę użytkownika</translation>
     </message>
 </context>
 <context>
     <name>EnergyConsumptionChartPage</name>
     <message>
         <source>Energy Consumption</source>
-        <translation type="unfinished"></translation>
+        <translation>Zużycie energii</translation>
     </message>
     <message>
         <source>Month View</source>
-        <translation type="unfinished"></translation>
+        <translation>Widok miesiąca</translation>
     </message>
     <message>
         <source>Year View</source>
-        <translation type="unfinished"></translation>
+        <translation>Widok roku</translation>
     </message>
 </context>
 <context>
     <name>SendCommandPage</name>
     <message>
         <source>Send command</source>
-        <translation type="unfinished"></translation>
+        <translation>Wyślij polecenie</translation>
     </message>
     <message>
         <source>Send</source>
-        <translation type="unfinished"></translation>
+        <translation>Wyślij</translation>
     </message>
     <message>
         <source>Clear</source>
-        <translation type="unfinished"></translation>
+        <translation>Wyczyść</translation>
     </message>
 </context>
 <context>
     <name>SettingsPage</name>
     <message>
         <source>Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Ustawienia</translation>
     </message>
     <message>
         <source>Debug API Traffic</source>
-        <translation type="unfinished"></translation>
+        <translation>Debugguj ruch API</translation>
     </message>
     <message>
         <source>This option will log all traffic between devices and this app into Documents folder.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ta opcja będzie rejestrować cały ruch między urządzeniami a tą aplikacją w folderze Dokumenty.</translation>
     </message>
     <message>
         <source>The data will help to investigate errors or to improve this app.</source>
-        <translation type="unfinished"></translation>
+        <translation>Dane pomogą zbadać błędy lub ulepszyć tę aplikację.</translation>
     </message>
 </context>
 </TS>
