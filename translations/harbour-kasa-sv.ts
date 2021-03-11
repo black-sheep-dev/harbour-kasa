@@ -5,15 +5,15 @@
     <name>AboutPage</name>
     <message>
         <source>About</source>
-        <translation type="unfinished"></translation>
+        <translation>Om</translation>
     </message>
     <message>
         <source>Sources</source>
-        <translation type="unfinished"></translation>
+        <translation>Källor</translation>
     </message>
     <message>
         <source>Donations</source>
-        <translation type="unfinished"></translation>
+        <translation>Donationer</translation>
     </message>
     <message>
         <source>Kasa is an app to control TP-Links Kasa smarthome devices.</source>
@@ -29,7 +29,7 @@
     </message>
     <message>
         <source>If you like my work why not buy me a beer?</source>
-        <translation type="unfinished"></translation>
+        <translation>Om du gillar mitt arbete, kanske du bjuder på en öl?</translation>
     </message>
     <message>
         <source>Donate with PayPal</source>
@@ -168,7 +168,7 @@
     <name>DeviceInfoPage</name>
     <message>
         <source>Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Inställningar</translation>
     </message>
     <message>
         <source>Voltage</source>
@@ -240,7 +240,7 @@
     </message>
     <message>
         <source>Refresh</source>
-        <translation type="unfinished"></translation>
+        <translation>Uppdatera</translation>
     </message>
     <message>
         <source>Energy Consumption</source>
@@ -259,7 +259,7 @@
     <name>DeviceListPage</name>
     <message>
         <source>About</source>
-        <translation type="unfinished"></translation>
+        <translation>Om</translation>
     </message>
     <message>
         <source>Add Device</source>
@@ -287,7 +287,7 @@
     </message>
     <message>
         <source>Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Inställningar</translation>
     </message>
     <message>
         <source>Send commands</source>
@@ -391,7 +391,7 @@
     <name>SettingsPage</name>
     <message>
         <source>Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Inställningar</translation>
     </message>
     <message>
         <source>Debug API Traffic</source>
