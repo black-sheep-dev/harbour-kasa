@@ -5,7 +5,7 @@
     <name></name>
     <message id="id-no-device-available">
         <source>No devices available</source>
-        <translation type="unfinished"></translation>
+        <translation>Aucun appareil disponible</translation>
     </message>
     <message id="id-offline">
         <source>Offline</source>
@@ -13,7 +13,7 @@
     </message>
     <message id="id-add">
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Ajouter</translation>
     </message>
     <message id="id-add-new-device">
         <source>Add new device</source>
@@ -53,7 +53,7 @@
     </message>
     <message id="id-about">
         <source>About</source>
-        <translation type="unfinished"></translation>
+        <translation>À propos</translation>
     </message>
     <message id="id-about-text">
         <source>Kasa is an app to control TP-Links Kasa smarthome devices.</source>
@@ -61,31 +61,31 @@
     </message>
     <message id="id-translations">
         <source>Translations</source>
-        <translation type="unfinished"></translation>
+        <translation>Traductions</translation>
     </message>
     <message id="id-transltations-info">
         <source>Your language is not available? You are welcome to support this project by translating it on my self hosted Weblate server.</source>
-        <translation type="unfinished"></translation>
+        <translation>Votre langue n&apos;est pas disponible&#xa0;? Votre aide est la bienvenue pour traduire ce projet sur mon serveur Weblate dédié.</translation>
     </message>
     <message id="id-sources">
         <source>Sources</source>
-        <translation type="unfinished"></translation>
+        <translation>Sources</translation>
     </message>
     <message id="id-donations">
         <source>Donations</source>
-        <translation type="unfinished"></translation>
+        <translation>Dons</translation>
     </message>
     <message id="id-buy-beer">
         <source>If you like my work why not buy me a beer?</source>
-        <translation type="unfinished"></translation>
+        <translation>Si vous appréciez mon travail pourquoi ne pas m&apos;offrir une bière&#xa0;?</translation>
     </message>
     <message id="id-donate-paypal">
         <source>Donate with PayPal</source>
-        <translation type="unfinished"></translation>
+        <translation>Donner par PayPal</translation>
     </message>
     <message id="id-donate-liberpay">
         <source>Donate with Liberpay</source>
-        <translation type="unfinished"></translation>
+        <translation>Donner par Liberpay</translation>
     </message>
     <message id="id-factory-reset">
         <source>Factory Reset</source>
@@ -105,7 +105,7 @@
     </message>
     <message id="id-save">
         <source>Save</source>
-        <translation type="unfinished"></translation>
+        <translation>Enregistrer</translation>
     </message>
     <message id="id-expert-settings">
         <source>Expert Settings</source>
@@ -153,7 +153,7 @@
     </message>
     <message id="id-settings">
         <source>Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Paramètres</translation>
     </message>
     <message id="id-enery-consumtion">
         <source>Energy Consumption</source>
@@ -161,7 +161,7 @@
     </message>
     <message id="id-refresh">
         <source>Refresh</source>
-        <translation type="unfinished"></translation>
+        <translation>Rafraîchir</translation>
     </message>
     <message id="id-device-info">
         <source>Device Info</source>
@@ -181,7 +181,7 @@
     </message>
     <message id="id-name">
         <source>Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Nom</translation>
     </message>
     <message id="id-description">
         <source>Description</source>
@@ -249,7 +249,7 @@
     </message>
     <message id="id-delete">
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Supprimer</translation>
     </message>
     <message id="id-send-commands">
         <source>Send commands</source>
@@ -257,7 +257,7 @@
     </message>
     <message id="id-no-devices-available">
         <source>No devices available</source>
-        <translation type="unfinished"></translation>
+        <translation>Aucun fichier disponible</translation>
     </message>
     <message id="id-no-devices-hint">
         <source>Pull down to add a new device</source>
