@@ -13,7 +13,7 @@
     </message>
     <message id="id-add">
         <source>Add</source>
-        <translation type="unfinished">Hinzufügen</translation>
+        <translation>Hinzufügen</translation>
     </message>
     <message id="id-add-new-device">
         <source>Add new device</source>
@@ -21,11 +21,11 @@
     </message>
     <message id="id-enter-hostname">
         <source>Enter hostname</source>
-        <translation type="unfinished">Hostname eingeben</translation>
+        <translation>Hostname eingeben</translation>
     </message>
     <message id="id-hostname">
         <source>Hostname</source>
-        <translation type="unfinished">Hostname</translation>
+        <translation>Hostname</translation>
     </message>
     <message id="id-login">
         <source>Login</source>
@@ -37,23 +37,23 @@
     </message>
     <message id="id-username">
         <source>Username</source>
-        <translation type="unfinished">Benutzername</translation>
+        <translation>Benutzername</translation>
     </message>
     <message id="id-enter-username">
         <source>Enter username</source>
-        <translation type="unfinished">Benutzername eingeben</translation>
+        <translation>Benutzername eingeben</translation>
     </message>
     <message id="id-password">
         <source>Password</source>
-        <translation type="unfinished">Passwort</translation>
+        <translation>Passwort</translation>
     </message>
     <message id="id-enter-password">
         <source>Enter password</source>
-        <translation type="unfinished">Passwort eingeben</translation>
+        <translation>Passwort eingeben</translation>
     </message>
     <message id="id-about">
         <source>About</source>
-        <translation type="unfinished">Über</translation>
+        <translation>Über</translation>
     </message>
     <message id="id-about-text">
         <source>Kasa is an app to control TP-Links Kasa smarthome devices.</source>
@@ -65,7 +65,7 @@
     </message>
     <message id="id-transltations-info">
         <source>Your language is not available? You are welcome to support this project by translating it on my self hosted Weblate server.</source>
-        <translation type="unfinished">Deine Sprache ist nicht verfügbar? Du kannst das Projekt gerne unterstüzten, indem Du eine Übersetzung auf meinen selbst gehosteten Weblate Server machst.</translation>
+        <translation>Deine Sprache ist nicht verfügbar? Du kannst das Projekt gerne unterstützen, indem Du eine Übersetzung auf meinen selbst gehosteten Weblate Server machst.</translation>
     </message>
     <message id="id-sources">
         <source>Sources</source>
@@ -77,7 +77,7 @@
     </message>
     <message id="id-buy-beer">
         <source>If you like my work why not buy me a beer?</source>
-        <translation type="unfinished">Wenn Du meine Arbeit magst, warum gibtst du mir nicht einfach ein Bier aus?</translation>
+        <translation>Wenn Du meine Arbeit magst, warum gibst du mir nicht einfach ein Bier aus?</translation>
     </message>
     <message id="id-donate-paypal">
         <source>Donate with PayPal</source>
