@@ -13,7 +13,7 @@
     </message>
     <message id="id-add">
         <source>Add</source>
-        <translation type="unfinished">Dodaj</translation>
+        <translation>Dodaj</translation>
     </message>
     <message id="id-add-new-device">
         <source>Add new device</source>
@@ -21,11 +21,11 @@
     </message>
     <message id="id-enter-hostname">
         <source>Enter hostname</source>
-        <translation type="unfinished">Wprowadź nazwę hosta</translation>
+        <translation>Wprowadź nazwę hosta</translation>
     </message>
     <message id="id-hostname">
         <source>Hostname</source>
-        <translation type="unfinished">Nazwa hosta</translation>
+        <translation>Nazwa hosta</translation>
     </message>
     <message id="id-login">
         <source>Login</source>
@@ -37,23 +37,23 @@
     </message>
     <message id="id-username">
         <source>Username</source>
-        <translation type="unfinished">Nazwa użytkownika</translation>
+        <translation>Nazwa użytkownika</translation>
     </message>
     <message id="id-enter-username">
         <source>Enter username</source>
-        <translation type="unfinished">Wprowadź nazwę użytkownika</translation>
+        <translation>Wprowadź nazwę użytkownika</translation>
     </message>
     <message id="id-password">
         <source>Password</source>
-        <translation type="unfinished">Hasło</translation>
+        <translation>Hasło</translation>
     </message>
     <message id="id-enter-password">
         <source>Enter password</source>
-        <translation type="unfinished">Wprowadź hasło</translation>
+        <translation>Wprowadź hasło</translation>
     </message>
     <message id="id-about">
         <source>About</source>
-        <translation type="unfinished">O Kasa</translation>
+        <translation>O Kasa</translation>
     </message>
     <message id="id-about-text">
         <source>Kasa is an app to control TP-Links Kasa smarthome devices.</source>
@@ -61,31 +61,31 @@
     </message>
     <message id="id-translations">
         <source>Translations</source>
-        <translation type="unfinished">Tłumaczenia</translation>
+        <translation>Tłumaczenia</translation>
     </message>
     <message id="id-transltations-info">
         <source>Your language is not available? You are welcome to support this project by translating it on my self hosted Weblate server.</source>
-        <translation type="unfinished">Twój język nie jest dostępny? Możesz wesprzeć ten projekt, tłumacząc go na moim własnym serwerze Weblate.</translation>
+        <translation>Twój język nie jest dostępny? Możesz wesprzeć ten projekt, tłumacząc go na moim własnym serwerze Weblate.</translation>
     </message>
     <message id="id-sources">
         <source>Sources</source>
-        <translation type="unfinished">Źródła</translation>
+        <translation>Źródła</translation>
     </message>
     <message id="id-donations">
         <source>Donations</source>
-        <translation type="unfinished">Dotacje</translation>
+        <translation>Dotacje</translation>
     </message>
     <message id="id-buy-beer">
         <source>If you like my work why not buy me a beer?</source>
-        <translation type="unfinished">Jeśli podoba Ci się moja praca, dlaczego nie postawisz mi piwa?</translation>
+        <translation>Jeśli podoba Ci się moja praca, dlaczego nie postawisz mi piwa?</translation>
     </message>
     <message id="id-donate-paypal">
         <source>Donate with PayPal</source>
-        <translation type="unfinished">Wspomóż za pomocą PayPal</translation>
+        <translation>Wspomóż za pomocą PayPal</translation>
     </message>
     <message id="id-donate-liberpay">
         <source>Donate with Liberpay</source>
-        <translation type="unfinished">Wspomóż za pomocą Librepay</translation>
+        <translation>Wspomóż za pomocą Librepay</translation>
     </message>
     <message id="id-factory-reset">
         <source>Factory Reset</source>
@@ -105,7 +105,7 @@
     </message>
     <message id="id-save">
         <source>Save</source>
-        <translation type="unfinished">Zapisz</translation>
+        <translation>Zapisz</translation>
     </message>
     <message id="id-expert-settings">
         <source>Expert Settings</source>
@@ -153,7 +153,7 @@
     </message>
     <message id="id-settings">
         <source>Settings</source>
-        <translation type="unfinished">Ustawienia</translation>
+        <translation>Ustawienia</translation>
     </message>
     <message id="id-enery-consumtion">
         <source>Energy Consumption</source>
@@ -161,7 +161,7 @@
     </message>
     <message id="id-refresh">
         <source>Refresh</source>
-        <translation type="unfinished">Odśwież</translation>
+        <translation>Odśwież</translation>
     </message>
     <message id="id-device-info">
         <source>Device Info</source>
@@ -181,7 +181,7 @@
     </message>
     <message id="id-name">
         <source>Name</source>
-        <translation type="unfinished">Nazwa</translation>
+        <translation>Nazwa</translation>
     </message>
     <message id="id-description">
         <source>Description</source>
@@ -249,7 +249,7 @@
     </message>
     <message id="id-delete">
         <source>Delete</source>
-        <translation type="unfinished">Usuń</translation>
+        <translation>Usuń</translation>
     </message>
     <message id="id-send-commands">
         <source>Send commands</source>
@@ -257,7 +257,7 @@
     </message>
     <message id="id-no-devices-available">
         <source>No devices available</source>
-        <translation type="unfinished">Brak dostępnych urządzeń</translation>
+        <translation>Brak dostępnych urządzeń</translation>
     </message>
     <message id="id-no-devices-hint">
         <source>Pull down to add a new device</source>
