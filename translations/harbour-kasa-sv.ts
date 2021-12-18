@@ -53,7 +53,7 @@
     </message>
     <message id="id-about">
         <source>About</source>
-        <translation type="unfinished">Om</translation>
+        <translation>Om</translation>
     </message>
     <message id="id-about-text">
         <source>Kasa is an app to control TP-Links Kasa smarthome devices.</source>
@@ -69,15 +69,15 @@
     </message>
     <message id="id-sources">
         <source>Sources</source>
-        <translation type="unfinished">Källor</translation>
+        <translation>Källor</translation>
     </message>
     <message id="id-donations">
         <source>Donations</source>
-        <translation type="unfinished">Donationer</translation>
+        <translation>Donationer</translation>
     </message>
     <message id="id-buy-beer">
         <source>If you like my work why not buy me a beer?</source>
-        <translation type="unfinished">Om du gillar mitt arbete, kanske du bjuder på en öl?</translation>
+        <translation>Om du gillar mitt arbete, kanske du bjuder på en öl?</translation>
     </message>
     <message id="id-donate-paypal">
         <source>Donate with PayPal</source>
@@ -153,7 +153,7 @@
     </message>
     <message id="id-settings">
         <source>Settings</source>
-        <translation type="unfinished">Inställningar</translation>
+        <translation>Inställningar</translation>
     </message>
     <message id="id-enery-consumtion">
         <source>Energy Consumption</source>
@@ -161,7 +161,7 @@
     </message>
     <message id="id-refresh">
         <source>Refresh</source>
-        <translation type="unfinished">Uppdatera</translation>
+        <translation>Uppdatera</translation>
     </message>
     <message id="id-device-info">
         <source>Device Info</source>
