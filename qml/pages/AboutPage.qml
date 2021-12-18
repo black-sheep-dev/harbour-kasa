@@ -16,11 +16,12 @@ Page {
             spacing: Theme.paddingMedium
 
             PageHeader {
-                title: qsTr("About")
+                //% "About"
+                title: qsTrId("id-about")
             }
 
             Image {
-                source: "/usr/share/icons/hicolor/512x512/apps/" + Qt.application.name + ".png"
+                source: "/usr/share/icons/hicolor/512x512/apps/harbour-kasa.png"
                 smooth: true
                 height: parent.width / 2
                 width: parent.width / 2
@@ -56,11 +57,13 @@ Page {
                 wrapMode: Text.WordWrap
                 font.pixelSize: Theme.fontSizeSmall
 
-                text: qsTr("Kasa is an app to control TP-Links Kasa smarthome devices.")
+                //% "Kasa is an app to control TP-Links Kasa smarthome devices."
+                text: qsTrId("id-about-text")
             }
 
             SectionHeader{
-                text: qsTr("Translations")
+                //% "Translations"
+                text: qsTrId("id-translations")
             }
 
             Label {
@@ -69,7 +72,8 @@ Page {
                 wrapMode: Text.WordWrap
                 font.pixelSize: Theme.fontSizeSmall
 
-                text: qsTr("Your language is not available? You are welcome to support this project by translating it on my self hosted Weblate server.")
+                //% "Your language is not available? You are welcome to support this project by translating it on my self hosted Weblate server."
+                text: qsTrId("id-transltations-info")
             }
 
             BackgroundItem{
@@ -95,16 +99,17 @@ Page {
                         wrapMode: Text.WrapAnywhere
                         font.pixelSize: Theme.fontSizeSmall
 
-                        text: "https://weblate.nubecula.org/projects/" + Qt.application.name
+                        text: "https://weblate.nubecula.org/projects/harbour-kasa"
                         color: parent.parent.pressed ? Theme.highlightColor : Theme.primaryColor
 
                     }
                 }
-                onClicked: Qt.openUrlExternally("https://weblate.nubecula.org/projects/" + Qt.application.name)
+                onClicked: Qt.openUrlExternally("https://weblate.nubecula.org/engage/harbour-kasa")
             }
 
             SectionHeader{
-                text: qsTr("Sources")
+                //% "Sources"
+                text: qsTrId("id-sources")
             }
 
             BackgroundItem{
@@ -130,16 +135,17 @@ Page {
                         wrapMode: Text.WrapAnywhere
                         font.pixelSize: Theme.fontSizeSmall
 
-                        text: "https://github.com/black-sheep-dev/" + Qt.application.name
+                        text: "https://github.com/black-sheep-dev/harbour-kasa"
                         color: parent.parent.pressed ? Theme.highlightColor : Theme.primaryColor
 
                     }
                 }
-                onClicked: Qt.openUrlExternally("https://github.com/black-sheep-dev/" + Qt.application.name)
+                onClicked: Qt.openUrlExternally("https://github.com/black-sheep-dev/harbour-kasa")
             }
 
             SectionHeader{
-                text: qsTr("Donations")
+                //% "Donations"
+                text: qsTrId("id-donations")
             }
 
             Label {
@@ -148,7 +154,8 @@ Page {
 
                 wrapMode: Text.Wrap
                 font.pixelSize: Theme.fontSizeSmall
-                text: qsTr("If you like my work why not buy me a beer?")
+                //% "If you like my work why not buy me a beer?"
+                text: qsTrId("id-buy-beer")
             }
 
             BackgroundItem{
@@ -174,7 +181,8 @@ Page {
                         wrapMode: Text.WrapAnywhere
                         font.pixelSize: Theme.fontSizeSmall
                         color: parent.parent.pressed ? Theme.highlightColor : Theme.primaryColor
-                        text: qsTr("Donate with PayPal")
+                        //% "Donate with PayPal"
+                        text: qsTrId("id-donate-paypal")
                     }
                 }
                 onClicked: Qt.openUrlExternally("https://www.paypal.com/paypalme/nubecula/1")
@@ -204,7 +212,8 @@ Page {
                         wrapMode: Text.WrapAnywhere
                         font.pixelSize: Theme.fontSizeSmall
                         color: parent.parent.pressed ? Theme.highlightColor : Theme.primaryColor
-                        text: qsTr("Donate with Liberpay")
+                        //% "Donate with Liberpay"
+                        text: qsTrId("id-donate-liberpay")
                     }
                 }
                 onClicked: Qt.openUrlExternally("https://liberapay.com/black-sheep-dev/donate")

@@ -11,17 +11,20 @@ Page {
     SilicaListView {
         PullDownMenu {
             MenuItem {
-                text: qsTr("About")
+                //% "About"
+                text: qsTrId("id-about")
                 onClicked: pageStack.push(Qt.resolvedUrl("AboutPage.qml"))
             }
 
             MenuItem {
-                text: qsTr("Settings")
+                //% "Settings"
+                text: qsTrId("id-settings")
                 onClicked: pageStack.push(Qt.resolvedUrl("SettingsPage.qml"))
             }
 
             MenuItem {
-                text: qsTr("Add Device")
+                //% "Add Device"
+                text: qsTrId("id-add-device")
                 onClicked: pageStack.push(Qt.resolvedUrl("../dialogs/AddDeviceDialog.qml"))
             }
         }
@@ -29,7 +32,8 @@ Page {
         id: listView
 
         header: PageHeader {
-            title: qsTr("Devices")
+            //% "Devices"
+            title: qsTrId("id-devices")
         }
 
         anchors.fill: parent
@@ -97,7 +101,8 @@ Page {
                         font.pixelSize: Theme.fontSizeLarge
                     }
                     Label{
-                        text: available ? hostname : qsTr("Device offline or network error");
+                        //% "Device offline or network error"
+                        text: available ? hostname : qsTrId("id-device-offline-or-error");
                         color: Theme.secondaryColor
                         font.pixelSize: Theme.fontSizeMedium
 
@@ -130,12 +135,14 @@ Page {
 
             menu: ContextMenu {
                 MenuItem {
-                    text: qsTr("Delete")
+                    //% "Delete"
+                    text: qsTrId("id-delete")
                     onClicked: delegate.remorseDelete(function() {DeviceManager.removeDevice(model.hostname)})
                 }
                 MenuItem {
                     visible: DeviceManager.debug
-                    text: qsTr("Send commands")
+                    //% "Send commands"
+                    text: qsTrId("id-send-commands")
                     onClicked: pageStack.push(Qt.resolvedUrl("SendCommandPage.qml"), {hostname: hostname})
                 }
             }
@@ -148,8 +155,10 @@ Page {
 
         ViewPlaceholder {
             enabled: listView.count == 0
-            text: qsTr("No devices available")
-            hintText: qsTr("Pull down to add a new device")
+            //% "No devices available"
+            text: qsTrId("id-no-devices-available")
+            //% "Pull down to add a new device"
+            hintText: qsTrId("id-no-devices-hint")
         }
 
         VerticalScrollDecorator {}

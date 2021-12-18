@@ -17,20 +17,25 @@ Page {
 
         PullDownMenu {
             MenuItem {
-                text: qsTr("Factory Reset")
+                //% "Factory Reset"
+                text: qsTrId("id-factory-reset")
                 //enabled: expertSwitch.checked
                 enabled: false
-                onClicked: remorse.execute(qsTr("Starting factory reset"), function() {DeviceManager.reset(device.hostname)})
+                //% "Starting factory reset"
+                onClicked: remorse.execute(qsTrId("id-starting-factory-reset"), function() {DeviceManager.reset(device.hostname)})
             }
             MenuItem {
-                text: qsTr("Reset energy statistic data")
+                //% "Reset energy statistic data"
+                text: qsTrId("id-reset-energy-data")
                 enabled: expertSwitch.checked
-                onClicked: remorse.execute(qsTr("Starting statistic reset"), function() {DeviceManager.resetEnergyStat(device.hostname)})
+                //% "Starting statistic reset"
+                onClicked: remorse.execute(qsTrId("id-starting-statistic-reset"), function() {DeviceManager.resetEnergyStat(device.hostname)})
             }
             MenuItem {
                 enabled: cloudServerUrlField.acceptableInput && macAddressField.acceptableInput
 
-                text: qsTr("Save")
+                //% "Save"
+                text: qsTrId("id-save")
                 onClicked: {
                     DeviceManager.setCloudServer(device.hostname, cloudServerUrlField.text)
                     DeviceManager.setDeviceMacAddress(device.hostname, macAddressField.text)
@@ -46,7 +51,8 @@ Page {
             spacing: Theme.paddingMedium
 
             PageHeader {
-                title: qsTr("Expert Settings")
+                //% "Expert Settings"
+                title: qsTrId("id-expert-settings")
             }
 
             TextSwitch {
@@ -56,12 +62,15 @@ Page {
                 width: parent.width - 2*x
 
                 checked: false
-                text: qsTr("Enable expert settings")
-                description: qsTr("Only enable expert settings when you know what you are doing! You can brick your device! I have warned you!")
+                //% "Enable expert settings"
+                text: qsTrId("id-enable-expert-settings")
+                //% "Only enable expert settings when you know what you are doing! You can brick your device! I have warned you!"
+                description: qsTrId("id-enable-expert-settings-info")
             }
 
             SectionHeader {
-                text: qsTr("Hardware")
+                //% "Hardware"
+                text: qsTrId("id-hardware")
                 font.pixelSize: Theme.fontSizeMedium
                 visible: expertSwitch.checked
             }
@@ -75,8 +84,10 @@ Page {
                 readOnly: !expertSwitch.checked
                 visible: expertSwitch.checked
 
-                label: qsTr("MAC address")
-                placeholderText: qsTr("Enter MAC address")
+                //% "MAC address"
+                label: qsTrId("id-mac-address")
+                //% "Enter MAC address"
+                placeholderText: qsTrId("id-enter-mac-address")
                 text: device.macAddress
 
                 validator: RegExpValidator {
@@ -85,7 +96,8 @@ Page {
             }
 
             SectionHeader {
-                text: qsTr("Cloud")
+                //% "Cloud"
+                text: qsTrId("id-cloud")
                 font.pixelSize: Theme.fontSizeMedium
 
                 visible: expertSwitch.checked
@@ -100,8 +112,10 @@ Page {
                 readOnly: !expertSwitch.checked
                 visible: expertSwitch.checked
 
-                label: qsTr("Cloud Server URL")
-                placeholderText: qsTr("Enter Cloud Server URL")
+                //% "Cloud Server URL"
+                label: qsTrId("id-cloud-server-url")
+                //% "Enter Cloud Server URL"
+                placeholderText: qsTrId("id-enter-cloud-server-url")
                 text: device.cloudServer
 
                 inputMethodHints: Qt.ImhUrlCharactersOnly
@@ -119,7 +133,8 @@ Page {
                 wrapMode: Text.WordWrap
                 font.pixelSize: Theme.fontSizeExtraSmall
                 color: Theme.highlightColor
-                text: qsTr("Changing the cloud server url will prevent the device from sending data home (not yours). Hello privacy!")
+                //% "Changing the cloud server url will prevent the device from sending data home (not yours). Hello privacy!"
+                text: qsTrId("id-cloud-url-info")
             }
             Label {
                 x: Theme.horizontalPageMargin
@@ -130,7 +145,8 @@ Page {
                 wrapMode: Text.WordWrap
                 font.pixelSize: Theme.fontSizeExtraSmall
                 color: Theme.highlightColor
-                text: qsTr("The default url is 'devs.tplinkcloud.com'")
+                //% "The default url is 'devs.tplinkcloud.com'"
+                text: qsTrId("id-cloud-default-url-info")
             }
         }
     }

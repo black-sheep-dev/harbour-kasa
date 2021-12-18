@@ -197,7 +197,7 @@ void ApiInterface::parseDatagram()
 
     while (m_udpSocket->hasPendingDatagrams()) {
         QHostAddress host;
-        quint16 port;
+        quint16 port{0};
 
 
         datagram.resize(int(m_udpSocket->pendingDatagramSize()));

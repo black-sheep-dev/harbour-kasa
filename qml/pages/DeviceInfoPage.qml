@@ -18,17 +18,20 @@ Page {
 
         PullDownMenu {
             MenuItem {
-                text: qsTr("Settings")
+                //% "Settings"
+                text: qsTrId("id-settings")
                 onClicked: pageStack.push(Qt.resolvedUrl("DeviceSettingsPage.qml"), {device: device})
             }
             MenuItem {
-                text: qsTr("Energy Consumption")
+                //% "Energy Consumption"
+                text: qsTrId("id-enery-consumtion")
                 onClicked: pageStack.push(Qt.resolvedUrl("EnergyConsumptionChartPage.qml"), {device: device})
                 visible: device.features & Device.FeatureEnergy
             }
 
             MenuItem {
-                text: qsTr("Refresh")
+                //% "Refresh"
+                text: qsTrId("id-refresh")
                 onClicked: DeviceManager.refresh()
             }
         }
@@ -39,14 +42,16 @@ Page {
             spacing: Theme.paddingSmall
 
             PageHeader {
-                title: qsTr("Device Info")
+                //% "Device Info"
+                title: qsTrId("id-device-info")
             }
 
             TextSwitch {
                 id: onSwitch
                 x: Theme.horizontalPageMargin
                 width: parent.width - 2*x
-                text: qsTr("Turn on/off")
+                //% "Turn on/off"
+                text: qsTrId("id-turn-on-off")
 
                 Component.onCompleted: checked = Device.on
 
@@ -65,7 +70,8 @@ Page {
                 maximumValue: 100
                 stepSize: 1
 
-                label: qsTr("Brightness")
+                //% "Brightness"
+                label: qsTrId("id-brightness")
                 valueText: value + " %"
 
                 Component.onCompleted: value = device.brightness
@@ -81,90 +87,110 @@ Page {
             }
 
             SectionHeader {
-                text: qsTr("General")
+                //% "General"
+                text: qsTrId("id-general")
                 font.pixelSize: Theme.fontSizeLarge
             }
 
             DetailItem {
-                label: qsTr("Name")
+                //% "Name"
+                label: qsTrId("id-name")
                 value: device.name
             }
 
             DetailItem {
-                label: qsTr("Description")
+                //% "Description"
+                label: qsTrId("id-description")
                 value: device.deviceName
             }
 
             DetailItem {
-                label: qsTr("Model")
+                //% "Model"
+                label: qsTrId("id-model")
                 value: device.deviceModel
             }
 
             DetailItem {
-                label: qsTr("Device ID")
+                //% "Device ID"
+                label: qsTrId("id-device-id")
                 value: device.deviceID
             }
 
             DetailItem {
-                label: qsTr("HW Version")
+                //% "HW Version"
+                label: qsTrId("id-hw-version")
                 value: device.hardwareVersion
             }
 
             DetailItem {
-                label: qsTr("Firmware")
+                //% "Firmware"
+                label: qsTrId("id-firmware")
                 value: device.firmwareVersion
             }
 
             // ------------------------------------------------------------------------------------
 
             SectionHeader {
-                text: qsTr("Network")
+                //% "Network"
+                text: qsTrId("id-network")
                 font.pixelSize: Theme.fontSizeLarge
             }
 
             DetailItem {
-                label: qsTr("Hostname")
+                //% "Hostname"
+                label: qsTrId("id-hostname")
                 value: device.hostname
             }
 
             DetailItem {
-                label: qsTr("MAC")
+                //% "MAC"
+                label: qsTrId("id-mac")
                 value: device.macAddress
             }
 
             DetailItem {
-                label: qsTr("RSSI")
+                //% "RSSI"
+                label: qsTrId("id-rssi")
                 value: device.rssi + " dBm"
             }
 
             // ------------------------------------------------------------------------------------
 
             SectionHeader {
-                text: qsTr("Energy")
+                //: Electric energy
+                //% "Energy"
+                text: qsTrId("id-energy")
                 font.pixelSize: Theme.fontSizeLarge
                 visible: device.features & Device.FeatureEnergy
             }
 
             DetailItem {
-                label: qsTr("Current")
+                //: Electric current
+                //% "Current"
+                label: qsTrId("id-current")
                 value: Number(device.current).toLocaleString(Qt.locale()) + " A"
                 visible: device.features & Device.FeatureEnergy
             }
 
             DetailItem {
-                label: qsTr("Power")
+                //: Electric power
+                //% "Power"
+                label: qsTrId("id-power")
                 value: Number(device.power).toLocaleString(Qt.locale()) + " W"
                 visible: device.features & Device.FeatureEnergy
             }
 
             DetailItem {
-                label: qsTr("Voltage")
+                //: Electric voltage
+                //% "Voltage"
+                label: qsTrId("id-voltage")
                 value: Number(device.voltage).toLocaleString(Qt.locale()) + " V"
                 visible: device.features & Device.FeatureEnergy
             }
 
             DetailItem {
-                label: qsTr("Total")
+                //% "Total"
+                label: qsTrId("id-total")
                 value: Number(device.totalConsumption).toLocaleString(Qt.locale()) + " kWh"
                 visible: device.features & Device.FeatureEnergy
             }

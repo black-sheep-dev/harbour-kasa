@@ -23,14 +23,16 @@ CoverBackground {
         width: parent.width - 2 * Theme.horizontalPageMargin
         anchors.top: parent.top;
         anchors.topMargin: Theme.horizontalPageMargin
-        text: device ? device.name : qsTr("No devices available")
+        //% "No devices available"
+        text: device ? device.name : qsTrId("id-no-device-available")
         wrapMode: Label.WordWrap
     }
 
     Label {
         visible: if (device) !device.available
         anchors.centerIn: parent
-        text: qsTr("Offline")
+        //% "Offline"
+        text: qsTrId("id-offline")
     }
 
     CoverActionList {

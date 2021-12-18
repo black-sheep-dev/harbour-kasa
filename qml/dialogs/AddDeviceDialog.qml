@@ -13,15 +13,19 @@ Dialog {
         width: parent.width
 
         DialogHeader {
-            acceptText: qsTr("Add")
-            title: qsTr("Add new device")
+            //% "Add"
+            acceptText: qsTrId("id-add")
+            //% "Add new device"
+            title: qsTrId("id-add-new-device")
         }
 
         TextField {
             id: hostnameField
             width: parent.width
-            placeholderText: qsTr("Enter hostname")
-            label: qsTr("Hostname")
+            //% "Enter hostname"
+            placeholderText: qsTrId("id-enter-hostname")
+            //% "Hostname"
+            label: qsTrId("id-hostname")
 
             focus: true
             inputMethodHints: Qt.ImhUrlCharactersOnly

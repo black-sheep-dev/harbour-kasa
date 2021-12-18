@@ -6,19 +6,29 @@
 
 int main(int argc, char *argv[])
 {
-    QCoreApplication::setApplicationName(QStringLiteral("Kasa"));
-    QCoreApplication::setApplicationVersion(APP_VERSION);
-    QCoreApplication::setOrganizationName(QStringLiteral("nubecula.org"));
-    QCoreApplication::setOrganizationDomain(QStringLiteral("nubecula.org"));
+    QScopedPointer<QGuiApplication> app(SailfishApp::application(argc, argv));
+    QScopedPointer<QQuickView> v(SailfishApp::createView());
 
-    qmlRegisterType<Device>("org.nubecula.harbour.kasa", 1, 0, "Device");
-    qmlRegisterType<DeviceListModel>("org.nubecula.harbour.kasa", 1, 0, "DeviceListModel");
+    app->setApplicationVersion(APP_VERSION);
+    app->setApplicationName("Kasa");
+    app->setOrganizationDomain("org.nubecula");
+    app->setOrganizationName("org.nubecula");
 
-    qmlRegisterSingletonType<DeviceManager>("org.nubecula.harbour.kasa",
-                                               1,
-                                               0,
-                                               "DeviceManager",
-                                               [](QQmlEngine *engine, QJSEngine *scriptEngine) -> QObject * {
+#ifdef QT_DEBUG
+    #define uri "org.nubecula.harbour.kasa"
+#else
+    const auto uri = "org.nubecula.harbour.kasa";
+#endif
+
+
+    qmlRegisterType<Device>(uri, 1, 0, "Device");
+    qmlRegisterType<DeviceListModel>(uri, 1, 0, "DeviceListModel");
+
+    qmlRegisterSingletonType<DeviceManager>(uri,
+                                            1,
+                                            0,
+                                            "DeviceManager",
+                                            [](QQmlEngine *engine, QJSEngine *scriptEngine) -> QObject * {
 
         Q_UNUSED(engine)
         Q_UNUSED(scriptEngine)
@@ -28,5 +38,8 @@ int main(int argc, char *argv[])
         return manager;
     });
 
-    return SailfishApp::main(argc, argv);
+    v->setSource(SailfishApp::pathTo("qml/harbour-kasa.qml"));
+    v->show();
+
+    return app->exec();
 }

@@ -17,7 +17,8 @@ Page {
             width:parent.width
 
             PageHeader {
-                title: qsTr("Settings")
+                //% "Settings"
+                title: qsTrId("id-settings")
             }
 
             TextSwitch {
@@ -26,10 +27,13 @@ Page {
                 x : Theme.horizontalPageMargin
                 width: parent.width - 2*x
 
-                text: qsTr("Debug API Traffic")
-                description: qsTr("This option will log all traffic between devices and this app into Documents folder.")
+                //% "Debug API Traffic"
+                text: qsTrId("id-debug-api-traffic")
+                //% "This option will log all traffic between devices and this app into Documents folder."
+                description: qsTrId("id-debug-info-1")
                              + "\n"
-                             + qsTr("The data will help to investigate errors or to improve this app.")
+                            //% "The data will help to investigate errors or to improve this app."
+                             + qsTrId("id-debug-info-2")
 
                 Component.onCompleted: checked = DeviceManager.debug
                 onCheckedChanged: DeviceManager.debug = checked

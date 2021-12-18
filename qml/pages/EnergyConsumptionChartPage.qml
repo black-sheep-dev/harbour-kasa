@@ -17,7 +17,8 @@ Page {
     SilicaFlickable {
         PullDownMenu {
             MenuItem {
-                text: qsTr("Month View")
+                //% "Month View"
+                text: qsTrId("id-month-view")
                 onClicked: {
                     month = true;
                     DeviceManager.getEnergyDayStat(device.hostname)
@@ -25,7 +26,8 @@ Page {
             }
 
             MenuItem {
-                text: qsTr("Year View")
+                //% "Year View"
+                text: qsTrId("id-year-view")
                 onClicked: {
                     month = false;
                     DeviceManager.getEnergyMonthStat(device.hostname)
@@ -41,11 +43,16 @@ Page {
             width:parent.width
 
             PageHeader {
-                title: qsTr("Energy Consumption")
+                //% "Energy Consumption"
+                title: qsTrId("id-energy-consumption")
             }
 
             SectionHeader {
-                text: month ? qsTr("Month View") : qsTr("Year View")
+                text: month ?
+                          //% "Month View"
+                          qsTrId("id-month-view") :
+                          //% "Year View"
+                          qsTrId("id-year-view")
             }
 
             ChartWrapper {

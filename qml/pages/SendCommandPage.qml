@@ -20,7 +20,8 @@ Page {
             spacing: Theme.paddingSmall
 
             PageHeader {
-                title: qsTr("Send command")
+                //% "Send command"
+                title: qsTrId("id-send-command")
             }
 
             TextArea {
@@ -34,7 +35,8 @@ Page {
 
                 Button {
                     enabled: textArea.text.length > 0
-                    text: qsTr("Send");
+                    //% "Send"
+                    text: qsTrId("id-send");
 
                     onClicked: {
                         DeviceManager.sendCmd(hostname, textArea.text)
@@ -42,7 +44,8 @@ Page {
                 }
                 Button {
                     enabled: textArea.text.length > 0
-                    text: qsTr("Clear");
+                    //% "Clear"
+                    text: qsTrId("id-clear");
 
                     onClicked: textArea.text = ""
                 }

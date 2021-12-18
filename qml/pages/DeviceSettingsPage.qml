@@ -19,15 +19,18 @@ Page {
 
         PullDownMenu {
             MenuItem {
-                text: qsTr("Expert Settings")
+                //% "Expert Settings"
+                text: qsTrId("id-expert-settings")
                 onClicked: pageStack.push(Qt.resolvedUrl("DeviceExpertSettingsPage.qml"), {device: device})
             }
             MenuItem {
-                text: qsTr("Restart Device")
+                //% "Restart Device"
+                text: qsTrId("id-restart-device")
                 onClicked: DeviceManager.restart(device.hostname)
             }
             MenuItem {
-                text: qsTr("Save")
+                //% "Save"
+                text: qsTrId("id-save")
                 onClicked: {
                     DeviceManager.setDeviceAlias(device.hostname, aliasField.text)
                 }
@@ -42,7 +45,8 @@ Page {
             spacing: Theme.paddingMedium
 
             PageHeader {
-                title: qsTr("Device Settings")
+                //% "Device Settings"
+                title: qsTrId("id-device-settings")
             }
 
             TextField {
@@ -51,13 +55,16 @@ Page {
                 x: Theme.horizontalPageMargin
                 width: parent.width - 2*x
 
-                label: qsTr("Device Alias")
-                placeholderText: qsTr("Enter device alias");
+                //% "Device Alias"
+                label: qsTrId("id-device-alias")
+                //% "Enter device alias"
+                placeholderText: qsTrId("id-enter-device-alias");
                 text: device.name
             }
 
             SectionHeader {
-                text: qsTr("Hardware")
+                //% "Hardware"
+                text: qsTrId("Hardware")
                 font.pixelSize: Theme.fontSizeMedium
             }
 
@@ -69,7 +76,8 @@ Page {
 
                 checked: device.ledOn
 
-                text: qsTr("Turn LED on/off")
+                //% "Turn LED on/off"
+                text: qsTrId("id-toggle-led")
 
                 onClicked: {
                     DeviceManager.toggleLED(device.hostname)
@@ -77,7 +85,8 @@ Page {
             }
 
             SectionHeader {
-                text: qsTr("Cloud")
+                //% "Cloud"
+                text: qsTrId("id-cloud")
                 font.pixelSize: Theme.fontSizeMedium
             }
 
@@ -89,14 +98,21 @@ Page {
 
                 checked: device.cloudRegistration
 
-                text: checked ? qsTr("Device registered in cloud") : qsTr("Device is not registered in cloud")
-                description: qsTr("You can register or unregister the device from TP-Link cloud. For registration you need to provide username and password.")
+                text: checked ?
+                          //% "Device registered in cloud"
+                          qsTrId("id-device-cloud-registered") :
+                          //% "Device is not registered in cloud"
+                          qsTrId("id-device-cloud-not-registered")
+
+                //% "You can register or unregister the device from TP-Link cloud. For registration you need to provide username and password."
+                description: qsTrId("id-register-info-text")
 
                 onClicked: {
                     if (!checked) {
                         cloudBindSwitch.checked = true
                         remorseCloudBind.execute(cloudBindSwitch,
-                                                        qsTr("Leaving cloud"),
+                                                        //% "Leaving cloud"
+                                                        qsTrId("id-leaving-cloud"),
                                                         function () {
                                                             DeviceManager.unregisterDeviceFromCloud(device.hostname);
                                                             cloudBindSwitch.checked = false
@@ -122,8 +138,10 @@ Page {
                 readOnly: true
                 visible: cloudBindSwitch.checked
 
-                label: qsTr("Username")
-                placeholderText: qsTr("Enter username")
+                //% "Username"
+                label: qsTrId("id-username")
+                //% "Enter username"
+                placeholderText: qsTrId("id-enter-username")
 
                 text: device.cloudUsername
             }

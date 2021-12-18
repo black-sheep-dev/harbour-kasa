@@ -13,8 +13,10 @@ Dialog {
         width: parent.width
 
         DialogHeader {
-            acceptText: qsTr("Login")
-            title: qsTr("Cloud Login")
+            //% "Login"
+            acceptText: qsTrId("id-login")
+            //% "Cloud Login"
+            title: qsTrId("id-cloud-login")
         }
 
         TextField {
@@ -25,8 +27,10 @@ Dialog {
 
             focus: true
 
-            label: qsTr("Username")
-            placeholderText: qsTr("Enter username")
+            //% "Username"
+            label: qsTrId("id-username")
+            //% "Enter username"
+            placeholderText: qsTrId("id-enter-username")
 
             inputMethodHints: Qt.ImhEmailCharactersOnly
             validator: RegExpValidator {
@@ -43,8 +47,10 @@ Dialog {
             x: Theme.horizontalPageMargin
             width: parent.width - 2*x
 
-            label: qsTr("Password")
-            placeholderText: qsTr("Enter password")
+            //% "Password"
+            label: qsTrId("id-password")
+            //% "Enter password"
+            placeholderText: qsTrId("id-enter-password")
 
             validator: RegExpValidator {
                 regExp: /(^$)|(\s+$)/
