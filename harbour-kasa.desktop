@@ -7,5 +7,5 @@ Name=Kasa
 [X-Sailjail]
 OrganizationName=org.nubecula
 ApplicationName=Kasa
-Permissions=Internet,Documents
+Permissions=Internet;Documents
 ExecDBus=/usr/bin/harbour-kasa -prestart

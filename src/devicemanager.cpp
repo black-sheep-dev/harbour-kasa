@@ -23,7 +23,7 @@ DeviceManager::DeviceManager(QObject *parent) :
     connect(m_api, &ApiInterface::debugChanged, this, &DeviceManager::debugChanged);
 
     // create config path
-    QDir().mkpath(QStandardPaths::writableLocation(QStandardPaths::ConfigLocation) + "/" + APP_TARGET);
+    QDir().mkpath(QStandardPaths::writableLocation(QStandardPaths::ConfigLocation) + "/org.nubecula/Kasa");
 
     readSettings();
     readDevices();
@@ -599,7 +599,13 @@ QJsonObject DeviceManager::deviceToJson(Device *device) const
 
 void DeviceManager::readDevices()
 {
-    QFile file(QStandardPaths::writableLocation(QStandardPaths::ConfigLocation) + QStringLiteral("/harbour-kasa/devices.json"));
+    QString path = QStandardPaths::writableLocation(QStandardPaths::ConfigLocation) + QStringLiteral("/org.nubecula/Kasa/devices.json");
+
+    if (!QFile(path).exists()) {
+        path = QStandardPaths::writableLocation(QStandardPaths::ConfigLocation) + QStringLiteral("/harbour-kasa/devices.json");
+    }
+
+    QFile file(path);
 
     if (!file.open(QIODevice::ReadOnly))
         return;
@@ -627,7 +633,13 @@ void DeviceManager::readDevices()
 
 void DeviceManager::readSettings()
 {
-    QSettings settings;
+    QString path = QStandardPaths::writableLocation(QStandardPaths::ConfigLocation) + "/org.nubecula/Kasa/kasa.conf";
+
+    if (!QFile(path).exists()) {
+           path = QStandardPaths::writableLocation(QStandardPaths::ConfigLocation) + "/harbour-kasa/harbour-kasa.conf";
+    }
+
+    QSettings settings(path, QSettings::NativeFormat);
 
     settings.beginGroup(QStringLiteral("APP"));
     m_api->setDebug(settings.value(QStringLiteral("debug"), false).toBool());
@@ -636,7 +648,7 @@ void DeviceManager::readSettings()
 
 void DeviceManager::writeDevices()
 {
-    QFile file(QStandardPaths::writableLocation(QStandardPaths::ConfigLocation) + QStringLiteral("/harbour-kasa/devices.json"));
+    QFile file(QStandardPaths::writableLocation(QStandardPaths::ConfigLocation) + QStringLiteral("/org.nubecula/Kasa/devices.json"));
 
     if (!file.open(QIODevice::WriteOnly))
         return;
@@ -654,7 +666,7 @@ void DeviceManager::writeDevices()
 
 void DeviceManager::writeSettings()
 {
-    QSettings settings;
+    QSettings settings(QStandardPaths::writableLocation(QStandardPaths::ConfigLocation) + "/org.nubecula/Kasa/kasa.conf", QSettings::NativeFormat);
 
     settings.beginGroup(QStringLiteral("APP"));
     settings.setValue(QStringLiteral("debug"), m_api->debug());
