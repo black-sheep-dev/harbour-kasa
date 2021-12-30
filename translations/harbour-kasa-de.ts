@@ -341,7 +341,7 @@
     </message>
     <message id="id-devices">
         <source>Devices</source>
-        <translation type="unfinished">Geräte</translation>
+        <translation>Geräte</translation>
     </message>
 </context>
 </TS>
