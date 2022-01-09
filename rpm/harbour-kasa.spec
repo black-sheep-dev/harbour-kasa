@@ -12,7 +12,7 @@ Summary:    Kasa
 Version:    0.2.0
 Release:    1
 Group:      Qt/Qt
-License:    LICENSE
+License:    GPLv3
 URL:        https://github.com/black-sheep-dev/harbour-kasa/
 Source0:    %{name}-%{version}.tar.bz2
 Source100:  harbour-kasa.yaml
@@ -21,10 +21,27 @@ BuildRequires:  pkgconfig(sailfishapp) >= 1.0.2
 BuildRequires:  pkgconfig(Qt5Core)
 BuildRequires:  pkgconfig(Qt5Qml)
 BuildRequires:  pkgconfig(Qt5Quick)
+BuildRequires:  qt5-qttools-linguist
 BuildRequires:  desktop-file-utils
 
 %description
 Kasa is a native Sailfish OS application to control TP-Link Kasa smarthome devices.
+
+%if "%{?vendor}" == "chum"
+PackageName: Kasa
+Type: desktop-application
+Categories:
+  - Tools
+Custom:
+  Repo: https://github.com/black-sheep-dev/harbour-kasa/
+Icon: https://github.com/black-sheep-dev/harbour-kasa/raw/master/icons/harbour-kasa.svg
+Screenshots:
+  - https://github.com/black-sheep-dev/harbour-kasa/raw/master/metadata/screenshot1.png
+  - https://github.com/black-sheep-dev/harbour-kasa/raw/master/metadata/screenshot2.png
+  - https://github.com/black-sheep-dev/harbour-kasa/raw/master/metadata/screenshot3.png
+Url:
+  Donation: https://www.paypal.com/paypalme/nubecula/1
+%endif
 
 
 %prep
