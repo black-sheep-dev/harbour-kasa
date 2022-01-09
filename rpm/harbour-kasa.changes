@@ -1,3 +1,8 @@
+* Sun Jan 09 2022 Black Sheep <blacksheep@nubecula.org> 0.2.1-1
+- Fixed Sailjail settings
+- Add Russian language by potap14108
+- Bugfixes and Improvements
+
 * Sat Dec 18 2021 Black Sheep <blacksheep@nubecula.org> 0.2.0-1
 - SailJail support
 - Switched to id based translation
