@@ -4,9 +4,10 @@ TRANSLATIONS += \
     translations/harbour-kasa-de.ts \
     translations/harbour-kasa-es.ts \
     translations/harbour-kasa-fr.ts \
+    translations/harbour-kasa-hu.ts \
     translations/harbour-kasa-pl.ts \
+    translations/harbour-kasa-ru.ts \
     translations/harbour-kasa-sv.ts
-
 
 qm.input    = TRANSLATIONS
 qm.output   = translations/${QMAKE_FILE_BASE}.qm

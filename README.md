@@ -50,7 +50,9 @@ After sending the commands, send me the files in "Documents/harbour-kasa".
 ## Translations
 
 - English
-- German  
+- German
+- Polish by [Atlochowski](https://github.com/atlochowski)
+- Russian by [potap14108](https://github.com/potap14108)
   
 Your language is not available? You are welcome to support this project by translating it on my self hosted Weblate server:
 
