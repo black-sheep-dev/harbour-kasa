@@ -261,7 +261,7 @@
     </message>
     <message id="id-no-devices-hint">
         <source>Pull down to add a new device</source>
-        <translation>Потяните вниз для добавления нового усьройства</translation>
+        <translation>Потяните вниз для добавления нового устройства</translation>
     </message>
     <message id="id-restart-device">
         <source>Restart Device</source>
