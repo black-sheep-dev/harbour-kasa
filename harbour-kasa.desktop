@@ -1,11 +1,11 @@
 [Desktop Entry]
 Type=Application
+X-Nemo-Application-Type=silica-qt5
 Icon=harbour-kasa
-Exec=sailjail -p harbour-kasa.desktop /usr/bin/harbour-kasa
+Exec=harbour-kasa
 Name=Kasa
 
 [X-Sailjail]
 OrganizationName=org.nubecula
-ApplicationName=Kasa
+ApplicationName=kasa
 Permissions=Internet;Documents
-ExecDBus=/usr/bin/harbour-kasa -prestart
