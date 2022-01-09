@@ -107,6 +107,15 @@ Page {
                 onClicked: Qt.openUrlExternally("https://weblate.nubecula.org/engage/harbour-kasa")
             }
 
+            Image {
+                anchors.horizontalCenter: parent.horizontalCenter
+                width: parent.width
+                height: sourceSize.height * width / sourceSize.width
+                smooth: true
+                fillMode: Image.PreserveAspectFit
+                source: "http://weblate.nubecula.org/widgets/harbour-kasa/-/harbour-kasa/multi-auto.svg"
+            }
+
             SectionHeader{
                 //% "Sources"
                 text: qsTrId("id-sources")

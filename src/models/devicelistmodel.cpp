@@ -200,6 +200,7 @@ bool DeviceListModel::setData(const QModelIndex &index, const QVariant &value, i
 
     case BrightnessRole:
         device->setBrightness(quint8(value.toInt()));
+        break;
 
     default:
         return false;

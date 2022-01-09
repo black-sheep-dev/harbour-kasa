@@ -10,7 +10,7 @@ int main(int argc, char *argv[])
     QScopedPointer<QQuickView> v(SailfishApp::createView());
 
     app->setApplicationVersion(APP_VERSION);
-    app->setApplicationName("Kasa");
+    app->setApplicationName("kasa");
     app->setOrganizationDomain("org.nubecula");
     app->setOrganizationName("org.nubecula");
 
@@ -33,7 +33,7 @@ int main(int argc, char *argv[])
         Q_UNUSED(engine)
         Q_UNUSED(scriptEngine)
 
-        auto manager = new DeviceManager;
+        auto manager = new DeviceManager(qApp);
 
         return manager;
     });
