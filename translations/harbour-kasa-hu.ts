@@ -25,7 +25,7 @@
     </message>
     <message id="id-hostname">
         <source>Hostname</source>
-        <translation type="unfinished"></translation>
+        <translation>Gazdanév</translation>
     </message>
     <message id="id-login">
         <source>Login</source>
@@ -37,19 +37,19 @@
     </message>
     <message id="id-username">
         <source>Username</source>
-        <translation type="unfinished"></translation>
+        <translation>Felhasználónév</translation>
     </message>
     <message id="id-enter-username">
         <source>Enter username</source>
-        <translation type="unfinished"></translation>
+        <translation>Írd be a felhasználónevet</translation>
     </message>
     <message id="id-password">
         <source>Password</source>
-        <translation type="unfinished"></translation>
+        <translation>Jelszó</translation>
     </message>
     <message id="id-enter-password">
         <source>Enter password</source>
-        <translation type="unfinished"></translation>
+        <translation>Írd be a jelszót</translation>
     </message>
     <message id="id-about">
         <source>About</source>
@@ -161,7 +161,7 @@
     </message>
     <message id="id-refresh">
         <source>Refresh</source>
-        <translation type="unfinished"></translation>
+        <translation>Frissítés</translation>
     </message>
     <message id="id-device-info">
         <source>Device Info</source>
@@ -177,7 +177,7 @@
     </message>
     <message id="id-general">
         <source>General</source>
-        <translation type="unfinished"></translation>
+        <translation>Általános</translation>
     </message>
     <message id="id-name">
         <source>Name</source>
@@ -249,7 +249,7 @@
     </message>
     <message id="id-delete">
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Törlés</translation>
     </message>
     <message id="id-send-commands">
         <source>Send commands</source>
