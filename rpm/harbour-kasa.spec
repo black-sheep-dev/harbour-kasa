@@ -27,21 +27,22 @@ BuildRequires:  desktop-file-utils
 %description
 Kasa is a native Sailfish OS application to control TP-Link Kasa smarthome devices.
 
-%if "%{?vendor}" == "chum"
-PackageName: Kasa
-Type: desktop-application
-Categories:
-  - Tools
-Custom:
-  Repo: https://github.com/black-sheep-dev/harbour-kasa/
-Icon: https://github.com/black-sheep-dev/harbour-kasa/raw/master/icons/harbour-kasa.svg
-Screenshots:
-  - https://github.com/black-sheep-dev/harbour-kasa/raw/master/metadata/screenshot1.png
-  - https://github.com/black-sheep-dev/harbour-kasa/raw/master/metadata/screenshot2.png
-  - https://github.com/black-sheep-dev/harbour-kasa/raw/master/metadata/screenshot3.png
-Url:
-  Donation: https://www.paypal.com/paypalme/nubecula/1
-%endif
+    %if "%{?vendor}" == "chum"
+    PackageName: Kasa
+    Type: desktop-application
+    Categories:
+      - Tools
+    Custom:
+
+      Repo: https://github.com/black-sheep-dev/harbour-kasa/
+    Icon: https://github.com/black-sheep-dev/harbour-kasa/raw/master/icons/harbour-kasa.svg
+    Screenshots:
+      - https://github.com/black-sheep-dev/harbour-kasa/raw/master/metadata/screenshot1.png
+      - https://github.com/black-sheep-dev/harbour-kasa/raw/master/metadata/screenshot2.png
+      - https://github.com/black-sheep-dev/harbour-kasa/raw/master/metadata/screenshot3.png
+    Url:
+      Donation: https://www.paypal.com/paypalme/nubecula/1
+    %endif
 
 
 %prep

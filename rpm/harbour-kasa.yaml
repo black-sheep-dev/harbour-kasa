@@ -20,6 +20,7 @@ Description: |
   Categories:
     - Tools
   Custom:
+    DescriptionMD: https://github.com/black-sheep-dev/harbour-kasa/raw/main/README.md
     Repo: https://github.com/black-sheep-dev/harbour-kasa/
   Icon: https://github.com/black-sheep-dev/harbour-kasa/raw/master/icons/harbour-kasa.svg
   Screenshots:
