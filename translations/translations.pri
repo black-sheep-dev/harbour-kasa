@@ -1,6 +1,5 @@
 TRANSLATIONS += \
     translations/harbour-kasa.ts \
-    translations/harbour-kasa-da.ts \
     translations/harbour-kasa-de.ts \
     translations/harbour-kasa-es.ts \
     translations/harbour-kasa-fr.ts \
