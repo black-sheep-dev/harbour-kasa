@@ -5,23 +5,23 @@
     <name></name>
     <message id="id-no-device-available">
         <source>No devices available</source>
-        <translation type="unfinished"></translation>
+        <translation>Inga enheter tillgänliga</translation>
     </message>
     <message id="id-offline">
         <source>Offline</source>
-        <translation type="unfinished"></translation>
+        <translation>Offline</translation>
     </message>
     <message id="id-add">
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Lägg till</translation>
     </message>
     <message id="id-add-new-device">
         <source>Add new device</source>
-        <translation type="unfinished"></translation>
+        <translation>Lägg till en ny enhet</translation>
     </message>
     <message id="id-enter-hostname">
         <source>Enter hostname</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Ange ett hostname</translation>
     </message>
     <message id="id-hostname">
         <source>Hostname</source>
@@ -29,7 +29,7 @@
     </message>
     <message id="id-login">
         <source>Login</source>
-        <translation type="unfinished"></translation>
+        <translation>Logga in</translation>
     </message>
     <message id="id-cloud-login">
         <source>Cloud Login</source>
@@ -37,7 +37,7 @@
     </message>
     <message id="id-username">
         <source>Username</source>
-        <translation type="unfinished"></translation>
+        <translation>Användarnamn</translation>
     </message>
     <message id="id-enter-username">
         <source>Enter username</source>
@@ -45,7 +45,7 @@
     </message>
     <message id="id-password">
         <source>Password</source>
-        <translation type="unfinished"></translation>
+        <translation>Lösenord</translation>
     </message>
     <message id="id-enter-password">
         <source>Enter password</source>
@@ -57,11 +57,11 @@
     </message>
     <message id="id-about-text">
         <source>Kasa is an app to control TP-Links Kasa smarthome devices.</source>
-        <translation type="unfinished"></translation>
+        <translation>Kasa är en app för att kontrollera TP-Links Kasa enheter.</translation>
     </message>
     <message id="id-translations">
         <source>Translations</source>
-        <translation type="unfinished"></translation>
+        <translation>Översättning</translation>
     </message>
     <message id="id-transltations-info">
         <source>Your language is not available? You are welcome to support this project by translating it on my self hosted Weblate server.</source>
@@ -81,15 +81,15 @@
     </message>
     <message id="id-donate-paypal">
         <source>Donate with PayPal</source>
-        <translation type="unfinished"></translation>
+        <translation>Donera med PayPal</translation>
     </message>
     <message id="id-donate-liberpay">
         <source>Donate with Liberpay</source>
-        <translation type="unfinished"></translation>
+        <translation>Donera med Liberpay</translation>
     </message>
     <message id="id-factory-reset">
         <source>Factory Reset</source>
-        <translation type="unfinished"></translation>
+        <translation>Fabriksåterställning</translation>
     </message>
     <message id="id-starting-factory-reset">
         <source>Starting factory reset</source>
@@ -105,7 +105,7 @@
     </message>
     <message id="id-save">
         <source>Save</source>
-        <translation type="unfinished"></translation>
+        <translation>Spara</translation>
     </message>
     <message id="id-expert-settings">
         <source>Expert Settings</source>
@@ -121,19 +121,19 @@
     </message>
     <message id="id-hardware">
         <source>Hardware</source>
-        <translation type="unfinished"></translation>
+        <translation>Hårdvara</translation>
     </message>
     <message id="id-mac-address">
         <source>MAC address</source>
-        <translation type="unfinished"></translation>
+        <translation>MAC adress</translation>
     </message>
     <message id="id-enter-mac-address">
         <source>Enter MAC address</source>
-        <translation type="unfinished"></translation>
+        <translation>Ange MAC adress</translation>
     </message>
     <message id="id-cloud">
         <source>Cloud</source>
-        <translation type="unfinished"></translation>
+        <translation>Moln</translation>
     </message>
     <message id="id-cloud-server-url">
         <source>Cloud Server URL</source>
@@ -165,7 +165,7 @@
     </message>
     <message id="id-device-info">
         <source>Device Info</source>
-        <translation type="unfinished"></translation>
+        <translation>Enhets information</translation>
     </message>
     <message id="id-turn-on-off">
         <source>Turn on/off</source>
@@ -181,31 +181,31 @@
     </message>
     <message id="id-name">
         <source>Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Namn</translation>
     </message>
     <message id="id-description">
         <source>Description</source>
-        <translation type="unfinished"></translation>
+        <translation>Beskrivning</translation>
     </message>
     <message id="id-model">
         <source>Model</source>
-        <translation type="unfinished"></translation>
+        <translation>Modell</translation>
     </message>
     <message id="id-device-id">
         <source>Device ID</source>
-        <translation type="unfinished"></translation>
+        <translation>Enhets ID</translation>
     </message>
     <message id="id-hw-version">
         <source>HW Version</source>
-        <translation type="unfinished"></translation>
+        <translation>HW version</translation>
     </message>
     <message id="id-firmware">
         <source>Firmware</source>
-        <translation type="unfinished"></translation>
+        <translation>Firmware</translation>
     </message>
     <message id="id-network">
         <source>Network</source>
-        <translation type="unfinished"></translation>
+        <translation>Nätverk</translation>
     </message>
     <message id="id-mac">
         <source>MAC</source>
@@ -265,7 +265,7 @@
     </message>
     <message id="id-restart-device">
         <source>Restart Device</source>
-        <translation type="unfinished"></translation>
+        <translation>Starta om enhet</translation>
     </message>
     <message id="id-device-settings">
         <source>Device Settings</source>
